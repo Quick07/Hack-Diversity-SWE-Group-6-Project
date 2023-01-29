@@ -1,6 +1,6 @@
-import './App.css';
+import "./App.css";
 
-import { useApi } from './hooks/use-api';
+import { useApi } from "./hooks/use-api";
 
 function App() {
   const { response } = useApi();
@@ -10,6 +10,7 @@ function App() {
       <header className="App-header">
         <p>
           {response}
+          Test
         </p>
       </header>
     </div>
