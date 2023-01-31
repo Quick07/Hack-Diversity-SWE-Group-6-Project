@@ -1,0 +1,17 @@
+.navbar {
+  overflow: hidden;
+  background-color: rgb(43, 42, 42);
+  margin: 0;
+  position:fixed;
+  width:100%;
+  height:auto;
+  top:0;
+  left: 0;
+}
+li{
+  overflow: hidden; 
+}
+a{
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}

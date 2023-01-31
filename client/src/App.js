@@ -1,5 +1,6 @@
 import './App.css';
-
+import React from 'react';
+import Navbar from './components/NavBar';
 import { useApi } from './hooks/use-api';
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          {response}
+          <Navbar />
         </p>
       </header>
     </div>
