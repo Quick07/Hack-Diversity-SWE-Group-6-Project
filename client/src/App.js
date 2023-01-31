@@ -11,6 +11,7 @@ function App() {
       <header className="App-header">
         <p>
           <Navbar />
+          
         </p>
       </header>
     </div>
