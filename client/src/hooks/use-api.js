@@ -12,6 +12,6 @@ export function useApi({ path } = { path: '' }) {
   }, []);
 
   return {
-    response
+    response,
   };
 }

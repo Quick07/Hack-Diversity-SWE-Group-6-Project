@@ -2,7 +2,7 @@ body {
   margin: 0;
 }
 
-ul.sidenav {
+div.sidenav {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -14,19 +14,20 @@ ul.sidenav {
   font-size: 30px;
 }
 
-ul.sidenav li a {
+a {
   display: block;
+  text-align: center;
+  padding: 2rem !important;
   color: rgb(226, 223, 223);
-  padding: 8px 16px;
   text-decoration: none;
 }
 
-ul.sidenav li a.active {
+ a.active {
   background-color: #e0e0e0;
   color: rgb(0, 0, 0);
 }
 
-ul.sidenav li a:hover:not(.active) {
+ a:hover:not(.active) {
   background-color: #555;
   color: rgb(226, 223, 223);
 }

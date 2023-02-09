@@ -1,23 +1,52 @@
-import "./App.css";
-import Title from "./components/Title";
-import Main from "./components/Main";
-import Navbar from "./components/Navbar";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import MainHero from './components/MainHero/MainHero';
+import AdminPageHero from './components/MainHero/AdminPageHero';
+import AboutPageHero from './components/MainHero/AboutPageHero';
+import Main from './components/Main/Main';
+import Navbar from './components/Navbar/Navbar';
+import AboutPage from './components/AboutPage/AboutPage';
+import AdminPage from './components/AdminPage/AdminPage';
+import './App.css';
 
-import { useApi } from "./hooks/use-api";
+import { useApi } from './hooks/use-api';
 
 function App() {
   const { response } = useApi();
-
   return (
-    <div className="App">
-      <Navbar />
-      <Title />
-      <Main />
-
-      <header className="App-header">
-        <p>{response}</p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path='/'
+          element={
+            <div>
+              <Navbar />
+              <MainHero />
+              <Main />
+            </div>
+          }
+        />
+        <Route
+          path='AdminPage'
+          element={
+            <div>
+              <Navbar />
+              <AdminPageHero />
+              <AdminPage />
+            </div>
+          }
+        />
+        <Route
+          path='AboutPage'
+          element={
+            <div>
+              <Navbar />
+              <AboutPageHero />
+              <AboutPage />
+            </div>
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
