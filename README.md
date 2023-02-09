@@ -1,4 +1,4 @@
-# :checkered_flag:Team 6:100:
+# :checkered_flag:Team 6:checkered_flag:
 
 # How It's Made :nut_and_bolt: :hammer::wrench::
  This application built with React.js, Express, Node, Webpack, Morgan, CORS & Cookie-Parser.
