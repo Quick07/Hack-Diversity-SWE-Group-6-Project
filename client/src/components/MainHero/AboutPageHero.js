@@ -11,10 +11,9 @@ export default function AboutPageHero() {
       animationOutDuration={1000}
       isVisible={true}
     >
-    <div className='MainHeroContainer'>
-      <h1 className='header'>Welcome to the About Page</h1>
-    </div>
+      <div className='MainHeroContainer'>
+        <h1 className='header'>Welcome to the About Page</h1>
+      </div>
     </Animated>
-    
   );
 }

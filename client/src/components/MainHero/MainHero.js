@@ -4,8 +4,12 @@ import './MainHero.css';
 
 export default function MainHero() {
   return (
-    <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
-    <div className='MainHeroContainer'>
+    <Animated
+      animationIn='bounceInLeft'
+      animationOut='fadeOut'
+      isVisible={true}
+    >
+      <div className='MainHeroContainer'>
         <h1 className='header'>Welcome to Advance X-Ray</h1>
       </div>
     </Animated>
