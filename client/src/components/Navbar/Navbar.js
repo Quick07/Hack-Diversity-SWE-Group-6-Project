@@ -7,7 +7,7 @@ class Navbar extends Component {
     return (
       <div>
         <div class='sidenav'>
-          <Link to='/'>Home</Link>
+          <Link to='/'>Exams</Link>
           <Link to='/AdminPage'>Admin</Link>
           <Link to='/AboutPage'>About</Link>
         </div>

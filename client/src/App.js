@@ -6,6 +6,9 @@ import Main from './components/Main/Main';
 import Navbar from './components/Navbar/Navbar';
 import AboutPage from './components/AboutPage/AboutPage';
 import AdminPage from './components/AdminPage/AdminPage';
+import Exams from './components/Exams/Examstable';
+import Title from './components/Title/Title';
+
 import './App.css';
 
 import { useApi } from './hooks/use-api';
@@ -20,8 +23,10 @@ function App() {
           element={
             <div>
               <Navbar />
-              <MainHero />
-              <Main />
+              <MainHero /> 
+              
+              <Title />
+              <Exams />
             </div>
           }
         />
@@ -32,6 +37,7 @@ function App() {
               <Navbar />
               <AdminPageHero />
               <AdminPage />
+              
             </div>
           }
         />
