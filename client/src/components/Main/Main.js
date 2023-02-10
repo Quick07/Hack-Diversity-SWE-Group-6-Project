@@ -25,7 +25,7 @@ class Main extends Component {
           </main>
         </div>
 
-        <Button button="Lorem"/>
+        <Button button='Lorem ipsum' />
       </div>
     );
   }
