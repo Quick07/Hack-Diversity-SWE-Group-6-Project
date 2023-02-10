@@ -4,20 +4,23 @@ body {
 
 div.sidenav {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 10%;
+  margin: 0%;
+  max-height: 100vh;
+  padding-left: 15px;
+  width: 180px;
   background-color: #323232;
-  position: fixed;
+  position: sticky;
   height: 100%;
   overflow: auto;
   font-size: 30px;
+  font-family: 'Helvetica Neue'
 }
 
 a {
+  width: 100;
   display: block;
-  text-align: center;
-  padding: 2rem !important;
+  text-align: left;
+  padding-top: 2rem !important;
   color: rgb(226, 223, 223);
   text-decoration: none;
 }

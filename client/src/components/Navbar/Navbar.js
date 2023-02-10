@@ -5,13 +5,11 @@ import './Navbar.css';
 class Navbar extends Component {
   render() {
     return (
-      <div>
         <div class='sidenav'>
-          <Link to='/'>Home</Link>
-          <Link to='/AdminPage'>Admin</Link>
-          <Link to='/AboutPage'>About</Link>
+          <Link to='/'>Advanced X-Ray</Link>
+          <Link to='/IndexPage'>index</Link> {/* Links to Index Page */}
+          <Link to='/AdminPage'>admin</Link> {/* Links to Admin Page */}
         </div>
-      </div>
     );
   }
 }

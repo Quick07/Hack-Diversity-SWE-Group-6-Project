@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,200&family=Montserrat:wght@300&family=Open+Sans:ital,wght@1,300&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@1,200&family=Montserrat:wght@300&family=Open+Sans:ital,wght@1,300&display=swap');
  
 
   html, body, div, span, applet, object, iframe,
@@ -22,13 +22,34 @@
     vertical-align: baseline;
     overflow-x: hidden;
     font-size: 12px;
-  }
+  } */
+
+  
   /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure,
+  /* article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;
+  } */
+
+  .App {
+    background-color: #FFFFFF;
+    width: 100vw;
+    height: 100vh !important;
+    font-family: 'Helvetica Neue';
+    display: flex;
+    flex-direction:row;
+    font-family: 'Helvetica Neue';
+    align-self: flex-start;
   }
-  body {
+
+  .page {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    max-height: 100vh;
+  }
+
+  /* body {
     line-height: 1;
   }
    a, label, ul, li {
@@ -50,7 +71,6 @@
     border-spacing: 0;
   }
 
-  /* */
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -63,7 +83,7 @@
   }
 
   body {
-    font-family: 'Montserrat',sans-serif;
+    font-family:'Helvetica Neue', 'Montserrat',sans-serif;
 
   }
 
@@ -77,4 +97,4 @@
 
   em, i {
     font-style: italic;
-  }
+  } */
