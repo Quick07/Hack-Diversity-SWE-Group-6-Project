@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Title from '../Title/Title';
+import Button from '../Buttons/Button';
 import './Main.css';
 
 class Main extends Component {
@@ -23,6 +24,8 @@ class Main extends Component {
             <h3>Lorem ipsum dolor sit amet.</h3>
           </main>
         </div>
+
+        <Button button="Lorem"/>
       </div>
     );
   }
