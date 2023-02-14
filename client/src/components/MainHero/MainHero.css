@@ -14,13 +14,6 @@
     background-repeat:no-repeat;
     padding: 10px;
     margin: 0 0 20px 0;
-  
-    @media only screen and (max-width: 800px) {
-      min-height: 50vh;
-    }
-    @media only screen and (max-width: 420px) {
-      min-height: 50vh;
-    }
 }
 
 
@@ -32,4 +25,29 @@
     overflow: hidden;
     background-color: none;
     padding: 22px;
+    margin: 3px 8rem;
+}
+
+@media only screen and (max-width: 895px) {
+  .header{
+    font-size: 6rem;
+    padding: 11px;
+    margin: 1px 10.5px;
+  }
+  .MainHeroContainer{
+    min-height: 50vh;
+    padding: 11px;
+    margin: 1px 15.5px;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .header{
+    font-size: 2.5rem;
+    padding: 19px;
+    margin: 0;
+  }
+
+  .MainHeroContainer{
+    min-height: 50vh;
+  }
 }
