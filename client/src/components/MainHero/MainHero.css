@@ -18,7 +18,7 @@
 
 .header {
     color: white;
-    font-size: 10rem;
+    font-size: 8rem;
     text-align: center;
     overflow: hidden;
     background-color: none;
@@ -28,7 +28,7 @@
 
 @media only screen and (max-width: 895px) {
   .header{
-    font-size: 6rem;
+    font-size: 4.5rem;
     padding: 11px;
     margin: 1px 10.5px;
   }
