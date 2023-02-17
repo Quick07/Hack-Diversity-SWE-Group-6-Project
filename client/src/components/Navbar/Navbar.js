@@ -10,6 +10,7 @@ class Navbar extends Component {
           <Link to='/'>Home</Link>
           <Link to='/AdminPage'>Admin</Link>
           <Link to='/AboutPage'>About</Link>
+          <Link to='/ExamPage'>Exam</Link>
         </div>
       </div>
     );
