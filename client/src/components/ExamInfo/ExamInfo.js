@@ -15,8 +15,8 @@ function ExamDetails() {
      </div>
 
 {/* Tables Containing patient and exam info from example Exams and Patients in Data.js   */} 
-{/*     
-    <div className='Tables'>
+    
+    <div className='Tables'style={{gap: "2.5vw"}}>
         <div className='InfoTable'>
             <div className='text3'> exam info </div>
             <div className='Text'>
@@ -43,13 +43,13 @@ function ExamDetails() {
                     <div className='text2'>bmi</div>
                     {patient1.bmi}
                     <div className='text2'>weight</div>
-                    {patient1.weight}
+                    {patient1.weight} lbs
                     <div className='text2'>zip code</div>
                     {patient1.zip}
                 </div>
             </div>
         </div>
-    </div> */}
+    </div>
 
         </div>
   )

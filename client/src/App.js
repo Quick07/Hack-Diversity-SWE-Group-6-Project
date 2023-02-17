@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainHero from './components/MainHero/MainHero';
-import AdminPageHero from './components/MainHero/AdminPageHero';
-import IndexPageHero from './components/MainHero/IndexPageHero';
-import Main from './components/Main/Main';
+import AdminPageHero from './components/AdminPage/AdminPageHero';
+import IndexPageHero from './components/IndexPage/IndexPageHero';
+// import Main from './components/Main/Main';
 import Navbar from './components/Navbar/Navbar';
 import IndexPage from './components/IndexPage/IndexPage';
 import AdminPage from './components/AdminPage/AdminPage';
@@ -10,13 +10,14 @@ import ExamInfo from './components/ExamInfo/ExamInfo';
 import './App.css';
 
 import { useApi } from './hooks/use-api';
+import ExamEdit from './components/ExamEdit/ExamEdit';
 
 function App() {
   const { response } = useApi();
   return (
     <div className='App'>
     <BrowserRouter>
-    <Navbar />
+      <Navbar />
       <Routes>
         <Route
           path='/'
@@ -32,7 +33,7 @@ function App() {
         <Route
           path='IndexPage'
           element={
-            <div className='page'>
+            <div className= 'page'>
               <IndexPageHero />
               <IndexPage />
             </div>
@@ -52,6 +53,14 @@ function App() {
           element={ 
             <div className='page'>
               <ExamInfo/>
+            </div>
+          }
+        />
+        <Route
+          path='AdminPage/EditExam' 
+          element={ 
+            <div className='page'>
+              <ExamEdit/>
             </div>
           }
         />

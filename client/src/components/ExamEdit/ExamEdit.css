@@ -7,6 +7,8 @@
 
 .text2 {
   padding-top: 10px;
+  padding-bottom: 5px;
+  width: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -14,6 +16,7 @@
   text-transform: lowercase;
   color: #808080;
   margin-block: 0;
+  gap: 0;
 }
 
 .text3 {
@@ -31,6 +34,36 @@
   margin-block: 0;
 }
 
+.input {
+  display: flex;
+  height: 150px;
+  margin: 0;
+  border: 1.5px solid #808080;
+  border-radius: 6px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.inputId {
+  display: flex;
+  height: 150px;
+  margin: 0;
+  border: 1.5px solid #808080;
+  border-radius: 6px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: lightgray;
+}
+
+.urlInput {
+  display: flex;
+  align-self: flex-start;
+  border: 1.5px solid #808080;
+  border-radius: 6px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 .ExamInfo {
   justify-content: center;
   align-content: flex-start;
@@ -38,22 +71,27 @@
   gap: 2.5%;
   flex-flow: row wrap;
   flex: 1;
-  padding-top: 2.5%;
+  padding-top: 0;
+  padding-bottom: 2.5%;
   padding-left: 5%;
   padding-right: 5%;
   max-height: 97.5vh;
+  overflow: scroll;
 }
 
 .Tables {
+  height: fit-content;
   display: flex;
   flex-flow: row wrap;
   width: 40%;
   min-width: 300px;
-  gap: 2.5vw;
+  gap: 0;
+  padding-top: 0.625vh;
+  padding-bottom: 0.625vh;
 }
 
 /* When Screen is narrow, arrange content in one column */
-@media (max-width: 965px) {
+@media (max-width: 950px) {
   .Tables {
     width: 100% !important;
   }
@@ -80,16 +118,16 @@
 }
 
 .Button:hover {
-  background-color: lightgray;
+  background-color: #555;
 }
 .Text {
+  width: 90%;
   padding: 15px;
   padding-top: 0px;
   font-style: normal;
   font-size: 16px;
   line-height: 24px;
 }
-
 .Column {
   width: 50%;
   padding: 15px;
@@ -104,6 +142,7 @@
   margin-right: auto;
   flex-basis: content;
   max-width: 100%;
+  max-height: 65vh;
   border-radius: 15px;
 }
 
@@ -116,8 +155,15 @@
   min-height: 250px;
 }
 
+.buttons {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 2.5vw;
+  padding-bottom: 10px;
+  padding-top: 0;
+}
+
 .Button {
-  float: right;
   text-align: center;
   width: 25vw;
   max-width: 150px;

@@ -1,7 +1,7 @@
 h1 {
     max-height: 10vh;
     width: 100%;
-    font-size: 64px;
+    font-size: 48px;
     display: block;
     color: rgba(35, 35, 35, 1);
     margin: 0%;
@@ -13,12 +13,12 @@ h1 {
     color: rgba(35, 35, 35, 1);
     width: 100%;
     align-content: flex-end;
-    font-size: 32px;
+    font-size: 24px;
     text-align: left;
   }
 
   .adminButton {
-    width: 200px;
+    width: 225px;
     display: inline-block;
     background-color: rgb(195, 18, 121) ;
     color: white;
@@ -28,94 +28,10 @@ h1 {
     padding: 1%;
     margin-top: 5vh;
     margin-right: 5vh;
+    font-family: inherit ;
   }
 
   .adminButton:hover {
     cursor: pointer;
     background-color: rgb(122, 0, 71);
   }
-
-  .ExamInfo {
-    justify-content: center;
-    align-content: flex-start;
-    display: flex;
-    gap: 2.5%;
-    flex-flow: row wrap;
-    flex: 1;
-    padding-top: 0;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
-  
-  .Tables {
-    display: flex;
-    flex-flow: column;
-    width: 40%;
-    gap: 2.5vw;
-  }
-  
-  .InfoTable {
-    background-color: white;
-    border: 3px solid #808080;
-    border-radius: 15px;
-    height: 50%;
-    width: 100%;
-    min-width: 250px;
-    min-height: 400px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  .Button{
-    border: none;
-    font-size: 20px;
-  }
-  
-  .Button:hover{
-    background-color: lightgray;
-    border:3px solid #323232;
-    color: #323232;
-  }
-  .Text{
-    padding: 15px;
-    padding-top: 0px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  .Column{
-    width: 50%;
-    padding: 15px;
-    padding-top: 0px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  
-  .ExamImage {
-    align-self: flex-start;
-    width: 100%;
-    min-width: 250px;
-    border-radius: 15px;
-  }
-  
-  .PatientTable {
-    background-color: white;
-    border: 3px solid #808080;
-    border-radius: 15px;
-    height: 40%;
-    width: 100%;
-    min-width: 250px;
-    min-height: 250px;
-  }
-  
-  .Button {
-    float: right;
-    text-align: center;
-    width: 25vw;
-    max-width: 150px;
-    height: 50px;
-    background-color: #323232;
-    border-radius: 115px;
-    color: white;
-  } 
