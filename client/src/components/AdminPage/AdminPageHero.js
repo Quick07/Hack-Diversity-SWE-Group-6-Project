@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainHero.css';
+import './AdminPageHero.css';
 
 export default function AdminPageHero() {
   return (

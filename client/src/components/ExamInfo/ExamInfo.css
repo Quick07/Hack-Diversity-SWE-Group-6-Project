@@ -1,0 +1,128 @@
+.text1 {
+  max-height: 2.5%;
+  width: 100%;
+  font-family: 'Helvetica Neue';
+  display: inline;
+}
+
+.text2 {
+  padding-top: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+  text-transform: lowercase;
+  color: #808080;
+  margin-block: 0;
+}
+
+.text3 {
+  padding: 15px;
+  color: #808080;
+  background-color: lightgray;
+  border-radius: 12px;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  font-weight: 400;
+  font-size: 24px;
+  display: block;
+  border: 0 solid #808080;
+  border-bottom-width: 3px;
+  margin-block: 0;
+}
+
+.ExamInfo {
+  justify-content: center;
+  align-content: flex-start;
+  display: flex;
+  gap: 2.5%;
+  flex-flow: row wrap;
+  flex: 1;
+  padding-top: 2.5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  max-height: 97.5vh;
+}
+
+.Tables {
+  display: flex;
+  flex-flow: row wrap;
+  width: 40%;
+  min-width: 300px;
+  gap: 2.5vw;
+}
+
+/* When Screen is narrow, arrange content in one column */
+@media (max-width: 965px) {
+  .Tables {
+    width: 100% !important;
+  }
+  .InfoTable {
+    min-height: 300px;
+  }
+}
+
+.InfoTable {
+  background-color: white;
+  border: 3px solid #808080;
+  border-radius: 15px;
+  height: 50%;
+  width: 100%;
+  min-width: 250px;
+  min-height: 400px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+.Button {
+  border: none;
+  font-size: 20px;
+}
+
+.Button:hover {
+  background-color: lightgray;
+}
+.Text {
+  padding: 15px;
+  padding-top: 0px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.Column {
+  width: 50%;
+  padding: 15px;
+  padding-top: 0px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.ExamImage {
+  margin-left: auto;
+  margin-right: auto;
+  flex-basis: content;
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.PatientTable {
+  background-color: white;
+  border: 3px solid #808080;
+  border-radius: 15px;
+  height: 40%;
+  width: 100%;
+  min-height: 250px;
+}
+
+.Button {
+  float: right;
+  text-align: center;
+  width: 25vw;
+  max-width: 150px;
+  height: 50px;
+  background-color: #323232;
+  border-radius: 115px;
+  color: white;
+}

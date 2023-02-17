@@ -1,35 +1,44 @@
-.MainHeroContainer{
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
-    font-size: 20px;
-    background-image: linear-gradient(0deg, rgba(0, 17, 114, 0.316), rgba(255, 0, 150, 0.5)), url('./img/hero.jpg');
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background-repeat:no-repeat;
-    padding: 10px;
-    margin: 0 0 20px 0;
-  
-    @media only screen and (max-width: 800px) {
-      min-height: 50vh;
-    }
-    @media only screen and (max-width: 420px) {
-      min-height: 50vh;
-    }
+.MainHeroContainer {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  width: calc(100vw - 180px);
+  padding: 15px;
+  font-size: 64px;
+  font-weight:500;
+  text-shadow: 0px 4px 5px rgba(0, 0, 0, 0.25);
+  color: white;
+  background-image: 
+  linear-gradient(
+      0deg,
+      rgba(0, 17, 114, .3),
+      rgba(255, 0, 150, 0.5)
+    ),
+    url('../assets/xray-hand.jpeg');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
 }
 
-
-
 .header {
-    color: white;
-    font-size: 10rem;
-    text-align: center;
-    overflow: hidden;
-    background-color: none;
-    padding: 22px;
+  color: white;
+  font-size: 10rem;
+  text-align: center;
+  overflow: hidden;
+  background-color: none;
+  padding: 22px;
+  width: 100%;
+}
+
+h1 {
+  padding-top: 5%;
+  max-height: 14.5vh;
+  width: 100%;
+  justify-content: center;
+  font-size: 64px;
+  height: 50%;
+  color: rgba(35, 35, 35, 1);
 }
