@@ -5,13 +5,13 @@ import './Navbar.css';
 class Navbar extends Component {
   render() {
     return (
-      <div className='navWrapper'>
+      <div>
         <div class='sidenav'>
-          <Link  to='/' style={{"padding-top": "25px"}}>Advanced X-Ray</Link>
-          <Link to='/IndexPage'>Index</Link> {/* Links to Index Page */}
-          <Link to='/AdminPage'>Admin</Link> {/* Links to Admin Page */}
+          <Link to='/'>Home</Link>
+          <Link to='/AdminPage'>Admin</Link>
+          <Link to='/AboutPage'>About</Link>
         </div>
-        </div>
+      </div>
     );
   }
 }
