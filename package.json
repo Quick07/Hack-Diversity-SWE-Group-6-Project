@@ -9,13 +9,14 @@
     "jade": "^1.11.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20",
+    "prettier": "^2.8.4",
     "react-router-dom": "^6.8.1",
     "react-scripts": "5.0.1",
     "web-vitals": "^3.1.1"
   },
   "scripts": {
     "backend": "cd api && node ./bin/www",
-    "prettier": "prettier --write src/**/*.{ts,tsx,js}",
+    "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}",
     "frontend": "cd client/ && react-scripts start --prefix src",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   }
