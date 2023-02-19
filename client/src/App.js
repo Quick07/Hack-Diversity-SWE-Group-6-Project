@@ -17,23 +17,23 @@ function App() {
   return (
     <div className='App'>
     <BrowserRouter>
-      <Navbar />
+
       <Routes>
         <Route
           path='/'
           element={
-            <div className='page'>
             <div>
+              {/* <Navbar /> */}
               <MainHero />
               {/* <Main /> */}
-            </div>
             </div>
           }
         />
         <Route
           path='IndexPage'
           element={
-            <div className= 'page'>
+            <div>
+              <Navbar />
               <IndexPageHero />
               <IndexPage />
             </div>
@@ -42,7 +42,8 @@ function App() {
         <Route
           path='AdminPage'
           element={ 
-            <div className='page'>
+            <div>      
+              <Navbar />
               <AdminPageHero />
               <AdminPage />
             </div>
@@ -51,7 +52,8 @@ function App() {
         <Route
           path='IndexPage/Exam' 
           element={ 
-            <div className='page'>
+            <div>      
+              <Navbar />
               <ExamInfo/>
             </div>
           }
@@ -59,7 +61,8 @@ function App() {
         <Route
           path='AdminPage/EditExam' 
           element={ 
-            <div className='page'>
+            <div >
+                    <Navbar />
               <ExamEdit/>
             </div>
           }

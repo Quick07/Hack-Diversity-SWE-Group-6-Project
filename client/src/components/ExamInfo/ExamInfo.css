@@ -31,57 +31,6 @@
   margin-block: 0;
 }
 
-.ExamInfo {
-  justify-content: center;
-  align-content: flex-start;
-  display: flex;
-  gap: 2.5%;
-  flex-flow: row wrap;
-  flex: 1;
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  max-height: 97.5vh;
-}
-
-.Tables {
-  display: flex;
-  flex-flow: row wrap;
-  width: 40%;
-  min-width: 300px;
-  gap: 2.5vw;
-}
-
-/* When Screen is narrow, arrange content in one column */
-@media (max-width: 965px) {
-  .Tables {
-    width: 100% !important;
-  }
-  .InfoTable {
-    min-height: 300px;
-  }
-}
-
-.InfoTable {
-  background-color: white;
-  border: 3px solid #808080;
-  border-radius: 15px;
-  height: 50%;
-  width: 100%;
-  min-width: 250px;
-  min-height: 400px;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 24px;
-}
-.Button {
-  border: none;
-  font-size: 20px;
-}
-
-.Button:hover {
-  background-color: lightgray;
-}
 .Text {
   padding: 15px;
   padding-top: 0px;
@@ -90,21 +39,75 @@
   line-height: 24px;
 }
 
-.Column {
-  width: 50%;
-  padding: 15px;
-  padding-top: 0px;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 24px;
+.ExamInfoPage {
+  align-content: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  padding: 0 3rem 0 19rem;
+  max-height: 97.5vh;
+}
+
+.ExamInfoPage h1 {
+  padding: .5rem 0 .5rem 0;
+  font-size: 48px!important;
+  display:block;
+  color: rgba(35, 35, 35, 1);
+  margin: 0%;
+}
+
+/* When Screen is narrow, arrange content in one column */
+@media (max-width: 500px) {
+  .Tables {
+    width: 100% !important;
+  }
+  .InfoTable {
+    min-height: 300px;
+  }
+}
+
+div.Info {
+  padding: 1.5rem 0 0 0;
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  flex-flow: row wrap;
+  overflow: visible;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.ExamInfoPage .header {
+  display: block;
+  float: left;
 }
 
 .ExamImage {
-  margin-left: auto;
-  margin-right: auto;
-  flex-basis: content;
-  max-width: 100%;
+  max-height: 70vh;
   border-radius: 15px;
+}
+
+.Tables{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: end;
+  flex-flow:column;
+  gap: 1.5rem;
+}
+
+.InfoTable {
+  background-color: white;
+  border: 3px solid #808080;
+  border-radius: 15px;
+  flex-basis: 100%;
+  /* max-width: 100%; */
+  width: 100%;
+  min-width: 250px;
+  min-height: 400px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .PatientTable {
@@ -112,17 +115,18 @@
   border: 3px solid #808080;
   border-radius: 15px;
   height: 40%;
-  width: 100%;
+  flex-basis: 100%;
+  /* max-width: 100%; */
+  min-width: 250px;
   min-height: 250px;
 }
 
-.Button {
-  float: right;
-  text-align: center;
-  width: 25vw;
-  max-width: 150px;
-  height: 50px;
-  background-color: #323232;
-  border-radius: 115px;
-  color: white;
+ .Column {
+  width: 45%;
+  padding: 15px;
+  padding-top: 0px;
+  font-style: normal;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 24px;
 }

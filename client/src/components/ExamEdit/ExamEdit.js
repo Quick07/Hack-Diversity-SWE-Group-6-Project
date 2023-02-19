@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { exam1, patient1 } from '../../data';
-import { useApi } from '../../hooks/use-api';
 import './ExamEdit.css';
 
 //This page displays all the details of an exam
@@ -12,45 +11,40 @@ function ExamEdit() {
   const [keyFindings, onChangeKeyFindings] = React.useState(exam1.keyFindings);
 
   return (
-    <div className='ExamInfo'>
-      <header className='header' style={{ padding: '0%' }}>
-        <h1 style={{ 'padding-top': '2.5%' }}> edit exam</h1>
+    <div className='ExamEditPage'>
+      <div>
+        <h1> edit exam</h1>
         Edit details about an exam here.
-      </header>
-      <div className='Tables' style={{ width: '55%' }}>
+      </div>
+      <div className='Info'>
+      <div>
         <img className='ExamImage' src={xrayUrl} alt='' />
         <div className='text2'>xray url</div>
         <input
           className='urlInput'
           value={xrayUrl}
-          style={{ width: '100%' }}
           onChange={e => onChangeXrayUrl(e.target.value)}
         />
       </div>
-      <div className='Tables' style={{ gap: '2.5vw' }}>
+      <div className='Tables' >
         <div className='InfoTable'>
           <div className='text3'> exam info </div>
           <div className='Text'>
             <div className='text2'>exam id</div>
             <input
               className='inputId'
-              style={{ height: 'auto' }}
               onChangeText={onChangeId}
               value={examId}
               readOnly={true}
             />
             <div className='text2'>brixia score</div>
             <input
-              className='input'
-              style={{ height: 'auto' }}
               value={brixScore}
               onChange={e => onChangeBrixScore(e.target.value)}
             />
             <div className='text2'>key findings</div>
             <textarea
-              className='input'
               value={keyFindings}
-              style={{ width: '100%' }}
               onChange={e => onChangeKeyFindings(e.target.value)}
             />
           </div>
@@ -92,6 +86,7 @@ function ExamEdit() {
         <button className='Button'>
           <Link to='/IndexPage/Exam'>cancel</Link>
         </button>
+      </div>
       </div>
     </div>
   );

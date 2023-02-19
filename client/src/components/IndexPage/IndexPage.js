@@ -4,19 +4,14 @@ import { Link } from 'react-router-dom';
 
 // This page allows access to view all exam and patient information
 export default function IndexPage() {
-  return (
-    <div className='header'>
+  return <div className='IndexPage'>
+      <div>
       <h1>index</h1>
-      view all exam records.
-      <div style={{ display: 'block' }}>
-        <button className='indexButton'>
-          {' '}
-          <Link to='/IndexPage/Exam'>view exams</Link>
-        </button>{' '}
-        {/* FIXME: Button height is wonky. should link to table with all exams*/}
-        <button className='indexButton'> view patients</button>{' '}
-        {/*Links to table with all patients*/}
+      <h2>view all exam records.</h2>
       </div>
-    </div>
-  );
+      <div>
+      <button className='indexButton'><Link to='/IndexPage/Exam'>view exams</Link></button> {/*Links to create exam form*/}
+      <button className='indexButton'>view patients</button>{/*Links to table with all exams*/}
+      </div>
+    </div>;
 }
