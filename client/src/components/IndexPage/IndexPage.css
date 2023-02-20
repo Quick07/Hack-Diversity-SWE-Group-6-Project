@@ -39,5 +39,9 @@
 }
 
 .IndexPage {
-  padding: 0 0 0 20rem;
+  padding: 0 05rem 0 20rem;
+}
+.table{
+  padding-top: 5rem;
+  padding-bottom: 2rem;
 }
