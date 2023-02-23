@@ -8,7 +8,7 @@ export default function MainHero() {
       <div>
         <h1 className='header'>welcome to advance x-ray</h1>
       </div>
-      <div>
+      <div className='MainHerobuttonContainer'>
         <Link to='/ExamPage'>
           {' '}
           <Button className='button' button='Exams' />
