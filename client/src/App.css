@@ -20,8 +20,8 @@
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    overflow-x: hidden;
-    font-size: 12px;
+    overflow-x: unset;
+    font-size: unset;
   }
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
@@ -33,6 +33,7 @@
   }
    a, label, ul, li {
     overflow: hidden;
+    color:unset;
   }
   ol, ul {
     list-style: none;
@@ -77,4 +78,8 @@
 
   em, i {
     font-style: italic;
+  }
+  
+  button {
+    transition:ease-in-out 0.2s;
   }
