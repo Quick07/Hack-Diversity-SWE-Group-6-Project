@@ -81,4 +81,4 @@ npm run dev
 
 # Demo :video_game:
 
-You should then be able to visit `localhost:9000` in your browser and see the server running.
+You should then be able to visit `localhost:3000` in your browser and see the server running.

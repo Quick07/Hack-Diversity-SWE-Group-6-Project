@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainHero.css';
-
+import Button from '../Buttons/Button';
 export default function MainHero() {
   return (
     <div className='MainHeroContainer'>
@@ -9,12 +9,14 @@ export default function MainHero() {
         <h1 className='header'>welcome to advance x-ray</h1>
       </div>
       <div>
-        <button>
-          <Link to='/ExamPage'>Exams</Link>
-        </button>
-        <button>
-          <Link to='/AdminPage'>Admin</Link>
-        </button>
+        <Link to='/ExamPage'>
+          {' '}
+          <Button className='button' button='Exams' />
+        </Link>
+
+        <Link to='/AdminPage'>
+          <Button className='button' button='Admin' />
+        </Link>
       </div>
     </div>
   );

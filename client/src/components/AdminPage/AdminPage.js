@@ -1,5 +1,6 @@
 import React from 'react';
 import './AdminPage.css';
+import Button from '../Buttons/Button';
 
 export default function AdminPage() {
   return (
@@ -9,8 +10,8 @@ export default function AdminPage() {
         <h2>create and edit exam records.</h2>
       </div>
       <div>
-        <button className='adminButton'>create an exam</button>{' '}
-        <button className='adminButton'> edit an exam</button>
+        <Button className='adminButton' button='Create An Exam' />
+        <Button className='adminButton' button='Edit An Exam' />
       </div>
     </div>
   );

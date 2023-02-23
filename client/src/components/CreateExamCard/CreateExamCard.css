@@ -1,0 +1,30 @@
+.Title {
+  display: inline-block;
+}
+
+h1 {
+  color: #323232;
+}
+
+.Button-1 {
+  border-radius: 45px;
+  font-size: 20px;
+  color: rgb(226, 226, 226);
+  background-color: #323232;
+  margin-bottom: 20px;
+}
+
+.Searchbar {
+  clear: both;
+  border-radius: 45px;
+  font-size: 20px;
+  background-color: #dad6d6;
+  padding-right: 120px;
+  margin-bottom: 50px;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #323232;
+  opacity: 1; /* Firefox */
+}

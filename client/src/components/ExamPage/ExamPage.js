@@ -2,6 +2,7 @@ import React from 'react';
 import './ExamPage.css';
 import { Link } from 'react-router-dom';
 import Indextable from '../Exams/Examstable';
+import Button from '../Buttons/Button';
 
 // This page allows access to view all exam and patient information
 export default function IndexPage() {
@@ -12,11 +13,12 @@ export default function IndexPage() {
         <h2>view all exam records.</h2>
       </div>
       <div>
-        <button className='MainExamPageButton'>
-          <Link to='/ExamPage/Exam'>view exams</Link>
-        </button>
-
-        <button className='MainExamPageButton'>view patients</button>
+        <Link to='/ExamPage/Exam'>
+          <Button className='MainExamPageButton' button='View Exam' />
+        </Link>
+        <Link to='/ExamPage/Exam'>
+          <Button className='MainExamPageButton' button='View Patients' />
+        </Link>
       </div>
 
       <div className='table'>

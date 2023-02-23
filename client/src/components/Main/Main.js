@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import Title from '../Title/Title';
+import CreateExamCard from '../CreateExamCard/CreateExamCard';
+import Button from '../Buttons/Button';
 import './Main.css';
 
 class Main extends Component {
   render() {
     return (
       <div className='Main-Container'>
-        <Title />
+        <CreateExamCard />
         <div className='Main-border'>
           <header className='Header-title'>
             <h3>Date</h3>
@@ -23,6 +24,8 @@ class Main extends Component {
             <h3>Lorem ipsum dolor sit amet.</h3>
           </main>
         </div>
+
+        <Button button='Lorem ipsum' />
       </div>
     );
   }

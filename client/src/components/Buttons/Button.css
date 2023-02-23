@@ -1,0 +1,26 @@
+.button{
+  font-family: 'Montserrat',sans-serif; 
+  flex: 1 1 auto;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  width: 225px;
+  height: 45px;
+}
+
+
+.button:hover, .button:active, .button:focus{
+  background-color:white;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.button {
+  background-image: linear-gradient(to right, rgb(0, 17, 114) 0%, rgb(255, 0, 150) 51%, rgb(0, 17, 114) 100%);
+}
