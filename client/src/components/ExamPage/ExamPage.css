@@ -1,0 +1,47 @@
+.MainExamPage h1 {
+  max-height: 10vh;
+  width: 100%;
+  font-size: 48px!important;
+  display: block;
+  color: rgba(35, 35, 35, 1);
+  margin: 0%;
+}
+
+.MainExamPage h2 {
+  font-size: 24px!important;
+  padding: 1.75rem 0 0 0;
+  }
+
+.MainExamPageButton {
+  width: 225px;
+  height: 45px;
+  display: inline-block;
+  padding: 0 !important;
+  background-color: rgb(61, 68, 220);
+  color: white;
+  border: 3px solid;
+  border-radius: 115px;
+  font-size: 24px;
+  margin-top: 5vh;
+  margin-right: 5vh;
+  font-family: inherit;
+}
+
+.MainExamPagePage a {
+  padding: 0;
+  font-size: 24px ;
+}
+
+
+.MainExamPageButton:hover {
+  cursor: pointer;
+  background-color: rgb(46, 51, 160);
+}
+
+.IndexPage {
+  padding: 0 05rem 0 20rem;
+}
+.table{
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}
