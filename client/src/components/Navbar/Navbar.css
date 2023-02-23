@@ -6,48 +6,26 @@ div.sidenav {
   list-style-type: none;
   margin: 0;
   padding: 0;
-<<<<<<< HEAD
-=======
-  width: 10%;
->>>>>>> f248685fe9a4aa6668e75a8c28ee8e5800fe771c
   background-color: #323232;
   position: fixed;
   height: 100%;
   overflow: auto;
-<<<<<<< HEAD
   font-size: 24px;
   color: rgb(226, 223, 223);
-=======
-  font-size: 30px;
->>>>>>> f248685fe9a4aa6668e75a8c28ee8e5800fe771c
 }
 
 a {
   display: block;
   text-align: center;
-<<<<<<< HEAD
   text-decoration: none;
 }
 
 .sidenav a {
   padding: 1rem 2rem 1rem 2rem ;
-=======
-  padding: 2rem !important;
-  color: rgb(226, 223, 223);
-  text-decoration: none;
->>>>>>> f248685fe9a4aa6668e75a8c28ee8e5800fe771c
 }
 
  a.active {
   background-color: #e0e0e0;
-<<<<<<< HEAD
-=======
-  color: rgb(0, 0, 0);
-}
-
- a:hover:not(.active) {
-  background-color: #555;
->>>>>>> f248685fe9a4aa6668e75a8c28ee8e5800fe771c
   color: rgb(226, 223, 223);
 }
 

@@ -10,7 +10,7 @@ export default function MainHero() {
       </div>
       <div>
         <button>
-          <Link to='/MainExamPage'>Exams</Link>
+          <Link to='/ExamPage'>Exams</Link>
         </button>
         <button>
           <Link to='/AdminPage'>Admin</Link>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './MainExamPage.css';
+import './ExamPage.css';
 import { Link } from 'react-router-dom';
 import Indextable from '../Exams/Examstable';
 
@@ -13,12 +13,12 @@ export default function IndexPage() {
       </div>
       <div>
         <button className='MainExamPageButton'>
-          <Link to='/MainExamPage/Exam'>view exams</Link>
-        </button>{' '}
-        {/*Links to create exam form*/}
+          <Link to='/ExamPage/Exam'>view exams</Link>
+        </button>
+
         <button className='MainExamPageButton'>view patients</button>
-        {/*Links to table with all exams*/}
       </div>
+
       <div className='table'>
         <Indextable />
       </div>
