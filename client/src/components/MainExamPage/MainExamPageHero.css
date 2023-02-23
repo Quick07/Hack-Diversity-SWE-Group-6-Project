@@ -1,5 +1,5 @@
 /* styling for the hero of the index page */
-.IndexHeroContainer {
+.MainExamPageHeroContainer {
     display: flex;
     flex-basis: 100%;
     height: 50vh;

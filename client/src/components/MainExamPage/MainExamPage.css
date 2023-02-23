@@ -1,4 +1,4 @@
-.IndexPage h1 {
+.MainExamPage h1 {
   max-height: 10vh;
   width: 100%;
   font-size: 48px!important;
@@ -7,12 +7,12 @@
   margin: 0%;
 }
 
-.IndexPage h2 {
+.MainExamPage h2 {
   font-size: 24px!important;
   padding: 1.75rem 0 0 0;
   }
 
-.indexButton {
+.MainExamPageButton {
   width: 225px;
   height: 45px;
   display: inline-block;
@@ -27,13 +27,13 @@
   font-family: inherit;
 }
 
-.IndexPage a {
+.MainExamPagePage a {
   padding: 0;
   font-size: 24px ;
 }
 
 
-.indexButton:hover {
+.MainExamPageButton:hover {
   cursor: pointer;
   background-color: rgb(46, 51, 160);
 }
