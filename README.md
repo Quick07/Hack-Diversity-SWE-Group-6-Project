@@ -1,4 +1,4 @@
-# :checkered_flag:Team 6:100:
+# :checkered_flag:Team 6:checkered_flag:
 
 # How It's Made :nut_and_bolt: :hammer::wrench::
  This application built with React.js, Express, Node, Webpack, Morgan, CORS & Cookie-Parser.
@@ -40,6 +40,15 @@ Your final application does not need to follow the same design, but should be si
 
  :bangbang: you'll need to run both, but you can run just one or the other to start. As you begin working on this project, you'll first focus on the client, so you can more or less ignore the API portion of the code for now.
 
+# Clean Up Code :video_game:
+
+In main directory run:
+
+```bash
+npm i 
+npm run prettier
+```
+
 ## Client :triangular_flag_on_post:	
 :white_check_mark:	In order to run the client, you'll run the following commands:
 
@@ -59,6 +68,16 @@ cd api/
 npm i
 npm start
 ```
+
+## Run Both :triangular_flag_on_post:	
+ :white_check_mark:	 In order to run the server, you'll run the following commands:
+
+```bash
+cd /
+npm i
+npm run dev
+```
+
 
 # Demo :video_game:
 
