@@ -5,9 +5,7 @@ import Button from '../Buttons/Button';
 export default function MainHero() {
   return (
     <div className='MainHeroContainer'>
-      <div>
-        <h1 className='header'>welcome to advance x-ray</h1>
-      </div>
+      <h1 className='header'>welcome to advance x-ray</h1>
       <div className='MainHerobuttonContainer'>
         <Link to='/ExamPage'>
           {' '}
