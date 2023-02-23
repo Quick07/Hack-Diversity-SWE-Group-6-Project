@@ -46,7 +46,7 @@ function App() {
             }
           />
           <Route
-            path='IndexPage/Exam'
+            path='ExamPage/Exam'
             element={
               <div>
                 <Navbar />

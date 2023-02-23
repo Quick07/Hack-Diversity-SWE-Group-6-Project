@@ -16,7 +16,7 @@ export default function IndexPage() {
           <Link to='/ExamPage/Exam'>view exams</Link>
         </button>
 
-        <button className='MainExamPageButton'>view patients</button>
+        <button className='MainExamPageButton'><Link to='/ExamPage/Exam'>view patients</Link></button>
       </div>
 
       <div className='table'>
