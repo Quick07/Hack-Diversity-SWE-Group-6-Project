@@ -1,8 +1,8 @@
 import React from 'react';
 import './AdminPage.css';
 
-// This page allows access to create and edit exams
 export default function AdminPage() {
+<<<<<<< HEAD
   return (
     <div className='AdminPage'>
       <div>
@@ -17,4 +17,7 @@ export default function AdminPage() {
       </div>
     </div>
   );
+=======
+  return <div>AdminPage</div>;
+>>>>>>> f248685fe9a4aa6668e75a8c28ee8e5800fe771c
 }

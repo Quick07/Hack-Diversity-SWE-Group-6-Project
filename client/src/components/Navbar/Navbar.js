@@ -5,9 +5,9 @@ import './Navbar.css';
 class Navbar extends Component {
   render() {
     return (
-      <div className='navWrapper'>
+      <div>
         <div class='sidenav'>
-          <Link to='/' style={{ 'padding-top': '25px' }}>
+          <Link to='/'>
             Advanced X-Ray
           </Link>
           <Link to='/MainExamPage'>Exams</Link>

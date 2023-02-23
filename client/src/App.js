@@ -5,11 +5,9 @@ import MainExamPageHero from './components/MainExamPage/MainExamPageHero';
 import Navbar from './components/Navbar/Navbar';
 import MainExamPage from './components/MainExamPage/MainExamPage';
 import AdminPage from './components/AdminPage/AdminPage';
-import ExamInfo from './components/ExamInfo/ExamInfo';
 import './App.css';
 
 import { useApi } from './hooks/use-api';
-import ExamEdit from './components/ExamEdit/ExamEdit';
 
 function App() {
   const { response } = useApi();
