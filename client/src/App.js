@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import MainHero from './components/Hero/MainHero';
+import AdminPage from './components/AdminPage/AdminPage';
+import AboutPage from './components/AboutPage/AboutPage';
 import AdminPageHero from './components/Hero/AdminPageHero';
 import ExamPageHero from './components/Hero/ExamPageHero';
-import Navbar from './components/Navbar/Navbar';
 import ExamPage from './components/ExamPage/ExamPage';
 import ExamEdit from './components/ExamEdit/ExamEdit';
 import ExamInfo from './components/ExamInfo/ExamInfo';
-import AdminPage from './components/AdminPage/AdminPage';
+import MainHero from './components/Hero/MainHero';
+import Navbar from './components/Navbar/Navbar';
+
 import './App.css';
 
 import { useApi } from './hooks/use-api';
@@ -60,6 +62,15 @@ function App() {
               <div>
                 <Navbar />
                 <ExamEdit />
+              </div>
+            }
+          />
+          <Route
+            path='AboutPage'
+            element={
+              <div>
+                <Navbar />
+                <AboutPage />
               </div>
             }
           />

@@ -1,22 +1,17 @@
 .button{
   font-family: 'Montserrat',sans-serif; 
   flex: 1 1 auto;
-  margin: 10px;
-  padding: 20px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
   color: white;
-  box-shadow: 0 0 20px rgb(0, 17, 114);
   border-radius: 10px;
 }
 
 
 .button:hover, .button:active, .button:focus{
   background-color:white;
-    background-color: rgb(255, 0, 150);
-    border-color:  rgb(0, 17, 114);
   text-decoration: none;
 }
 
