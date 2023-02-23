@@ -1,31 +1,26 @@
-h1 {
+.AdminPage h1 {
     max-height: 10vh;
     width: 100%;
-    font-size: 48px;
+    font-size: 48px!important;
     display: block;
     color: rgba(35, 35, 35, 1);
     margin: 0%;
   }
 
-  .header {
-    padding: 5%;
-    display: block;
-    color: rgba(35, 35, 35, 1);
-    width: 100%;
-    align-content: flex-end;
-    font-size: 24px;
-    text-align: left;
+.AdminPage h2 {
+  font-size: 24px!important;
+  padding: 1.75rem 0 0 0;
   }
 
   .adminButton {
     width: 225px;
+    height: 45px;
     display: inline-block;
     background-color: rgb(195, 18, 121) ;
     color: white;
     border: 3px solid;
     border-radius: 115px;
     font-size: 24px;
-    padding: 1%;
     margin-top: 5vh;
     margin-right: 5vh;
     font-family: inherit ;
@@ -34,4 +29,8 @@ h1 {
   .adminButton:hover {
     cursor: pointer;
     background-color: rgb(122, 0, 71);
+  }
+
+  .AdminPage {
+    padding: 0 0 0 20rem;
   }

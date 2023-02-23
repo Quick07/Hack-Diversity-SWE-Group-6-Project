@@ -7,8 +7,6 @@
 
 .text2 {
   padding-top: 10px;
-  padding-bottom: 5px;
-  width: 100%;
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
@@ -16,7 +14,6 @@
   text-transform: lowercase;
   color: #808080;
   margin-block: 0;
-  gap: 0;
 }
 
 .text3 {
@@ -34,64 +31,33 @@
   margin-block: 0;
 }
 
-.input {
-  display: flex;
-  height: 150px;
-  margin: 0;
-  border: 1.5px solid #808080;
-  border-radius: 6px;
-  font-size: medium;
-  font-family: 'Courier New', Courier, monospace;
+.Text {
+  padding: 15px;
+  padding-top: 0px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
 }
 
-.inputId {
-  display: flex;
-  height: 150px;
-  margin: 0;
-  border: 1.5px solid #808080;
-  border-radius: 6px;
-  font-size: medium;
-  font-family: 'Courier New', Courier, monospace;
-  background-color: lightgray;
-}
-
-.urlInput {
-  display: flex;
-  align-self: flex-start;
-  border: 1.5px solid #808080;
-  border-radius: 6px;
-  font-size: medium;
-  font-family: 'Courier New', Courier, monospace;
-}
-
-.ExamInfo {
-  justify-content: center;
+.ExamEditPage {
   align-content: flex-start;
   display: flex;
-  gap: 2.5%;
   flex-flow: row wrap;
   flex: 1;
-  padding-top: 0;
-  padding-bottom: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
+  padding: 0 3rem 0 19rem;
   max-height: 97.5vh;
-  overflow: scroll;
 }
 
-.Tables {
-  height: fit-content;
-  display: flex;
-  flex-flow: row wrap;
-  width: 40%;
-  min-width: 300px;
-  gap: 0;
-  padding-top: 0.625vh;
-  padding-bottom: 0.625vh;
+.ExamEditPage h1 {
+  padding: .5rem 0 .5rem 0;
+  font-size: 48px!important;
+  display:block;
+  color: rgba(35, 35, 35, 1);
+  margin: 0%;
 }
 
 /* When Screen is narrow, arrange content in one column */
-@media (max-width: 950px) {
+@media (max-width: 500px) {
   .Tables {
     width: 100% !important;
   }
@@ -100,11 +66,31 @@
   }
 }
 
+div.Info {
+  padding: 1.5rem 0 0 0;
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  flex-flow: row wrap;
+  overflow: visible;
+  justify-content: flex-start;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.Tables{
+  display: flex;
+  flex-shrink: 1;
+  flex-direction: end;
+  flex-flow:column;
+  gap: 1.5rem;
+}
+
 .InfoTable {
   background-color: white;
   border: 3px solid #808080;
   border-radius: 15px;
-  height: 50%;
+  flex-basis: 100%;
   width: 100%;
   min-width: 250px;
   min-height: 400px;
@@ -112,6 +98,56 @@
   font-size: 16px;
   line-height: 24px;
 }
+
+.PatientTable {
+  background-color: white;
+  border: 3px solid #808080;
+  border-radius: 15px;
+  height: 40%;
+  flex-basis: 100%;
+  min-width: 250px;
+  min-height: 250px;
+}
+
+ .Column {
+  width: 45%;
+  padding: 15px;
+  padding-top: 0px;
+  font-style: normal;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 24px;
+}
+
+ .ExamEditPage input{
+  display: flex;
+  margin: 4px 0 4px 0;
+  border: 1.5px solid #808080;
+  border-radius: 6px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.ExamEditPage textarea{
+  display: flex;
+  height: 150px;
+  width: 100%;
+  margin: 4px 0 4px 0;
+  border: 1.5px solid #808080;
+  border-radius: 6px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.inputId {
+  background-color: lightgray;
+}
+
+.urlInput {
+  width: 100%;
+}
+
+
 .Button {
   border: none;
   font-size: 20px;
@@ -120,47 +156,13 @@
 .Button:hover {
   background-color: #555;
 }
-.Text {
-  width: 90%;
-  padding: 15px;
-  padding-top: 0px;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 24px;
-}
-.Column {
-  width: 50%;
-  padding: 15px;
-  padding-top: 0px;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-.ExamImage {
-  margin-left: auto;
-  margin-right: auto;
-  flex-basis: content;
-  max-width: 100%;
-  max-height: 65vh;
-  border-radius: 15px;
-}
-
-.PatientTable {
-  background-color: white;
-  border: 3px solid #808080;
-  border-radius: 15px;
-  height: 40%;
-  width: 100%;
-  min-height: 250px;
-}
 
 .buttons {
+  width: 100%;
   display: flex;
-  flex-flow: row wrap;
-  gap: 2.5vw;
-  padding-bottom: 10px;
-  padding-top: 0;
+  gap: 1.5rem;
+  padding: 1rem 0 1rem 0;
+  justify-content: center;
 }
 
 .Button {

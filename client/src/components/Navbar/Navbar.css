@@ -2,56 +2,34 @@ body {
   margin: 0;
 }
 
-.navWrapper {
-  position: sticky;
-  padding: 0;
-  max-height: 100vh;
-  width: 180px;
-}
-
 div.sidenav {
   list-style-type: none;
-  margin: 0%;
-  width: 100%;
+  margin: 0;
+  padding: 0;
   background-color: #323232;
-  height: 100vh;
-  overflow-anchor: auto;
-  font-size: 16px;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  font-size: 24px;
+  color: rgb(226, 223, 223);
 }
 
-/* @media (max-width: 950px) {
-  div.sidenav {
-    width: 0;
-    overflow-x: hidden;
-  }
-} */
-
 a {
-  width: calc (100% - 25px);
   display: block;
-  color: #FFF;
+  text-align: center;
   text-decoration: none;
-  transition: 0.25s ease-out;
-  font-family: 'Montserrat';
 }
 
 .sidenav a {
-  padding: 12.5px;
-  padding-left: 25px;
+  padding: 1rem 2rem 1rem 2rem ;
 }
 
  a.active {
   background-color: #e0e0e0;
-  color: rgb(0, 0, 0);
-}
-
- .sidenav a:hover:not(.active) {
-  background-color: #555;
   color: rgb(226, 223, 223);
 }
 
-div.content {
-  margin-left: 25%;
-  padding: 1px 16px;
-  height: 1000px;
+.sidenav a:hover:not(.active) {
+  background-color: #444;
+  color: rgb(226, 223, 223);
 }
