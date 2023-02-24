@@ -69,14 +69,14 @@ npm i
 npm run dev
 ```
 
-# Clean Up Code Before Pushing :video_game:
-
+# :broom::soap:Clean Up Code Before Pushing:soap::broom:
 In main directory run:
 
 ```bash
 npm run prettier &&  rm -rvf */node_modules && rm -rvf package-lock.json && rm -rvf node_modules && git add . && git commit -m "Whatever changes you made" && git push
 ```
-# Clean Up Code Before Pushing :video_game:
+
+# :heavy_plus_sign::heavy_plus_sign:Merging code:heavy_plus_sign::heavy_plus_sign:
 
 you can do so by:
 
