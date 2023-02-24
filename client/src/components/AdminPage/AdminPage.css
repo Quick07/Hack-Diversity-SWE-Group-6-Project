@@ -1,12 +1,12 @@
 .AdminPage h1 {
   font-size: 3rem;
   padding: 0 2rem;
-  }
+}
 
 .AdminPage h2 {
- padding: 0 2rem;
-  }
-  /* .adminbuttons { 
+  padding: 0 2rem;
+}
+/* .adminbuttons { 
    display:flex;
    flex-direction: row;
    flex-wrap: nowrap;
@@ -14,30 +14,30 @@
    align-items: flex-start;
   }
   */
-  .adminButton {
-    display: flex;
-    flex: 1 1 auto;
-    text-align: center;
-    text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
-    border-radius: 10px;
-    width: 225px;
-    height: 45px;
-    background-color: rgb(195, 18, 121) ;
-    border: 3px solid;
-    font-size: 2rem;
-    margin-top: 5vh;
-    margin-right: 5vh;
-  }
+.adminButton {
+  display: flex;
+  flex: 1 1 auto;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  width: 225px;
+  height: 45px;
+  background-color: rgb(195, 18, 121);
+  border: 3px solid;
+  font-size: 2rem;
+  margin-top: 5vh;
+  margin-right: 5vh;
+}
 
-  .adminButton:hover {
-    cursor: pointer;
-    background-color: rgb(122, 0, 71);
-  }
+.adminButton:hover {
+  cursor: pointer;
+  background-color: rgb(122, 0, 71);
+}
 
-  .AdminPage {
-    min-height: 50vh;
-    margin: 0px 2rem 0 22rem;
-  }
+.AdminPage {
+  min-height: 50vh;
+  margin: 0px 2rem 0 22rem;
+}

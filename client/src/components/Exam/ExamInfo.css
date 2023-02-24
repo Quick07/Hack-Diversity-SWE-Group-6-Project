@@ -1,7 +1,7 @@
 .text1 {
   max-height: 2.5%;
   width: 100%;
-  font-family: 'Helvetica Neue';
+  font-family: "Helvetica Neue";
   display: inline;
 }
 
@@ -49,9 +49,9 @@
 }
 
 .ExamInfoPage h1 {
-  padding: .5rem 0 .5rem 0;
-  font-size: 48px!important;
-  display:block;
+  padding: 0.5rem 0 0.5rem 0;
+  font-size: 48px !important;
+  display: block;
   color: rgba(35, 35, 35, 1);
   margin: 0%;
 }
@@ -88,11 +88,11 @@ div.Info {
   border-radius: 15px;
 }
 
-.Tables{
+.Tables {
   display: flex;
   flex-grow: 1;
   flex-direction: end;
-  flex-flow:column;
+  flex-flow: column;
   gap: 1.5rem;
 }
 
@@ -121,7 +121,7 @@ div.Info {
   min-height: 250px;
 }
 
- .Column {
+.Column {
   width: 45%;
   padding: 15px;
   padding-top: 0px;

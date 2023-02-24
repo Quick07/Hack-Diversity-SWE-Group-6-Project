@@ -23,8 +23,3 @@ h1 {
   margin-bottom: 50px;
 }
 
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #323232;
-  opacity: 1; /* Firefox */
-}

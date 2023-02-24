@@ -1,7 +1,7 @@
 .text1 {
   max-height: 2.5%;
   width: 100%;
-  font-family: 'Helvetica Neue';
+  font-family: "Helvetica Neue";
   display: inline;
 }
 
@@ -49,9 +49,9 @@
 }
 
 .ExamEditPage h1 {
-  padding: .5rem 0 .5rem 0;
-  font-size: 48px!important;
-  display:block;
+  padding: 0.5rem 0 0.5rem 0;
+  font-size: 48px !important;
+  display: block;
   color: rgba(35, 35, 35, 1);
   margin: 0%;
 }
@@ -78,11 +78,11 @@ div.Info {
   align-items: flex-start;
 }
 
-.Tables{
+.Tables {
   display: flex;
   flex-shrink: 1;
   flex-direction: end;
-  flex-flow:column;
+  flex-flow: column;
   gap: 1.5rem;
 }
 
@@ -109,7 +109,7 @@ div.Info {
   min-height: 250px;
 }
 
- .Column {
+.Column {
   width: 45%;
   padding: 15px;
   padding-top: 0px;
@@ -119,16 +119,16 @@ div.Info {
   line-height: 24px;
 }
 
- .ExamEditPage input{
+.ExamEditPage input {
   display: flex;
   margin: 4px 0 4px 0;
   border: 1.5px solid #808080;
   border-radius: 6px;
   font-size: medium;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
-.ExamEditPage textarea{
+.ExamEditPage textarea {
   display: flex;
   height: 150px;
   width: 100%;
@@ -136,7 +136,7 @@ div.Info {
   border: 1.5px solid #808080;
   border-radius: 6px;
   font-size: medium;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .inputId {
@@ -146,7 +146,6 @@ div.Info {
 .urlInput {
   width: 100%;
 }
-
 
 .Button {
   border: none;

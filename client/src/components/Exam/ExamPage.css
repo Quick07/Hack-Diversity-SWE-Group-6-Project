@@ -7,9 +7,9 @@
 }
 
 .MainExamPage h2 {
-  font-size: 24px!important;
+  font-size: 24px !important;
   padding: 1.75rem 0 0 0;
-  }
+}
 
 .MainExamPageButton {
   flex: 1 1 auto;
@@ -23,13 +23,13 @@
 
 .MainExamPagePage a {
   padding: 0;
-  font-size: 24px ;
+  font-size: 24px;
 }
 
 .IndexPage {
   padding: 0 05rem 0 20rem;
 }
-.table{
+.table {
   padding-top: 5rem;
   padding-bottom: 2rem;
 }
