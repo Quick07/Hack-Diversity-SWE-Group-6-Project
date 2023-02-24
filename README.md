@@ -40,15 +40,13 @@ Your final application does not need to follow the same design, but should be si
 
  :bangbang: you'll need to run both, but you can run just one or the other to start. As you begin working on this project, you'll first focus on the client, so you can more or less ignore the API portion of the code for now.
 
-# Clean Up Code :video_game:
+# Clean Up Code Before Pushing :video_game:
 
 In main directory run:
 
 ```bash
-npm i 
-npm run prettier
+npm run prettier && rm -rvf */node_modules && rm -rvf package-lock.json && rm -rvf node_modules && git add . && git commit -m "Whatever changes you made" && git push
 ```
-
 ## Client :triangular_flag_on_post:	
 :white_check_mark:	In order to run the client, you'll run the following commands:
 
