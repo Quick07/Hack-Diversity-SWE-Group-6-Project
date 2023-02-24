@@ -3,9 +3,9 @@ import AdminPage from './components/AdminPage/AdminPage';
 import AboutPage from './components/AboutPage/AboutPage';
 import AdminPageHero from './components/Hero/AdminPageHero';
 import ExamPageHero from './components/Hero/ExamPageHero';
-import ExamPage from './components/ExamPage/ExamPage';
-import ExamEdit from './components/ExamEdit/ExamEdit';
-import ExamInfo from './components/ExamInfo/ExamInfo';
+import ExamPage from './components/Exam/ExamPage';
+import ExamEdit from './components/Exam/ExamEdit';
+import ExamInfo from './components/Exam/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
 

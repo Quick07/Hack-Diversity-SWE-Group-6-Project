@@ -9,7 +9,7 @@ export default function AdminPage() {
         <h1>admin</h1>
         <h2>create and edit exam records.</h2>
       </div>
-      <div>
+      <div className='adminbuttons'>
         <Button className='adminButton' button='Create An Exam' />
         <Button className='adminButton' button='Edit An Exam' />
       </div>
