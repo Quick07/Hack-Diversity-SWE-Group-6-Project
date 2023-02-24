@@ -23,5 +23,5 @@
 }
 
 .button {
-  background-image: linear-gradient(to right, rgb(0, 17, 114) 0%, rgb(255, 0, 150) 51%, rgb(0, 17, 114) 100%);
+  background-image: linear-gradient(to right, rgb(0, 17, 114) 0%, rgba(255, 0, 150, 0.95) 51%, rgb(0, 17, 114) 100%);
 }
