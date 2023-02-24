@@ -97,8 +97,9 @@ git add . && git commit -m "explain whatever the work you did" && git push
 git fetch --all && git pull --all
 ```
 ## 4.) You would want to merge or rebase to your branch (whatever you are comfortable doing and know better) .
+```bash
 git merge main
-
+```
 ### Important: Remember to resolve the conflicts within the files, there will be current and incoming changes, accept the incoming changes from the merge.
 ### then you would want to commit these changes as well:
 ```bash
