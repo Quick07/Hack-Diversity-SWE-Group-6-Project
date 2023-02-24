@@ -80,20 +80,20 @@ npm run prettier &&  rm -rvf */node_modules && rm -rvf package-lock.json && rm -
 
 you can do so by:
 
-## 1.) First making sure you're on your branch.
+## 1.) First making sure you're on your branch. It will then list all the branches correlated with this repository and an asterisks next to the current branch you're on and a list of read remote branches.
 ```bash
 git branch -a
 ```
 ##### if you haven't made a branch:
-```
+```bash
 git checkout -b name-of-your-branch
 ```
-## 2.) It will then list all the branches correlated with this repository and a asterisks next to the current branch you're on and a list of read remote branches.
-```
+## 2.) Add your work then, fetch and pull all the current changes from the branches.
+```bash
 git add . && git commit -m "explain whatever the work you did" && git push 
 ```
-## 3.) Add your work then, fetch and pull all the current changes from the branches.
-```
+## 3.) Fetch and Pull in all changes to your local computer.
+```bash
 git fetch --all && git pull --all
 ```
 ## 4.) You would want to merge or rebase to your branch (whatever you are comfortable doing and know better) .
@@ -101,7 +101,7 @@ git merge main
 
 ### Important: Remember to resolve the conflicts within the files, there will be current and incoming changes, accept the incoming changes from the merge.
 ### then you would want to commit these changes as well:
-```
+```bash
 git add . && git commit -m "Merged main branch into current branch" && git push 
 ```
 # Demo :video_game:
