@@ -84,6 +84,10 @@ you can do so by:
 ```bash
 git branch -a
 ```
+##### if you haven't made a branch:
+```
+git checkout -b name-of-your-branch
+```
 ## 2.) It will then list all the branches correlated with this repository and a asterisks next to the current branch you're on and a list of read remote branches.
 ```
 git add . && git commit -m "explain whatever the work you did" && git push 
