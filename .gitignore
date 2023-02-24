@@ -8,6 +8,7 @@ node_modules
 # testing
 /coverage
 /*/node_modules
+/*/node_modules/.cache
 /*/package-lock.json
 package-lock.json
 # production
