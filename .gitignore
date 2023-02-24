@@ -8,8 +8,6 @@ node_modules
 # testing
 /coverage
 /*/node_modules
-/*/node_modules/.cache
-
 # production
 /build
 
