@@ -5,10 +5,10 @@ import AboutPageHero from '../Hero/AboutPageHero';
 export default function AboutPage() {
   return (
     <div className='aboutpage'>
-      <AboutPageHero/>
+      <AboutPageHero />
       <div className='about'>
-      <h1 className='aboutheader'>About Page</h1>
-      <Button onClick={() => {}} button='Lorem ipsum' />
+        <h1 className='aboutheader'>About Page</h1>
+        <Button onClick={() => {}} button='Lorem ipsum' />
       </div>
     </div>
   );

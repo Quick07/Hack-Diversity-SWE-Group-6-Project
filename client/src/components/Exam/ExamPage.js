@@ -9,8 +9,7 @@ import ExamPageHero from '../Hero/ExamPageHero';
 export default function IndexPage() {
   return (
     <div className='MainExamPage'>
-      <div>
-      </div>
+      <div></div>
       <div className='table'>
         <Indextable />
       </div>
@@ -22,8 +21,6 @@ export default function IndexPage() {
           <Button className='MainExamPageButton' button='View Patients' />
         </Link>
       </div>
-
-   
     </div>
   );
 }
