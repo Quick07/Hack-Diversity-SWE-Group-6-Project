@@ -1,4 +1,20 @@
 {
+  "name": "team6zramproject",
+  "version": "1.0.0",
+  "main": "App.js",
+  "description": "Patient exam portal that shows x-ray and Patient data",
+  "proxy": "http://localhost:3000",
+  "keywords": [
+    "Patient",
+    "portal",
+    "x-ray",
+    "x",
+    "ray",
+    "exam",
+    "exams",
+    "Patient exams",
+    "x ray"
+  ],
   "dependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
@@ -19,20 +35,8 @@
   },
   "scripts": {
     "backend": "cd api && node ./bin/www",
-    "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}",
+    "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}, prettier --write compon/**/*.{ts,tsx,js, css} ",
     "frontend": "cd client/ && react-scripts start --prefix src",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   }
 }
