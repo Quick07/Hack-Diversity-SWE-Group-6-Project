@@ -68,19 +68,23 @@ cd /
 npm i
 npm run dev
 ```
+# Demo :video_game:
 
-# :broom::soap:Clean Up Code Before Pushing:soap::broom:
+You should then be able to visit `localhost:3000` in your browser and see the server running.
+
+# 	:keyboard::computer_mouse::desktop_computer::computer:GITHUB:computer::desktop_computer:	:keyboard: 
+## :broom::soap:Clean Up Code Before Pushing:soap::broom:
 In main directory run:
 
 ```bash
 npm run prettier &&  rm -rvf */node_modules && rm -rvf package-lock.json && rm -rvf node_modules && git add . && git commit -m "Whatever changes you made" && git push
 ```
 
-# :heavy_plus_sign::heavy_plus_sign:Merging code:heavy_plus_sign::heavy_plus_sign:
+## :heavy_plus_sign::heavy_plus_sign:Merging code:heavy_plus_sign::heavy_plus_sign:
 
 you can do so by:
 
-## 1.) First making sure you're on your branch. It will then list all the branches correlated with this repository and an asterisks next to the current branch you're on and a list of read remote branches.
+### 1.) First making sure you're on your branch. It will then list all the branches correlated with this repository and an asterisks next to the current branch you're on and a list of read remote branches.
 ```bash
 git branch -a
 ```
@@ -88,23 +92,20 @@ git branch -a
 ```bash
 git checkout -b name-of-your-branch
 ```
-## 2.) Add your work then, fetch and pull all the current changes from the branches.
+### 2.) Add your work then, fetch and pull all the current changes from the branches.
 ```bash
 git add . && git commit -m "explain whatever the work you did" && git push 
 ```
-## 3.) Fetch and Pull in all changes to your local computer.
+### 3.) Fetch and Pull in all changes to your local computer.
 ```bash
 git fetch --all && git pull --all
 ```
-## 4.) You would want to merge or rebase to your branch (whatever you are comfortable doing and know better) .
+### 4.) You would want to merge or rebase to your branch (whatever you are comfortable doing and know better) .
 ```bash
 git merge main
 ```
-### Important: Remember to resolve the conflicts within the files, there will be current and incoming changes, accept the incoming changes from the merge.
-### then you would want to commit these changes as well:
+#### Important: Remember to resolve the conflicts within the files, there will be current and incoming changes, accept the incoming changes from the merge.
+#### then you would want to commit these changes as well:
 ```bash
 git add . && git commit -m "Merged main branch into current branch" && git push 
 ```
-# Demo :video_game:
-
-You should then be able to visit `localhost:3000` in your browser and see the server running.
