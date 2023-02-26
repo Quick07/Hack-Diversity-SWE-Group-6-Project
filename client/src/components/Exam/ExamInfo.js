@@ -1,69 +1,82 @@
-import React from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Container } from 'semantic-ui-react';
-import { Card, CardBody, CardImage, Title } from './CreateExamCard.jsx';
-import { exam1, patient1 } from '../../data';
+import {
+  Card,
+  CardBody,
+  CardImage,
+  Title,
+  ExamContent,
+  CardDiv,
+} from '../Card/ExamCard.jsx';
+import data from '../../data';
 import './ExamInfo.css';
 
 //This page displays all the details of an exam
 function ExamDetails() {
   const navigate = useNavigate();
+  const [card, flipCard] = useState(false);
+  const cardRef = useRef({});
+  const handleClick = useCallback(i => {
+    flipCard(i);
+    if (card == i) {
+      flipCard(-1);
+    }
+  });
   return (
     <Container>
       <div>
         <Title>Exam Info</Title>
         <h3 className='ExamInfoPageh3'>View details about an exam here</h3>
       </div>
-      <div className='Info'>
-        <div>
-          <Card>
-            <CardBody
-              role='contentInfo'
-              aria-pressed='false'
-              aria-label='Card with Patient info'
-            >
-              <CardImage src={exam1.imageURL} />
-            </CardBody>
-          </Card>
-        </div>
+      <CardDiv>
+        {data.map((d, i) => {
+          return card === i ? (
+            <Card key={i} ref={cardRef} onClick={() => handleClick(i)}>
+              <CardBody
+                role='contentInfo'
+                aria-pressed='false'
+                aria-label='Card with Youtube Title, click watch here to view.'
+              >
+                <main
+                  role='contentInfo'
+                  aria-pressed='true'
+                  aria-label='Card with Youtube Title, click watch here to view.'
+                >
+                  <ExamContent aria-label='description'>
+                    {d.keyFindings}
+                  </ExamContent>
 
-        {/* Tables Containing patient and exam info from example Exams and Patients in Data.js   */}
+                  <ExamContent aria-label='videoOwnerChannelTitle'>
+                    {d.name}
+                  </ExamContent>
 
-        <div className='Tables'>
-          <div className='InfoTable'>
-            <div className='text3'> exam info </div>
-            <div className='Text'>
-              <div className='text2'>exam id</div>
-              {exam1.id}
-              <div className='text2'>brixia score</div>
-              {exam1.brixScore}
-              <div className='text2'>key findings</div>
-              {exam1.keyFindings}
-            </div>
-          </div>
-          <div className='PatientTable'>
-            <div className='text3'> patient info </div>
-            <div>
-              <div className='Column'>
-                <div className='text2'>patient id</div>
-                {patient1.id}
-                <div className='text2'>age</div>
-                {patient1.id}
-                <div className='text2'>sex</div>
-                {patient1.sex}
-              </div>
-              <div className='Column'>
-                <div className='text2'>bmi</div>
-                {patient1.bmi}
-                <div className='text2'>weight</div>
-                {patient1.weight} lbs
-                <div className='text2'>zip code</div>
-                {patient1.zip}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+                  <ExamContent aria-label='videoOwnerChannelTitle'>
+                    {d.dob}
+                  </ExamContent>
+
+                  <ExamContent aria-label='videoOwnerChannelTitle'>
+                    {d.sex}
+                  </ExamContent>
+                </main>
+              </CardBody>
+            </Card>
+          ) : (
+            <Card key={i} ref={cardRef} onClick={() => handleClick(i)}>
+              <CardBody>
+                <Title aria-label='title'>{d.brixScore}</Title>
+                <div
+                  role='contentInfo'
+                  aria-pressed='true'
+                  aria-label='Product Card with a Image and a Description of product, Effects and Type Data.'
+                >
+                  <CardImage src={d.imageURL} />
+                </div>
+              </CardBody>
+            </Card>
+          );
+        })}
+      </CardDiv>
       <div className='buttondiv'></div>
     </Container>
   );

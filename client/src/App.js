@@ -52,7 +52,7 @@ function App() {
             }
           />
           <Route
-            path='ExamInfo'
+            path='ExamList'
             element={
               <div>
                 <Navbar />

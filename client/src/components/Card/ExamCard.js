@@ -1,16 +1,22 @@
-import { Card, YoutubeCardContent, CardBody, AVideo, CardImage } from './index';
+import {
+  Card,
+  YoutubeCardContent,
+  CardBody,
+  AVideo,
+  CardImage,
+} from './ExamCard';
 import { useRef } from 'react';
 const getProductCard = props => {
-  const [card, flipCard] = useState(false);
+  const [isFlipped, changeFlip] = useState(false);
   const cardRef = useRef({});
 
-  return card ? (
+  return isFlipped ? (
     <>
       <Card>
         <CardBody
           ref={cardRef}
           disabled={cardRef}
-          onClick={() => flipCard(false)}
+          onClick={() => changeFlip(false)}
           role='contentInfo'
           aria-pressed='false'
           aria-label='Card with Youtube Title, click watch here to view.'
@@ -30,7 +36,7 @@ const getProductCard = props => {
       </Card>
     </>
   ) : (
-    <Card key={i} ref={cardRef} onClick={() => flipCard(true)}>
+    <Card key={i} ref={cardRef} onClick={() => changeFlip(true)}>
       <CardBody>
         <NameFieldset aria-label='title'>{props.title}</NameFieldset>
         <div

@@ -1,51 +1,41 @@
-import React from 'react';
-import { Table, Container } from 'semantic-ui-react';
+import React, { useRef } from 'react';
+import { List, Image, Container } from 'semantic-ui-react';
+import data from '../../data';
 
-const PatientTable = () => (
+const PatientTable = () => {
+  const cardRef = useRef({});
   <Container textAlign='center'>
-    <Table celled selectable>
-      <Table.Header>
-        <Table.Row>
-          <Table.HeaderCell>Name</Table.HeaderCell>
-          <Table.HeaderCell>Status</Table.HeaderCell>
-          <Table.HeaderCell>Notes</Table.HeaderCell>
-        </Table.Row>
-      </Table.Header>
-
-      <Table.Body>
-        <Table.Row>
-          <Table.Cell>John</Table.Cell>
-          <Table.Cell>No Action</Table.Cell>
-          <Table.Cell>None</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Jamie</Table.Cell>
-          <Table.Cell>Approved</Table.Cell>
-          <Table.Cell>Requires call</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Jill</Table.Cell>
-          <Table.Cell>Denied</Table.Cell>
-          <Table.Cell>None</Table.Cell>
-        </Table.Row>
-        <Table.Row warning>
-          <Table.Cell>John</Table.Cell>
-          <Table.Cell>No Action</Table.Cell>
-          <Table.Cell>None</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Jamie</Table.Cell>
-          <Table.Cell positive>Approved</Table.Cell>
-          <Table.Cell warning>Requires call</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Jill</Table.Cell>
-          <Table.Cell negative>Denied</Table.Cell>
-          <Table.Cell>None</Table.Cell>
-        </Table.Row>
-      </Table.Body>
-    </Table>
-  </Container>
-);
+    <List>
+      {data.map((dataDetail, i) => {
+        <List.Item key={i}>
+          <Image avatar src={dataDetail.imageURL} />
+          <List.Content>
+            <List.Header as='a'>{dataDetail.name}</List.Header>
+            <List.Description>
+              <a>
+                <b>{dataDetail.dob}</b>
+              </a>{' '}
+            </List.Description>
+            <List.Description>
+              <a>
+                <b>{dataDetail.brixScore}</b>
+              </a>{' '}
+            </List.Description>
+            <List.Description>
+              <a>
+                <b>{dataDetail.sex}</b>
+              </a>{' '}
+            </List.Description>
+            <List.Description>
+              <a>
+                <b>{dataDetail.keyFindings}</b>
+              </a>{' '}
+            </List.Description>
+          </List.Content>
+        </List.Item>;
+      })}
+    </List>
+  </Container>;
+};
 
 export default PatientTable;
