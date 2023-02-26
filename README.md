@@ -1,7 +1,7 @@
 # :checkered_flag:Team 6:checkered_flag:
 
 # How It's Made :nut_and_bolt: :hammer::wrench::
- This application built with React.js, Express, Node, Webpack, Morgan, CORS & Cookie-Parser.
+ This application built with React.js, Semantic-UI, Material.UI, Emotion.js, Express, Node, Webpack, Morgan, CORS & Cookie-Parser.
 
 # How It's Works:white_check_mark::🖥 
  
@@ -14,7 +14,6 @@ Your final application does not need to follow the same design, but should be si
 
 
 :arrow_forward: ::construction:	 Write your own backend and connect it to your frontend Deployment
-
 
 :arrow_forward: ::construction:	 In order to support the building of this application, you’ll need to work on several different tasks. Some of these can be done in parallel, meaning multiple people can work on them at once.
 
