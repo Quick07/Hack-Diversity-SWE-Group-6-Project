@@ -3,6 +3,7 @@ import AdminPage from './components/AdminPage/AdminPage';
 import AboutPage from './components/AboutPage/AboutPage';
 import AdminPageHero from './components/Hero/AdminPageHero';
 import ExamPageHero from './components/Hero/ExamPageHero';
+import AboutPageHero from './components/Hero/AboutPageHero';
 import ExamPage from './components/Exam/ExamPage';
 import ExamEdit from './components/Exam/ExamEdit';
 import CreateExamPage from './components/Exam/CreateExamPage';
@@ -81,6 +82,7 @@ function App() {
             element={
               <div>
                 <Navbar />
+                <AboutPageHero />
                 <AboutPage />
               </div>
             }

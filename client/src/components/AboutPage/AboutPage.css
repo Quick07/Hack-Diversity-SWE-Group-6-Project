@@ -3,6 +3,16 @@
     font-weight: bold;
   }
   
+.aboutheader2 {
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  
+.aboutheader3 {
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  
   .container {
     display: grid;
     justify-items: center;
@@ -24,3 +34,46 @@
     margin-left: 24rem;
   }
   
+  .aboutpage {
+    display: flex;
+    flex-flow: column wrap;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    box-sizing: border-box;
+    font-size: 20px;
+    color: white;
+    background-image: linear-gradient(0deg,
+        rgba(0, 17, 114, 0.316),
+        rgba(255, 0, 150, 0.5)),
+      url("../Hero/img/ok.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+    z-index: -99999999;
+  }
+  
+  .aboutcontentcontainer{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 1rem;
+    width: 100%;
+    min-height: 80vh;
+    padding: 2rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 500;
+    margin: 0;
+    line-height: normal;
+  }
