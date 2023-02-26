@@ -7,6 +7,7 @@ import { fleurimondColors } from './theme.js';
 export const NavContainer = styled.div`
   position: fixed;
   width: 100%;
+  min-height:100vh;
   top: 0;
   left: 0;
   background-color: white;
@@ -67,7 +68,7 @@ export const StyledMenu = styled.nav`
   justify-content: center;
   background-color: ${fleurimondColors.midnight};
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
-  height: 100vh;
+  min-height:100vh;
   text-align: left;
   padding: 2rem;
   position: absolute;
