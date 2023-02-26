@@ -4,13 +4,13 @@ import {
   Card,
   CardHeader,
   CardBody,
-  Container,
   NameFieldset,
   CardImage,
   ExamContent,
   Info,
   Title,
 } from './CreateExamCard.jsx';
+import { Container } from 'semantic-ui-react';
 import { exam1, patient1 } from '../../data';
 
 const CreateExamPage = props => {
