@@ -155,7 +155,13 @@ body {
 * {
   box-sizing: border-box;
 }
-
+.buttondiv{
+  display: flex;
+  padding: 0.25rem;
+  align-items: center;
+  grid-area: content;
+  justify-content: center;
+}
 b,
 strong {
   font-weight: bold;

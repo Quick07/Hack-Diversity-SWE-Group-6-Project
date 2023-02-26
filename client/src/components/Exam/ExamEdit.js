@@ -1,95 +1,75 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import '../AdminPage/AdminPage.css';
+import React, { useState, useRef } from 'react';
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Container,
+  NameFieldset,
+  CardImage,
+  ExamContent,
+  Info,
+  Title,
+} from './CreateExamCard.jsx';
 import { exam1, patient1 } from '../../data';
-import './ExamEdit.css';
 
-//This page displays all the details of an exam
-function ExamEdit() {
-  const [xrayUrl, onChangeXrayUrl] = React.useState(exam1.imageURL);
-  const [examId, onChangeId] = React.useState(exam1.id);
-  const [brixScore, onChangeBrixScore] = React.useState(exam1.brixScore);
-  const [keyFindings, onChangeKeyFindings] = React.useState(exam1.keyFindings);
+const EditExamPage = props => {
+  const [card, flipCard] = useState(false);
+  const cardRef = useRef({});
 
-  return (
-    <div className='ExamEditPage'>
-      <div>
-        <h1> edit exam</h1>
-        Edit details about an exam here.
-      </div>
-      <div className='Info'>
-        <div>
-          <img className='ExamImage' src={xrayUrl} alt='' />
-          <div className='text2'>xray url</div>
-          <input
-            className='urlInput'
-            value={xrayUrl}
-            onChange={e => onChangeXrayUrl(e.target.value)}
-          />
-        </div>
-        <div className='Tables'>
-          <div className='InfoTable'>
-            <div className='text3'> exam info </div>
-            <div className='Text'>
-              <div className='text2'>exam id</div>
-              <input
-                className='inputId'
-                onChangeText={onChangeId}
-                value={examId}
-                readOnly={true}
-              />
-              <div className='text2'>brixia score</div>
-              <input
-                value={brixScore}
-                onChange={e => onChangeBrixScore(e.target.value)}
-              />
-              <div className='text2'>key findings</div>
-              <textarea
-                value={keyFindings}
-                onChange={e => onChangeKeyFindings(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className='PatientTable'>
-            <div className='text3'> patient info </div>
-            <div style={{ display: 'flex' }}>
-              <div className='Column'>
-                <div className='text2'>patient id</div>
-                {patient1.id}
-                <div className='text2'>age</div>
-                {patient1.age}
-                <div className='text2'>sex</div>
-                {patient1.sex}
-              </div>
-              <div className='Column'>
-                <div className='text2'>bmi</div>
-                {patient1.bmi}
-                <div className='text2'>weight</div>
-                {patient1.weight} lbs
-                <div className='text2'>zip code</div>
-                {patient1.zip}
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='buttons'>
-          <button
-            className='Button'
-            onClick={() => {
-              exam1.id = examId;
-              exam1.brixScore = brixScore;
-              exam1.keyFindings = keyFindings;
-              exam1.imageURL = xrayUrl;
-            }}
+  return card ? (
+    <>
+      <Title>Edit An exam</Title>
+
+      <Container>
+        <Card>
+          <CardBody
+            ref={cardRef}
+            disabled={cardRef}
+            onClick={() => flipCard(false)}
+            role='contentInfo'
+            aria-pressed='false'
+            aria-label='Card with Patient info'
           >
-            <Link to='/IndexPage/Exam'>save</Link>
-          </button>
-          <button className='Button'>
-            <Link to='/IndexPage/Exam'>cancel</Link>
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
+            <ExamContent aria-label='keyFindings'>
+              Key Findings: {exam1.keyFindings}
+            </ExamContent>
 
-export default ExamEdit;
+            <ExamContent aria-label='Brixa'>
+              ID: {exam1.id} : Brixa Score{exam1.brixScore}
+            </ExamContent>
+            <CardImage src={props.url} href={props.href} />
+            <Info aria-label='Patient Info'>
+              Sex: {patient1.sex} BMI: {patient1.bmi} DOB: {patient1.dob}
+            </Info>
+          </CardBody>
+        </Card>
+      </Container>
+    </>
+  ) : (
+    <>
+      <Title>Create An exam</Title>
+
+      <Container>
+        <Card ref={cardRef} onClick={() => flipCard(true)}>
+          <CardBody>
+            <CardHeader
+              role='img'
+              aria-label='Description of the Product image'
+            >
+              <NameFieldset aria-label='title'>{patient1.name}</NameFieldset>
+            </CardHeader>
+            <div
+              role='contentInfo'
+              aria-pressed='true'
+              aria-label='Patient X-ray'
+            >
+              <CardImage src={exam1.imageURL} href={`/`} />
+            </div>
+          </CardBody>
+        </Card>
+      </Container>
+    </>
+  );
+};
+export default EditExamPage;

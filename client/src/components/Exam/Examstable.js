@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
 import TableRow from '@mui/material/TableRow';
+import { Container } from 'semantic-ui-react';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -51,48 +52,52 @@ const rows = [
 
 export default function Examstable() {
   return (
-    <TableContainer component={Paper}>
-      <Table
-        sx={{
-          minWidth: 700,
-          minHeight: 800,
-          '& .MuiTableCell-head': {
-            color: 'white',
-            backgroundColor: 'blue',
-          },
-        }}
-        aria-label='customized table'
-      >
-        <TableHead>
-          <TableRow>
-            <StyledTableCell align='left'>Patient ID</StyledTableCell>
-            <StyledTableCell align='left'>Exam ID</StyledTableCell>
-            <StyledTableCell align='left'>Image</StyledTableCell>
-            <StyledTableCell align='left'>Key Findings</StyledTableCell>
-            <StyledTableCell align='left'>Age</StyledTableCell>
-            <StyledTableCell align='left'>Sex</StyledTableCell>
-            <StyledTableCell align='left'>BMI</StyledTableCell>
-            <StyledTableCell align='left'>Zip Code</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map(row => (
-            <StyledTableRow key={row.PatientID}>
-              <StyledTableCell component='th' scope='row'>
-                {row.PatientID}
-              </StyledTableCell>
+    <Container>
+      <TableContainer component={Paper}>
+        <Table
+          sx={{
+            minWidth: 700,
+            minHeight: 800,
+            '& .MuiTableCell-head': {
+              color: 'white',
+              backgroundColor: 'blue',
+            },
+          }}
+          aria-label='customized table'
+        >
+          <TableHead>
+            <TableRow>
+              <StyledTableCell align='left'>Patient ID</StyledTableCell>
+              <StyledTableCell align='left'>Exam ID</StyledTableCell>
+              <StyledTableCell align='left'>Image</StyledTableCell>
+              <StyledTableCell align='left'>Key Findings</StyledTableCell>
+              <StyledTableCell align='left'>Age</StyledTableCell>
+              <StyledTableCell align='left'>Sex</StyledTableCell>
+              <StyledTableCell align='left'>BMI</StyledTableCell>
+              <StyledTableCell align='left'>Zip Code</StyledTableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map(row => (
+              <StyledTableRow key={row.PatientID}>
+                <StyledTableCell component='th' scope='row'>
+                  {row.PatientID}
+                </StyledTableCell>
 
-              <StyledTableCell align='left'>{row.ExamID}</StyledTableCell>
-              <StyledTableCell align='left'>{row.image}</StyledTableCell>
-              <StyledTableCell align='left'>{row.KeyFindings}</StyledTableCell>
-              <StyledTableCell align='left'>{row.Age}</StyledTableCell>
-              <StyledTableCell align='left'>{row.Sex}</StyledTableCell>
-              <StyledTableCell align='left'>{row.BMI}</StyledTableCell>
-              <StyledTableCell align='left'>{row.ZipCode}</StyledTableCell>
-            </StyledTableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+                <StyledTableCell align='left'>{row.ExamID}</StyledTableCell>
+                <StyledTableCell align='left'>{row.image}</StyledTableCell>
+                <StyledTableCell align='left'>
+                  {row.KeyFindings}
+                </StyledTableCell>
+                <StyledTableCell align='left'>{row.Age}</StyledTableCell>
+                <StyledTableCell align='left'>{row.Sex}</StyledTableCell>
+                <StyledTableCell align='left'>{row.BMI}</StyledTableCell>
+                <StyledTableCell align='left'>{row.ZipCode}</StyledTableCell>
+              </StyledTableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 }

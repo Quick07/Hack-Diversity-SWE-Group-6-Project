@@ -48,35 +48,14 @@
   max-height: 97.5vh;
 }
 
-.ExamInfoPage h1 {
-  padding: 0.5rem 0 0.5rem 0;
-  font-size: 48px !important;
+.ExamInfoPageh3 {
+  font-size: 2rem;
   display: block;
   color: rgba(35, 35, 35, 1);
   margin: 0%;
 }
 
-/* When Screen is narrow, arrange content in one column */
-@media (max-width: 500px) {
-  .Tables {
-    width: 100% !important;
-  }
-  .InfoTable {
-    min-height: 300px;
-  }
-}
 
-div.Info {
-  padding: 1.5rem 0 0 0;
-  width: 100%;
-  display: flex;
-  gap: 1.5rem;
-  flex-flow: row wrap;
-  overflow: visible;
-  justify-content: flex-start;
-  flex-direction: row;
-  align-items: flex-start;
-}
 
 .ExamInfoPage .header {
   display: block;

@@ -103,7 +103,7 @@ min-width: 200px;
 max-width: 400px;
 min-height: 300px;
 padding: 1rem 0;
-margin: 2rem;
+margin: 2rem 0;
 background: ${props => (props.selected ? '#E8F1FF' : '#FFFFFF')};
 border: ${props =>
   props.selected ? '1.5px solid #2375A4' : '1px solid #d5dde3'}

@@ -1,20 +1,30 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Container } from 'semantic-ui-react';
+import { Card, CardBody, CardImage, Title } from './CreateExamCard.jsx';
 import { exam1, patient1 } from '../../data';
 import './ExamInfo.css';
 
 //This page displays all the details of an exam
 function ExamDetails() {
+  const navigate = useNavigate();
   return (
-    <div className='ExamInfoPage'>
+    <Container>
       <div>
-        <header className='header'>
-          <h1> exam info</h1>
-          View details about an exam here.
-        </header>
+        <Title>Exam Info</Title>
+        <h3 className='ExamInfoPageh3'>View details about an exam here</h3>
       </div>
       <div className='Info'>
         <div>
-          <img className='ExamImage' src={exam1.imageURL} alt='' />
+          <Card>
+            <CardBody
+              role='contentInfo'
+              aria-pressed='false'
+              aria-label='Card with Patient info'
+            >
+              <CardImage src={exam1.imageURL} />
+            </CardBody>
+          </Card>
         </div>
 
         {/* Tables Containing patient and exam info from example Exams and Patients in Data.js   */}
@@ -54,7 +64,8 @@ function ExamDetails() {
           </div>
         </div>
       </div>
-    </div>
+      <div className='buttondiv'></div>
+    </Container>
   );
 }
 

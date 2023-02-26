@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AdminPage from './components/AdminPage/AdminPage';
 import AboutPage from './components/AboutPage/AboutPage';
 import AdminPageHero from './components/Hero/AdminPageHero';
@@ -6,10 +6,12 @@ import ExamPageHero from './components/Hero/ExamPageHero';
 import AboutPageHero from './components/Hero/AboutPageHero';
 import ExamPage from './components/Exam/ExamPage';
 import ExamEdit from './components/Exam/ExamEdit';
+import ExamList from './components/Exam/ExamList';
 import CreateExamPage from './components/Exam/CreateExamPage';
 import ExamInfo from './components/Exam/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
+import Button from './components/Buttons/Button';
 
 import './App.css';
 
@@ -40,21 +42,32 @@ function App() {
             }
           />
           <Route
+            path='ExamPage/Exam'
+            element={
+              <div>
+                <Navbar />
+                <ExamPageHero />
+                <ExamInfo />
+              </div>
+            }
+          />
+          <Route
+            path='ExamInfo'
+            element={
+              <div>
+                <Navbar />
+                <ExamPageHero />
+                <ExamList />
+              </div>
+            }
+          />
+          <Route
             path='AdminPage'
             element={
               <div>
                 <Navbar />
                 <AdminPageHero />
                 <AdminPage />
-              </div>
-            }
-          />
-          <Route
-            path='ExamPage/Exam'
-            element={
-              <div>
-                <Navbar />
-                <ExamInfo />
               </div>
             }
           />
@@ -73,6 +86,7 @@ function App() {
             element={
               <div>
                 <Navbar />
+                <ExamPageHero />
                 <ExamEdit />
               </div>
             }
