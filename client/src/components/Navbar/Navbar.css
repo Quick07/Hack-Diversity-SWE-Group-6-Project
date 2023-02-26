@@ -14,14 +14,12 @@ div.sidenav {
   color: rgb(226, 223, 223);
 }
 
-a {
-  display: block;
-  text-align: center;
-  text-decoration: none;
-}
 
 .sidenav a {
   padding: 1rem 2rem 1rem 2rem;
+  display: block;
+  text-align: center;
+  text-decoration: none;
 }
 
 a.active {
