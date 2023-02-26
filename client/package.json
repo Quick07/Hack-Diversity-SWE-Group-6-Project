@@ -38,5 +38,11 @@
     "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}, prettier --write compon/**/*.{ts,tsx,js, css} ",
     "frontend": "cd client/ && react-scripts start --prefix src",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

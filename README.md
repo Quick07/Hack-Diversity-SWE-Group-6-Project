@@ -77,7 +77,7 @@ You should then be able to visit `localhost:3000` in your browser and see the se
 In main directory run:
 
 ```bash
-npm run prettier &&  rm -rvf */node_modules && rm -rvf package-lock.json && rm -rvf node_modules && git add . && git commit -m "Whatever changes you made" && git push
+npm run prettier &&  rm -rvf */node_modules && rm -rvf package-lock.json && rm -rvf node_modules && rm -rvf */package-lock.json && git add . && git commit -m "Whatever changes you made" && git push
 ```
 
 ## :heavy_plus_sign::heavy_plus_sign:Merging code:heavy_plus_sign::heavy_plus_sign:

@@ -38,7 +38,7 @@ function ExamDetails() {
                 <div className='text2'>patient id</div>
                 {patient1.id}
                 <div className='text2'>age</div>
-                {patient1.age}
+                {patient1.id}
                 <div className='text2'>sex</div>
                 {patient1.sex}
               </div>

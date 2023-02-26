@@ -5,6 +5,7 @@ import AdminPageHero from './components/Hero/AdminPageHero';
 import ExamPageHero from './components/Hero/ExamPageHero';
 import ExamPage from './components/Exam/ExamPage';
 import ExamEdit from './components/Exam/ExamEdit';
+import CreateExamPage from './components/Exam/CreateExamPage';
 import ExamInfo from './components/Exam/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
@@ -53,6 +54,16 @@ function App() {
               <div>
                 <Navbar />
                 <ExamInfo />
+              </div>
+            }
+          />
+          <Route
+            path='AdminPage/CreateExam'
+            element={
+              <div>
+                <Navbar />
+                <AdminPageHero />
+                <CreateExamPage />
               </div>
             }
           />
