@@ -1,6 +1,7 @@
 import React from 'react';
 import './AdminPage.css';
 import Button from '../Buttons/Button';
+import { Link } from 'react-router-dom';
 
 export default function AdminPage() {
   return (
@@ -10,8 +11,12 @@ export default function AdminPage() {
         <h2>create and edit exam records.</h2>
       </div>
       <div>
-        <Button className='adminButton' button='Create An Exam' />
-        <Button className='adminButton' button='Edit An Exam' />
+        <Link to='/AdminPage/CreateExam'>
+          <Button className='MainExamPageButton' button='Create An Exam' />
+        </Link>
+        <Link to='/AdminPage/EditExam'>
+          <Button className='adminButton' button='Edit An Exam' />
+        </Link>
       </div>
     </div>
   );

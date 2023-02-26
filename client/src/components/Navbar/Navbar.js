@@ -1,20 +1,15 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import './Navbar.css';
+import { Menu, Burger } from './Navbar.jsx';
+import React from 'react';
 
-class Navbar extends Component {
-  render() {
-    return (
-      <div>
-        <div class='sidenav'>
-          <Link to='/'>Advanced X-Ray</Link>
-          <Link to='/ExamPage'>Exams</Link>
-          <Link to='/AdminPage'>Admin</Link>
-          <Link to='/AboutPage'>About</Link>
-        </div>
-      </div>
-    );
-  }
-}
+const Navbar = () => {
+  const [open, setOpen] = React.useState(false);
+  const node = React.useRef();
+  return (
+    <div ref={node}>
+      <Burger open={open} setOpen={setOpen} />
+      <Menu open={open} setOpen={setOpen} />
+    </div>
+  );
+};
 
 export default Navbar;
