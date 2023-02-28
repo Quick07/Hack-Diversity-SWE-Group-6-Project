@@ -1,0 +1,35 @@
+.MainExamPage h1 {
+  max-height: 10vh;
+  width: 100%;
+  display: block;
+  color: rgba(35, 35, 35, 1);
+  margin: 0%;
+}
+
+.MainExamPage h2 {
+  font-size: 24px !important;
+  padding: 1.75rem 0 0 0;
+}
+
+.MainExamPageButton {
+  flex: 1 1 auto;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+}
+
+.MainExamPagePage a {
+  padding: 0;
+  font-size: 24px;
+}
+
+.IndexPage {
+  padding: 0 05rem 0 20rem;
+}
+.table {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
+}

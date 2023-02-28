@@ -1,0 +1,49 @@
+{
+    "name": "team6zramproject",
+    "version": "1.0.0",
+    "description": "Patient exam portal that shows x-ray and Patient data",
+    "proxy": "http://localhost:3000",
+    "keywords": [
+        "Patient",
+        "portal",
+        "x-ray",
+        "x",
+        "ray",
+        "exam",
+        "exams",
+        "Patient exams",
+        "x ray"
+    ],
+    "main": "App.js",
+    "dependencies": {
+        "@emotion/react": "^11.10.6",
+        "@emotion/styled": "^11.10.6",
+        "@mui/material": "^5.11.10",
+        "axios": "^1.3.4",
+        "concurrently": "^7.6.0",
+        "cookie-parser": "^1.4.6",
+        "cors": "^2.8.5",
+        "debug": "^4.3.4",
+        "express": "^4.18.2",
+        "formik": "^2.2.9",
+        "http-errors": "^2.0.0",
+        "jade": "^1.9.2",
+        "morgan": "^1.10.0",
+        "nodemon": "^2.0.20",
+        "prettier": "^2.8.4",
+        "react": "^18.2.0",
+        "react-router-dom": "^6.8.1",
+        "react-scripts": "^5.0.1",
+        "semantic-ui-css": "^2.5.0",
+        "semantic-ui-react": "^2.1.4",
+        "styled-components": "^5.3.6",
+        "web-vitals": "^3.1.1",
+        "yup": "^1.0.1"
+    },
+    "scripts": {
+        "backend": "cd api && node ./bin/www",
+        "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js,jsx}",
+        "frontend": "cd client/ && react-scripts start --prefix src",
+        "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    }
+}

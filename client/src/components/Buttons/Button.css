@@ -1,0 +1,41 @@
+.button {
+  font-family: "Montserrat", sans-serif;
+  flex: 1 1 auto;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  border-color: white;
+  width: 225px;
+  height: 45px;
+}
+
+.button:hover,
+.button:active,
+.button:focus {
+  background-color: white;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.button {
+  background-image: linear-gradient(
+    to right,
+    rgb(0, 17, 114) 0%,
+    rgba(255, 0, 150, 0.95) 51%,
+    rgb(0, 17, 114) 100%
+  );
+}
+.buttondiv{
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  align-items: center;
+  grid-area: content;
+  justify-content: center;
+}

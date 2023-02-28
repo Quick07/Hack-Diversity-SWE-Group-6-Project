@@ -1,0 +1,107 @@
+.MainHeroContainer {
+  display: flex;
+  flex-flow: column wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: white;
+  background-image: linear-gradient(0deg,
+      rgba(0, 17, 114, 0.316),
+      rgba(255, 0, 150, 0.5)),
+    url("./img/ok.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.aboutpage {
+  display: flex;
+  flex-flow: column wrap;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: 20px;
+  color: white;
+  background-image: linear-gradient(0deg,
+      rgba(0, 17, 114, 0.316),
+      rgba(255, 0, 150, 0.5)),
+    url("./img/ok.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-size: 20px;
+  margin: 0 0 20px 0;
+  z-index: -99999999;
+}
+
+.aboutcontentcontainer{
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 1rem;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  font-size: 1rem;
+  text-align: center;
+  font-weight: 500;
+  margin: 0;
+  line-height: normal;
+}
+.MainHeroContainer .header {
+  font-size: 3rem;
+  text-align: center;
+  margin: 12rem 2rem;
+}
+
+.MainHerobuttonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 480px) {
+  .MainHeroContainer .header {
+    font-size: 2rem;
+    margin: 12rem 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .MainHeroContainer .header {
+    font-size: 3rem;
+    margin: 12rem 2rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .MainHeroContainer .header {
+    font-size: 4rem;
+    margin: 12rem 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .MainHeroContainer .header {
+    font-size: 7rem;
+    margin: 12rem 2rem;
+  }
+}
+
+@media (min-width: 640px) and (orientation: landscape) {}
