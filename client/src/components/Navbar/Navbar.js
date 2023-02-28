@@ -10,10 +10,10 @@ class Navbar extends Component {
           <Link to='/'>Home</Link>
           <Link to='/AdminPage'>Admin</Link>
           <Link to='/AboutPage'>About</Link>
-        </div>
+       </div>
       </div>
     );
   }
 }
 
-export default Navbar;
+export default Navbar
