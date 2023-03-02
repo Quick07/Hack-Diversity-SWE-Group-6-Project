@@ -1,0 +1,71 @@
+body {
+    margin: 0;
+  }
+  
+  div.sidenav {
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem 0 2rem 0;
+    background-color: #323232;
+    position: fixed;
+    height: 100%;
+    width: 225px;
+    overflow: auto;
+    font-size: 30px;
+    letter-spacing: 3px;
+    color: rgb(226, 223, 223);
+    font-family: 'Montserrat';
+  }
+
+  .sidenav h1 {
+    font-size: 36px;
+    letter-spacing: 3px;
+    color: rgb(226, 223, 223);
+    font-family: 'Montserrat';
+    font-weight: 600;
+  }
+  
+  .sidenav a {
+    font-family: 'Montserrat';
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 1rem 1rem 1rem 1rem;
+  }
+   .sidenav a:hover {
+    color: unset;
+  }
+
+  .navitem {
+    letter-spacing: 0;
+    background-color:#323232;
+    color: rgb(226, 223, 223);
+    text-align: left;
+  }
+  
+  .navitem a {
+    text-align: left;
+    color: rgb(226, 223, 223);
+    padding: 0.5rem 1rem 0.5rem 1rem;
+    font-weight: 300;
+    font-size: 24px;
+    justify-content: left;
+  }
+    .sidenav a:hover {
+    color:#323232;
+  }
+  .navitem:hover {
+    transition: .25s ease-in-out;
+    color:#323232;
+    background-color: rgb(226, 223, 223);
+  }
+  
+   /* a.active {
+    background-color: #e0e0e0;
+    color: rgb(226, 223, 223);
+  } */
+  
+  /* .sidenav a:hover:not(.active) {
+    background-color: #444;
+    color: rgb(226, 223, 223);
+  } */

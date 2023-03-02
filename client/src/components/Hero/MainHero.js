@@ -5,14 +5,14 @@ import Button from '../Buttons/Button';
 export default function MainHero() {
   return (
     <div className='MainHeroContainer'>
-      <h1 className='header'>welcome to advance x-ray</h1>
+      <h1 className='header'>welcome to project x</h1>
       <div className='MainHerobuttonContainer'>
-        <Link to='/ExamPage'>
+        <Link to='/Exams'>
           {' '}
           <Button className='button' button='Exams' />
         </Link>
 
-        <Link to='/AdminPage'>
+        <Link to='/Admin'>
           <Button className='button' button='Admin' />
         </Link>
       </div>

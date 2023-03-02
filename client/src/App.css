@@ -17,10 +17,11 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
+  font-size: unset;
   font: inherit;
   vertical-align: baseline;
-  overflow-x: hidden;
+  overflow-x: unset;
+  color: unset;
 }
 label {  overflow-y: hidden;}
 /* HTML5 display-role reset for older browsers */
@@ -75,4 +76,20 @@ b, strong {
 
 em, i {
   font-style: italic;
+}
+
+.App {
+  font-family: 'Montserrat';
+}
+
+.App a {
+  color: unset;
+}
+
+.App h1 {
+  font-family: 'Montserrat';
+}
+.App h2 {
+  font-weight: 500;
+  font-family: 'Montserrat';
 }
