@@ -1,5 +1,5 @@
+
 import * as React from 'react';
-import { useState, useEffect, useMemo } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,7 +8,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import Paper from '@mui/material/Paper';
 import TableRow from '@mui/material/TableRow';
-import { patients } from '../../data2';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -36,7 +35,8 @@ export default function PatientTable(props) {
   const { patients } = props;
   return (
     <div>
-      {patients ? (
+      {patients.length < 1 ?
+      <p>Loading data...</p> : (
       <TableContainer className='table'component={Paper}>
         <Table
           sx={{
@@ -78,9 +78,7 @@ export default function PatientTable(props) {
           </TableBody>
         </Table>
       </TableContainer>
-      ) : (
-        <p>Loading data...</p>
-      )}
+      ) }
       </div>
   );
       }

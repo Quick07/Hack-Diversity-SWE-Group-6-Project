@@ -12,7 +12,6 @@ const getPatientData = async (req, res) => {
       const result = await patients.find().toArray();
       res.status(200).json(result);
       await client.close();
-    
   };
 
   module.exports = {

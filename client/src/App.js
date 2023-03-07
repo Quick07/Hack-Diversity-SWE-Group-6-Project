@@ -6,12 +6,11 @@ import ExamPageHero from './components/Hero/ExamPageHero';
 import AboutPageHero from './components/Hero/AboutPageHero';
 import ExamPage from './components/Exam/ExamPage';
 import ExamEdit from './components/ExamEdit/ExamEdit';
-import ExamList from './components/Exam/ExamList';
+// import ExamList from './components/Exam/ExamList';
 // import SignUp from './components/Exam/CreateExamPage';
 import ExamInfo from './components/ExamInfo/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
-import Button from './components/Buttons/Button';
 import PatientsList from './components/PatientsPage/PatientsList';
 
 import './App.css';
@@ -70,7 +69,7 @@ function App() {
             path='Exams/ViewPatients'
             element={
               <div>
-                <Navbar />
+              <Navbar />
                 <PatientsList/>
               </div>
             }
