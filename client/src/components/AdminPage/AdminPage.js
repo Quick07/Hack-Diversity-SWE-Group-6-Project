@@ -1,6 +1,5 @@
 import React from 'react';
 import './AdminPage.css';
-import Button from '../Buttons/Button';
 import { Link } from 'react-router-dom';
 
 export default function AdminPage() {

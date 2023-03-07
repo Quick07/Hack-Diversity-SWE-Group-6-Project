@@ -1,9 +1,6 @@
 import React from 'react';
 import './ExamPage.css';
 import { Link } from 'react-router-dom';
-import Indextable from '../Exam/Examstable';
-import Button from '../Buttons/Button';
-import ExamPageHero from '../Hero/ExamPageHero';
 
 // This page allows access to view all exam and patient information
 export default function MainExamPage() {
@@ -14,7 +11,7 @@ export default function MainExamPage() {
     </div>
     <div>
     <button className='indexButton'><Link to='/Exams/ViewList'>view exams</Link></button>
-    {/* <button className='indexButton'>view patients</button> */}
+    <button className='indexButton'><Link to='/Exams/ViewPatients'>view patients</Link></button>
     </div>
   </div>;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainHero.css';
-import Button from '../Buttons/Button';
 export default function MainHero() {
   return (
     <div className='MainHeroContainer'>
@@ -9,11 +8,11 @@ export default function MainHero() {
       <div className='MainHerobuttonContainer'>
         <Link to='/Exams'>
           {' '}
-          <Button className='button' button='Exams' />
+          <button className='button'>Exams</button>
         </Link>
 
         <Link to='/Admin'>
-          <Button className='button' button='Admin' />
+          <button className='button'> Admin</button>
         </Link>
       </div>
     </div>
