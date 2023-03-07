@@ -12,6 +12,7 @@ import ExamInfo from './components/ExamInfo/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
 import Button from './components/Buttons/Button';
+import PatientsList from './components/PatientsPage/PatientsList';
 
 import './App.css';
 
@@ -61,6 +62,16 @@ function App() {
               <div>
                 <Navbar />
                 <ExamInfo />
+              </div>
+            }
+          />
+          <Route
+          // Table of patients
+            path='Exams/ViewPatients'
+            element={
+              <div>
+                <Navbar />
+                <PatientsList/>
               </div>
             }
           />

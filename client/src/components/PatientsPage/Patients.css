@@ -1,0 +1,184 @@
+.PatientsPage {
+    align-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1;
+    padding: 1rem 3rem 0 19rem;
+    max-height: 97.5vh;
+    font-size: 24px;
+    width: calc(100vw - 250);
+    font-family: 'Montserrat';
+    /* overflow-y:overlay; */
+}
+
+.PatientsPage div {
+    margin: 0 0 1rem 0;
+    width: 100%;
+    height:fit-content;
+    border-radius: 12px;
+}
+
+.PatientsPage a {
+    color:unset;
+    margin-top: 2rem;
+}
+
+.PatientsPage h1 {
+    font-weight: 600;
+    padding: .5rem 0 .5rem 0;
+    font-size: 48px;
+    display:block;
+    color: rgba(35, 35, 35, 1);
+    margin: 0%;
+    font-family: inherit;
+  }
+
+  .PatientsPage .icon {
+    /* display: inline-block; */
+    position:relative;
+    float:right;
+    font-size:20px;
+    color: rgba(35, 35, 35, .5);
+  }
+
+  .current .icon {
+    color: rgba(35, 35, 35, 1);
+  }
+
+
+  .icon:hover {
+    transition: .5s ease-in-out;
+    color: rgba(35, 35, 35, 1);
+    cursor: pointer;
+  }
+
+  .PatientsPage .inactive {
+    font-weight: 500;
+    color: rgba(35, 35, 35, .5);
+  }
+
+  .PatientsPage .inactive:hover {
+    color: rgba(35, 35, 35, 1);
+  }
+
+  .PatientsPage .table {
+    height: 800px;
+    overflow-y: hidden;
+    padding: 0;
+    margin: 0;
+    border-radius: 12px;
+  }
+
+  .PatientsPage .table:hover {
+    overflow-y: overlay;
+    border-radius: 12px;
+  }
+  .PatientsPage .table:hover::-webkit-scrollbar {
+    position:fixed;
+  }
+
+  .PatientsPage .row {
+    width: 100%;
+    height: 75px;
+    border-top: 1.5px solid transparent;
+  }
+
+  .PatientsPage .row:hover {
+    width: 100%;
+    border-top: 1.5px solid rgba(35, 35, 35, .5);
+    border-bottom: 1.5px solid rgba(35, 35, 35, .5); 
+    height: 75px;
+  }
+
+
+  .examSearch {
+    width: 200px;
+    transition: width .5s ease-in-out;
+    display: inline-block;
+    border: 1.5px solid #808080;
+    border-radius: 12px;
+    padding: 0 6px 0 6px;
+    font-size: medium;
+    font-family: inherit;
+  }
+
+  .PopUp .Button {
+    border: none;
+    font-size: 20px;
+    margin: 25px;
+    
+  }
+  
+  .PopUp .Button:hover {
+    background-color: #555;
+  }
+
+  .PopUp .buttons h2 {
+    margin: 0;
+    color: white;
+  }
+
+  .PopUp div{
+    color: black;
+    background-color: white;
+    border: 3px solid #808080;
+    border-radius: 15px;
+    height: 500px;
+    width: 500px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(calc(-50% + 112.5px), -50%);
+  }
+
+  .PopUp .label{
+    font-size: 20px;
+    margin:5px 0 5px 0;
+  } 
+
+  .PopUp [type=checkbox]{
+    margin:5px 0 5px 15px;
+  } 
+
+  .PopUp .icon{
+    font-size: 24px;
+    float: right;
+    margin:10px 10px 10px 10px;
+  }
+
+  .PopUp h1{
+    font-size: 38px;
+    width: 100%;
+    padding:10px 15px 10px 15px;
+  }
+
+  .PopUp h2{
+    width: 100%;
+    margin:15px 15px 0px 15px;
+    color: black;
+    font-weight: 600;
+  }
+
+  .text3 {
+    padding: 25px;
+    color: #808080;
+    background-color: lightgray;
+    border-radius: 12px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    font-weight: 400;
+    font-size: 24px;
+    display: block;
+    border: 0 solid #808080;
+    border-bottom-width: 3px;
+    margin-block: 0;
+  }
+
+  .PopUp .inputLeft {
+    width: 50px;
+    margin: 5px 0 5px 0;
+  }
+  .PopUp .inputRight {
+    float: right;
+    width: 50px;
+  }

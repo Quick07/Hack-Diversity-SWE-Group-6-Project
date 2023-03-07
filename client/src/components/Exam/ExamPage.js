@@ -14,7 +14,7 @@ export default function MainExamPage() {
     </div>
     <div>
     <button className='indexButton'><Link to='/Exams/ViewList'>view exams</Link></button>
-    {/* <button className='indexButton'>view patients</button> */}
+    <button className='indexButton'><Link to='/Exams/ViewPatients'>view patients</Link></button>
     </div>
   </div>;
 }
