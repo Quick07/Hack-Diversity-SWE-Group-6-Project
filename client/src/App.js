@@ -45,17 +45,17 @@ function App() {
             }
           />
           <Route
-          // Table of all exams
+            // Table of all exams
             path='Exams/ViewList'
             element={
               <div>
                 <Navbar />
-                <TablePage/>
+                <TablePage />
               </div>
             }
           />
           <Route
-          // View a single exam
+            // View a single exam
             path='Exams/ViewExam'
             element={
               <div>
@@ -75,7 +75,7 @@ function App() {
             }
           />
           <Route
-          //Admin page
+            //Admin page
             path='Admin'
             element={
               <div>
@@ -86,7 +86,7 @@ function App() {
             }
           />
           <Route
-          //Create a new exam
+            //Create a new exam
             path='Admin/CreateExam'
             element={
               <div>
@@ -97,12 +97,12 @@ function App() {
             }
           />
           <Route
-          //Editing a single exam
+            //Editing a single exam
             path='Admin/EditExam'
             element={
               <div>
                 <Navbar />
-                <ExamEdit/>
+                <ExamEdit />
               </div>
             }
           />
@@ -111,7 +111,7 @@ function App() {
             element={
               <div>
                 <Navbar />
-                <AboutPageHero />
+                {/* <AboutPageHero /> */}
                 <AboutPage />
               </div>
             }

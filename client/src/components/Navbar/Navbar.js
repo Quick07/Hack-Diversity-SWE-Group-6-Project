@@ -12,7 +12,7 @@
 //   );
 // };
 
-// 
+//
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -21,22 +21,22 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <div class='sidenav'>
+        <div className='Sidenav'>
           <Link to='/'>
-          <h1>
-            project x
-            </h1>
-            </Link>
-          
-          
-          <Link to='/Exams'className='navitem'><a >Exams</a></Link>
-          
-          
-          <Link to='/Admin' className='navitem'><a>Admin</a></Link>
-          
-          
-          <Link to='/About' className='navitem'><a>About</a></Link>
-          
+            <h1>project x</h1>
+          </Link>
+
+          <Link to='/Exams' className='navitem'>
+            Exams
+          </Link>
+
+          <Link to='/Admin' className='navitem'>
+            Admin
+          </Link>
+
+          <Link to='/About' className='navitem'>
+            About
+          </Link>
         </div>
       </div>
     );
