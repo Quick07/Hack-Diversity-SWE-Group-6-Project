@@ -6,19 +6,17 @@ import ExamPageHero from './components/Hero/ExamPageHero';
 import AboutPageHero from './components/Hero/AboutPageHero';
 import ExamPage from './components/Exam/ExamPage';
 import ExamEdit from './components/ExamEdit/ExamEdit';
-// import ExamList from './components/Exam/ExamList';
-// import SignUp from './components/Exam/CreateExamPage';
 import ExamInfo from './components/ExamInfo/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
 import PatientsList from './components/PatientsPage/PatientsList';
+import CreateExam from './components/CreateExam/CreateExam';
 
 import './App.css';
 
 import { useApi } from './hooks/use-api';
 import Examstable from './components/Exam/Examstable';
 import TablePage from './components/Exam/TablePage';
-import SignUp from './components/Exam/CreateExamPage';
 
 function App() {
   const { response } = useApi();
@@ -102,7 +100,7 @@ function App() {
               <div>
                 <Navbar />
                 {/* <AdminPageHero /> */}
-                <SignUp />
+                <CreateExam />
               </div>
             }
           />
