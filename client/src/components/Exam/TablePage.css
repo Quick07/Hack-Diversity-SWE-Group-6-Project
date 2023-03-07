@@ -1,0 +1,81 @@
+.TablePage {
+    align-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1;
+    padding: 1rem 3rem 0 19rem;
+    max-height: 97.5vh;
+    font-size: 24px;
+    width: calc(100vw - 250);
+    font-family: 'Montserrat';
+}
+
+.TablePage div {
+    margin: 0 0 1rem 0;
+    width: 100%;
+    height:fit-content;
+}
+
+.TablePage a {
+    color:unset;
+    margin-top: 2rem;
+}
+
+.TablePage h1 {
+    font-weight: 600;
+    padding: .5rem 0 .5rem 0;
+    font-size: 48px!important;
+    display:block;
+    color: rgba(35, 35, 35, 1);
+    margin: 0%;
+    font-family: inherit;
+  }
+
+  .TablePage .icon {
+    /* display: inline-block; */
+    position:relative;
+    float:right;
+    font-size:20px;
+    color: rgba(35, 35, 35, .5);
+  }
+
+  .current .icon {
+    color: rgba(35, 35, 35, 1);
+  }
+
+
+  .icon:hover {
+    transition: .5s ease-in-out;
+    color: rgba(35, 35, 35, 1);
+  }
+
+  .TablePage .inactive {
+    font-weight: 500;
+    color: rgba(35, 35, 35, .5);
+  }
+  
+  .TablePage .inactive:hover {
+    color: rgba(35, 35, 35, 1);
+  }
+
+  .table {
+    padding: 1.5rem 0 2rem 0;
+    margin: 0;
+  }
+
+
+  .examSearch {
+    width: 200px;
+    transition: width .5s ease-in-out;
+    display: inline-block;
+    /* margin: 1rem 0 1rem 0; */
+    border: 1.5px solid #808080;
+    border-radius: 12px;
+    padding: 0 6px 0 6px;
+    font-size: medium;
+    font-family: inherit;
+  }
+
+  .examSearch:focus {
+    width: 80%;
+  }

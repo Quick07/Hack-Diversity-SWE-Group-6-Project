@@ -1,35 +1,117 @@
 .MainExamPage h1 {
   max-height: 10vh;
   width: 100%;
+  font-size: 48px;
   display: block;
   color: rgba(35, 35, 35, 1);
   margin: 0%;
 }
 
 .MainExamPage h2 {
-  font-size: 24px !important;
+  font-size: 24px;
   padding: 1.75rem 0 0 0;
 }
 
-.MainExamPageButton {
-  flex: 1 1 auto;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
+.indexButton {
+  width: 225px;
+  height: 45px;
+  display: inline-block;
+  padding: 0;
+  background-color: rgb(61, 68, 220);
   color: white;
-  border-radius: 10px;
+  border: 2px solid;
+  border-radius: 115px;
+  font-size: 24px;
+  margin-top: 5vh;
+  margin-right: 5vh;
+  font-family: inherit;
 }
 
-.MainExamPagePage a {
+.MainExamPage a {
   padding: 0;
   font-size: 24px;
 }
+.MainExamPage a:hover {
+  padding: 0;
+  font-size: 24px;
+  color: unset;
+}
 
-.IndexPage {
-  padding: 0 05rem 0 20rem;
+.indexButton:hover {
+  transition: 0.25s ease-in-out;
+  cursor: pointer;
+  border-color: black;
+}
+
+.MainExamPage {
+  padding: 0 0 0 18.75rem;
 }
 .table {
   padding-top: 5rem;
   padding-bottom: 2rem;
+}
+
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .MainExamPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .indexButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .MainExamPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .indexButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .MainExamPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .indexButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  .MainExamPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .indexButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone X ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .MainExamPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .indexButton {
+    margin-right: 0%;
+  }
 }

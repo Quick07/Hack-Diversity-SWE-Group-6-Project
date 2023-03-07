@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './MainHero.css';
-import Button from '../Buttons/Button';
 export default function MainHero() {
   return (
     <div className='MainHeroContainer'>
-      <h1 className='header'>welcome to advance x-ray</h1>
+      <h1 className='header'>welcome to project x</h1>
       <div className='MainHerobuttonContainer'>
-        <Link to='/ExamPage'>
+        <Link to='/Exams'>
           {' '}
-          <Button className='button' button='Exams' />
+          <button className='button'>Exams</button>
         </Link>
 
-        <Link to='/AdminPage'>
-          <Button className='button' button='Admin' />
+        <Link to='/Admin'>
+          <button className='button'> Admin</button>
         </Link>
       </div>
     </div>

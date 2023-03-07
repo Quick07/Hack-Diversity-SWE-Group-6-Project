@@ -5,17 +5,20 @@ import AdminPageHero from './components/Hero/AdminPageHero';
 import ExamPageHero from './components/Hero/ExamPageHero';
 import AboutPageHero from './components/Hero/AboutPageHero';
 import ExamPage from './components/Exam/ExamPage';
-import ExamEdit from './components/Exam/ExamEdit';
-import ExamList from './components/Exam/ExamList';
-import CreateExamPage from './components/Exam/CreateExamPage';
-import ExamInfo from './components/Exam/ExamInfo';
+import ExamEdit from './components/ExamEdit/ExamEdit';
+// import ExamList from './components/Exam/ExamList';
+// import SignUp from './components/Exam/CreateExamPage';
+import ExamInfo from './components/ExamInfo/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
-import Button from './components/Buttons/Button';
+import PatientsList from './components/PatientsPage/PatientsList';
 
 import './App.css';
 
 import { useApi } from './hooks/use-api';
+import Examstable from './components/Exam/Examstable';
+import TablePage from './components/Exam/TablePage';
+import SignUp from './components/Exam/CreateExamPage';
 
 function App() {
   const { response } = useApi();
@@ -32,7 +35,7 @@ function App() {
             }
           />
           <Route
-            path='ExamPage'
+            path='Exams'
             element={
               <div>
                 <Navbar />
@@ -42,12 +45,32 @@ function App() {
             }
           />
           <Route
-            path='ExamPage/Exam'
+            // Table of all exams
+            path='Exams/ViewList'
             element={
               <div>
                 <Navbar />
-                <ExamPageHero />
+                <TablePage />
+              </div>
+            }
+          />
+          <Route
+            // View a single exam
+            path='Exams/ViewExam'
+            element={
+              <div>
+                <Navbar />
                 <ExamInfo />
+              </div>
+            }
+          />
+          <Route
+          // Table of patients
+            path='Exams/ViewPatients'
+            element={
+              <div>
+              <Navbar />
+                <PatientsList/>
               </div>
             }
           />
@@ -57,12 +80,13 @@ function App() {
               <div>
                 <Navbar />
                 <ExamPageHero />
-                <ExamList />
+                <Examstable />
               </div>
             }
           />
           <Route
-            path='AdminPage'
+            //Admin page
+            path='Admin'
             element={
               <div>
                 <Navbar />
@@ -72,31 +96,32 @@ function App() {
             }
           />
           <Route
-            path='AdminPage/CreateExam'
+            //Create a new exam
+            path='Admin/CreateExam'
             element={
               <div>
                 <Navbar />
-                <AdminPageHero />
-                <CreateExamPage />
+                {/* <AdminPageHero /> */}
+                <SignUp />
               </div>
             }
           />
           <Route
-            path='AdminPage/EditExam'
+            //Editing a single exam
+            path='Admin/EditExam'
             element={
               <div>
                 <Navbar />
-                <ExamPageHero />
                 <ExamEdit />
               </div>
             }
           />
           <Route
-            path='AboutPage'
+            path='About'
             element={
               <div>
                 <Navbar />
-                <AboutPageHero />
+                {/* <AboutPageHero /> */}
                 <AboutPage />
               </div>
             }

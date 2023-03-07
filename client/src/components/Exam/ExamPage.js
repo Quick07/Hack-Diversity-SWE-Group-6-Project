@@ -1,26 +1,17 @@
 import React from 'react';
 import './ExamPage.css';
 import { Link } from 'react-router-dom';
-import Indextable from '../Exam/Examstable';
-import Button from '../Buttons/Button';
-import ExamPageHero from '../Hero/ExamPageHero';
 
 // This page allows access to view all exam and patient information
-export default function IndexPage() {
-  return (
-    <div className='MainExamPage'>
-      <div></div>
-      <div className='table'>
-        <Indextable />
-      </div>
-      <div className='MainHerobuttonContainer'>
-        <Link to='/ExamPage/Exam'>
-          <Button className='MainExamPageButton' button='View Exam' />
-        </Link>
-        <Link to='/ExamList'>
-          <Button className='MainExamPageButton' button='View Patients' />
-        </Link>
-      </div>
+export default function MainExamPage() {
+  return <div className='MainExamPage'>
+    <div>
+    <h1>exams</h1>
+    <h2>view all exam records.</h2>
     </div>
-  );
+    <div>
+    <button className='indexButton'><Link to='/Exams/ViewList'>view exams</Link></button>
+    <button className='indexButton'><Link to='/Exams/ViewPatients'>view patients</Link></button>
+    </div>
+  </div>;
 }

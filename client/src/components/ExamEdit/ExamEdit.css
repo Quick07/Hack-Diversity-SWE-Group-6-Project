@@ -1,0 +1,208 @@
+.text1 {
+    max-height: 2.5%;
+    width: 100%;
+    font-family: 'Helvetica Neue';
+    display: inline;
+  }
+  
+  .text2 {
+    padding-top: 10px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: lowercase;
+    color: #808080;
+    margin-block: 0;
+  }
+  
+  .text3 {
+    padding: 15px;
+    color: #808080;
+    background-color: lightgray;
+    border-radius: 12px;
+    border-bottom-left-radius: 0%;
+    border-bottom-right-radius: 0%;
+    font-weight: 400;
+    font-size: 24px;
+    display: block;
+    border: 0 solid #808080;
+    border-bottom-width: 3px;
+    margin-block: 0;
+  }
+  
+  .Text {
+    padding: 15px;
+    padding-top: 0px;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .ExamEditPage {
+    align-content: flex-start;
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1;
+    padding: 1rem 3rem 0 18.75rem;
+    max-height: 97.5vh;
+    font-size: 24px;
+  }
+  
+  .ExamEditPage h1 {
+    padding: .5rem 0 .5rem 0;
+    font-size: 48px!important;
+    display:block;
+    color: rgba(35, 35, 35, 1);
+    margin: 0%;
+  }
+  
+  /* When Screen is narrow, arrange content in one column */
+  @media (max-width: 500px) {
+    .Tables {
+      width: 100% !important;
+    }
+    .InfoTable {
+      min-height: 300px;
+    }
+  }
+  
+  .ExamEditPage div.Info {
+    padding: 1.5rem 0 2rem 0;
+    width: 100%;
+    display: flex;
+    gap: 1.5rem;
+    flex-flow: row wrap;
+    overflow: visible;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .Tables{
+    display: flex;
+    flex-shrink: 1;
+    flex-direction: end;
+    flex-flow:column;
+    gap: 1.5rem;
+  }
+  
+  .InfoTable {
+    background-color: white;
+    border: 3px solid #808080;
+    border-radius: 15px;
+    flex-basis: 100%;
+    width: 100%;
+    min-width: 250px;
+    min-height: 400px;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  
+  .PatientTable {
+    background-color: white;
+    border: 3px solid #808080;
+    border-radius: 15px;
+    height: 40%;
+    flex-basis: 100%;
+    min-width: 250px;
+    min-height: 250px;
+  }
+  
+  .ExamEditPage .Column {
+    width: 45%;
+    padding: 15px;
+    padding-top: 0px;
+    font-style: normal;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 24px;
+  }
+  
+   .ExamEditPage input{
+    display: flex;
+    margin: 4px 0 4px 0;
+    border: 1.5px solid #808080;
+    border-radius: 12px;
+    padding: 1px 6px 0 6px;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .ExamEditPage textarea{
+    display: flex;
+    height: 150px;
+    width: 100%;
+    margin: 4px 0 4px 0;
+    border: 1.5px solid #808080;
+    border-radius: 12px;
+    padding: 6px 6px 0 6px;
+    font-size: medium;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .inputId {
+    background-color: lightgray;
+  }
+  
+  .urlInput {
+    width: 100%;
+  }
+  
+  
+  .Button {
+    border: none;
+    font-size: 20px;
+  }
+  
+  .Button:hover {
+    background-color: #555;
+  }
+
+  .ExamEditPage a:hover {
+    color:unset;
+  }
+
+  .ExamEditPage a {
+    color:white;
+  }
+  
+  .buttons {
+    width: 100%;
+    display: flex;
+    gap: 1.5rem;
+    padding: 1rem 0 1rem 0;
+    justify-content: center;
+  }
+  
+  .Button {
+    font-family: 'Montserrat';
+    transition: .25s ease-in-out;
+    text-align: center;
+    width: 25vw;
+    max-width: 150px;
+    height: 50px;
+    background-color: #323232;
+    border-radius: 115px;
+    color: white;
+  }
+  .ExamEditPage .content {
+    width: 100%;
+    padding: 15px;
+    padding-top: 0px;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .ExamEditPage .id {
+    width: 100%;
+  }
+  
+  .ExamEditPage .Column {
+    display: inline-block;
+    width: 50%;
+    padding:0;
+    margin: 0;
+  }

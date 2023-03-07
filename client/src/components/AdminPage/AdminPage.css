@@ -1,43 +1,102 @@
 .AdminPage h1 {
-  font-size: 3rem;
-  padding: 0 2rem;
+  max-height: 10vh;
+  width: 100%;
+  font-size: 48px;
+  display: block;
+  color: rgba(35, 35, 35, 1);
+  margin: 0%;
 }
 
 .AdminPage h2 {
-  padding: 0 2rem;
+  font-size: 24px;
+  padding: 1.75rem 0 0 0;
 }
-/* .adminbuttons { 
-   display:flex;
-   flex-direction: row;
-   flex-wrap: nowrap;
-   justify-content: space-around;
-   align-items: flex-start;
-  }
-  */
+
 .adminButton {
-  display: flex;
-  flex: 1 1 auto;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 200% auto;
-  color: white;
-  border-radius: 10px;
   width: 225px;
   height: 45px;
+  display: inline-block;
   background-color: rgb(195, 18, 121);
-  border: 3px solid;
-  font-size: 2rem;
+  color: white;
+  border: 2px solid;
+  border-radius: 115px;
+  font-size: 24px;
   margin-top: 5vh;
   margin-right: 5vh;
+  font-family: inherit;
 }
 
 .adminButton:hover {
+  transition: 0.25s ease-in-out;
   cursor: pointer;
-  background-color: rgb(122, 0, 71);
+  border-color: black;
 }
 
 .AdminPage {
-  min-height: 50vh;
-  margin: 0px 2rem 0 22rem;
+  padding: 0 0 0 18.75rem;
+}
+
+/* ----------- iPhone 4 and 4S ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .AdminPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .adminButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone 5, 5S, 5C and 5SE ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .AdminPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .adminButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone 6, 6S, 7 and 8 ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+  .AdminPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .adminButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone 6+, 7+ and 8+ ----------- */
+/* Portrait and Landscape */
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+  .AdminPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .adminButton {
+    margin-right: 0%;
+  }
+}
+
+/* ----------- iPhone X ----------- */
+/* Portrait */
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  .AdminPage {
+    padding: 0 0 0 8.75rem;
+    text-align: center;
+  }
+
+  .adminButton {
+    margin-right: 0%;
+  }
 }

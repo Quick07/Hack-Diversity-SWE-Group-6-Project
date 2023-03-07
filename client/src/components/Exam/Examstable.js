@@ -52,7 +52,6 @@ const rows = [
 
 export default function Examstable() {
   return (
-    <Container>
       <TableContainer component={Paper}>
         <Table
           sx={{
@@ -98,6 +97,5 @@ export default function Examstable() {
           </TableBody>
         </Table>
       </TableContainer>
-    </Container>
   );
 }
