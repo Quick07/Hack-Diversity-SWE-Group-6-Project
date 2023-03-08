@@ -1,92 +1,61 @@
 import React from 'react';
+import {exams, patients } from '../../data2';
 import './ExamInfo.css';
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 
 //This page displays all the details of an exam
 function ExamInfo() {
-  const [allPatients, setAllPatients] = useState('');
-  const { _id } = useParams();
-  useEffect(() => {
-    fetch('http://localhost:9000/patients')
-      .then(response => response.json())
-      .then(data => setAllPatients(data))
-      .catch(error => {
-        console.log(error);
-        setError('Failed to fetch patient data.');
-      });
-  }, [allPatients]);
-
-  //exams data
-  const [allExams, setAllExams] = useState('');
-  useEffect(() => {
-    fetch('http://localhost:9000/exams')
-      .then(response => response.json())
-      .then(data => setAllExams(data))
-      .catch(error => {
-        console.log(error);
-        setError('Failed to fetch exams data.');
-      });
-  }, [allExams]);
-
-  if (!allPatients || !allExams) {
-    return <div></div>;
-  }
-  var exam = allExams.find(e => e._id == _id);
-
-  var patient = allPatients.find(e => e.PATIENT_ID == exam.PATIENT_ID);
-
+  var exam = exams[0];
+  var patient = patients.find(e => e.patientId == exam.patientId);
   return (
     <div className='ExamInfoPage'>
       <div>
-        <header className='header'>
-          <h1> exam info</h1>
-          View details about an exam here.
-        </header>
+      <header className='header'>
+        <h1> exam info</h1>
+        View details about an exam here.
+      </header>
       </div>
-      <div className='Info'>
-        <div>
-          <img className='ExamImage' src={exam.xray_url} alt='' />
-        </div>
+      <div className='Info' >
+      <div>
+        <img className='ExamImage' src={exam.imageURL} alt='' />
+      </div>
 
-        {/* Tables Containing patient and exam info from example Exams and Patients in Data.js   */}
+      {/* Tables Containing patient and exam info from example Exams and Patients in Data.js   */}
 
-        <div className='Tables'>
-          <div className='InfoTable'>
-            <div className='text3'> exam info </div>
-            <div className='Text'>
-              <div className='text2'>exam id</div>
-              {exam.exam_Id}
-              <div className='text2'>brixia score</div>
-              {exam.brixia_scores}
-              <div className='text2'>key findings</div>
-              {exam.key_findings}
-            </div>
+      <div className='Tables'>
+        <div className='InfoTable'>
+          <div className='text3'> exam info </div>
+          <div className='Text'>
+            <div className='text2'>exam id</div>
+            {exam.examId}
+            <div className='text2'>brixia score</div>
+            {exam.brixScore}
+            <div className='text2'>key findings</div>
+            {exam.keyFindings}
           </div>
-          <div className='PatientTable'>
-            <div className='text3'> patient info </div>
-            <div className='content'>
-              <div className='id'>
-                <div className='text2'>patient id</div>
-                {patient.PATIENT_ID}
-              </div>
-              <div className='Column'>
-                <div className='text2'>age</div>
-                {patient.AGE}
-                <div className='text2'>sex</div>
-                {patient.SEX}
-              </div>
-              <div className='Column'>
-                <div className='text2'>bmi</div>
-                {patient.LATEST_BMI}
-                <div className='text2'>weight</div>
-                {patient.LATEST_WEIGHT} lbs
-                {/* <div className='text2'>zip code</div>
+        </div>
+        <div className='PatientTable'>
+          <div className='text3'> patient info </div>
+          <div className='content'>
+            <div className='id'>
+              <div className='text2'>patient id</div>
+              {patient.patientId}</div>
+            <div className='Column'>
+              <div className='text2'>age</div>
+              {patient.age}
+              <div className='text2'>sex</div>
+              {patient.sex}
+            </div>
+            <div className='Column'>
+              <div className='text2'>bmi</div>
+              {patient.bmi}
+              <div className='text2'>weight</div>
+              {patient.weight} lbs
+              {/* <div className='text2'>zip code</div>
               {patient.zip} */}
-              </div>
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
