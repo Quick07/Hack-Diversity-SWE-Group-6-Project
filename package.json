@@ -29,6 +29,8 @@
         "formik": "^2.2.9",
         "http-errors": "^2.0.0",
         "jade": "^1.9.2",
+        "mongo": "^0.1.0",
+        "mongodb": "^5.1.0",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.20",
         "prettier": "^2.8.4",

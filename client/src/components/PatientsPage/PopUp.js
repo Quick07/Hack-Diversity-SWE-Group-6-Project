@@ -4,15 +4,15 @@ import React, { useState } from "react";
 
 const FilterSlider = styled(Slider)({
   color: '#333333',
-  height: 8,
+  height: 6,
   width: "93.5%",
   margin:'0 16px 0 16px',
   '& .MuiSlider-track': {
     border: 'none',
   },
   '& .MuiSlider-thumb': {
-    height: 24,
-    width: 24,
+    height: 12,
+    width: 12,
     border: '2px solid currentColor',
     '&:focus, &:hover, &.Mui-active, &.Mui-focusVisible': {
       boxShadow: 'inherit',
@@ -45,68 +45,63 @@ const FilterSlider = styled(Slider)({
 });
 
 function PopUp(props) {
-    const { filterValues } = props;
-    const {save} = props;
-    const [checkedFemale, setCheckedFemale] = useState(true);
-    const [checkedMale, setCheckedMale] = useState(true);
-    const [ageRange, setAgeRange] = useState([filterValues.minAge, filterValues.maxAge]);
-    const [weightRange, setWeightRange] = useState([filterValues.minWeight, filterValues.maxWeight]);
-    const [bmiRange, setBmiRange] = useState([filterValues.minBMI, filterValues.maxBMI]);
+  const filterValues = props.filterValues;
+    // const save = props.save();
+    const [hasFemales, setHasFemales] = useState(filterValues.females);
+    const [hasMales, setHasMales] = useState(filterValues.males);
+    const [minAge, setMinAge] = useState(filterValues.minAge);
+    const [maxAge, setMaxAge] = useState(filterValues.maxAge);
+    const [minWeight, setMinWeight] = useState(filterValues.minWeight);
+    const [maxWeight, setMaxWeight] = useState(filterValues.maxWeight);
+    const [minBMI, setMinBMI] = useState(filterValues.minBMI);
+    const [maxBMI, setMaxBMI] = useState(filterValues.maxBMI);
   
-    const handleFemaleChange = () => {
-      setCheckedFemale(!checkedFemale);
-    };
-  
-    const handleMaleChange = () => {
-      setCheckedMale(!checkedMale);
-    };
-  
-    const handleAgeChange = (event, newValue) => {
-      setAgeRange(newValue);
-    };
-  
-    const handleWeightChange = (event, newValue) => {
-      setWeightRange(newValue);
-    };
-  
-    const handleBmiChange = (event, newValue) => {
-      setBmiRange(newValue);
-    };
   
     const handleClick = () => {
       props.toggle();
     };
+
+    const handleSave = () => {
+      props.save(filterValues);
+      props.toggle();
+    }
   
     return (
       <div className="PopUp">
         <div>
           <i className="x icon" onClick={handleClick} />
           <h1 className="text3">Filter</h1>
+          <h2>Sex</h2>
+          <input type="checkbox" checked={hasFemales} onChange={setHasFemales} />
+          <span className='label'>Female</span>
+          <input type="checkbox" checked={hasMales} onChange={setHasMales} />
+          <span className='label'>Male</span>
           <h2>Age</h2>
           <FilterSlider
-            defaultValue={ageRange}
+            defaultValue={[minAge, maxAge]}
             valueLabelDisplay="auto"
-            onChange={handleAgeChange}
+            onChange={[setMinAge,setMaxAge]}
+            min={0}
+            max={150}
           />
-          <h2>Sex</h2>
-          <input type="checkbox" checked={checkedFemale} onChange={handleFemaleChange} />
-          <span className='label'>Female</span>
-          <input type="checkbox" checked={checkedMale} onChange={handleMaleChange} />
-          <span className='label'>Male</span>
           <h2>Weight</h2>
           <FilterSlider
-            defaultValue={weightRange}
+            defaultValue={[minWeight,maxWeight]}
             valueLabelDisplay="auto"
-            onChange={handleWeightChange}
+            onChange={[setMinWeight,setMaxWeight]}
+            min={0}
+            max={800}
           />
           <h2>BMI</h2>
           <FilterSlider
-            defaultValue={bmiRange}
+            defaultValue={[minBMI,maxBMI]}
             valueLabelDisplay="auto"
-            onChange={handleBmiChange}
+            onChange={[setMinBMI,setMaxBMI]}
+            min={0}
+            max={105}
           />
           <span className='buttons'>
-            <button className='Button'><h2>Save</h2></button>
+            <button className='Button' onClick={handleSave}><h2>Save</h2></button>
           </span>
         </div>
       </div>
@@ -114,3 +109,4 @@ function PopUp(props) {
   }
   
   export default PopUp;
+
