@@ -36,7 +36,7 @@ export default function PatientTable(props) {
   return (
     <div>
       {patients.length < 1 ?
-      <p>Loading data...</p> : (
+      <p>No patients found.</p> : (
       <TableContainer className='table'component={Paper}>
         <Table
           sx={{
@@ -57,8 +57,8 @@ export default function PatientTable(props) {
           <TableHead >
             <TableRow>
               <StyledTableCell sx={{borderTopLeftRadius:12}}>Patient ID</StyledTableCell>
-              <StyledTableCell>Age</StyledTableCell>
               <StyledTableCell>Sex</StyledTableCell>
+              <StyledTableCell>Age</StyledTableCell>
               <StyledTableCell>Weight</StyledTableCell>
               <StyledTableCell sx={{borderTopRightRadius:12}}>BMI</StyledTableCell>
             </TableRow>
@@ -69,8 +69,8 @@ export default function PatientTable(props) {
                 <StyledTableCell component='th' scope='row'>
                   {patient.PATIENT_ID}
                 </StyledTableCell>
-                <StyledTableCell align='left'>{patient.AGE}</StyledTableCell>
                 <StyledTableCell align='left'>{patient.SEX}</StyledTableCell>
+                <StyledTableCell align='left'>{patient.AGE}</StyledTableCell>
                 <StyledTableCell align='left'>{patient.LATEST_WEIGHT} lbs</StyledTableCell>
                 <StyledTableCell align='left'>{patient.LATEST_BMI}</StyledTableCell>
               </StyledTableRow>

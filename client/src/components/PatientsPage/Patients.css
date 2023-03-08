@@ -132,12 +132,12 @@
   }
 
   .PopUp .label{
-    font-size: 20px;
-    margin:5px 0 5px 0;
+    font-size: 24px;
+    margin:15px 0 15px 0;
   } 
 
   .PopUp [type=checkbox]{
-    margin:5px 0 5px 15px;
+    margin:15px 0 15px 15px;
   } 
 
   .PopUp .icon{
@@ -153,8 +153,9 @@
   }
 
   .PopUp h2{
+    font-size: 32px;
     width: 100%;
-    margin:15px 15px 0px 15px;
+    margin:15px 15px 10px 15px;
     color: black;
     font-weight: 600;
   }
