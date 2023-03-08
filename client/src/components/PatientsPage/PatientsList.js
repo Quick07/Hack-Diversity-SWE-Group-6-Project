@@ -125,7 +125,7 @@ export default function PatientsList(){
     {filterSeen ? 
     <div className="PopUp">
           <div>
-            <i className="x icon" onClick={togglePop} />
+            <i className="x icon" onClick={toggleFilter} />
             <h1 className="text3">Filter</h1>
             <h2>Sex</h2>
             <input type="checkbox" checked={hasFemales} onChange={(e) => setHasFemales(e.target.checked)} />
@@ -156,9 +156,6 @@ export default function PatientsList(){
               min={0}
               max={105}
             />
-          <span className='buttons'>
-            <button className='Button' onClick={toggleFilter}><h2>Save</h2></button>
-          </span>
           </div>
         </div>
          : null}
