@@ -56,7 +56,7 @@ function App() {
           />
           <Route
             // View a single exam
-            path='Exams/ViewExam'
+            path='Exams/ViewExam/:_id'
             element={
               <div>
                 <Navbar />
@@ -65,12 +65,12 @@ function App() {
             }
           />
           <Route
-          // Table of patients
+            // Table of patients
             path='Exams/ViewPatients'
             element={
               <div>
-              <Navbar />
-                <PatientsList/>
+                <Navbar />
+                <PatientsList />
               </div>
             }
           />
