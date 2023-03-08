@@ -2,16 +2,50 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { exams, patients } from '../../data2';
 import './ExamEdit.css';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 //This page displays all the details of an exam
 function ExamEdit() {
-    var exam = exams[0];
-    var patient = patients.find(e => e.patientId == exam.patientId);
+
+  const [allPatients, setAllPatients] = useState('');
+  const { _id } = useParams();
+  useEffect(() => {
+    fetch('http://localhost:9000/patients')
+      .then(response => response.json())
+      .then(data => setAllPatients(data))
+      .catch(error => {
+        console.log(error);
+        setError('Failed to fetch patient data.');
+      });
+  }, [allPatients]);
+
+  //exams data
+  const [allExams, setAllExams] = useState('');
+  useEffect(() => {
+    fetch('http://localhost:9000/exams')
+      .then(response => response.json())
+      .then(data => setAllExams(data))
+      .catch(error => {
+        console.log(error);
+        setError('Failed to fetch exams data.');
+      });
+  }, [allExams]);
+
+
+  if (!allPatients || !allExams) {
+    return <div></div>;
+  }
+
+    var exam = allExams.find(e => e._id == _id);  // var exam = exams[0];
+
+    var patient = allPatients.find(e => e.PATIENT_ID == exam.PATIENT_ID); // var patient = patients.find(e => e.patientId == exam.patientId);
+
     
-  const [xrayUrl, onChangeXrayUrl] = React.useState((exam.imageURL));
-  const [examId, onChangeId] = React.useState(exam.examId);
-  const [brixScore, onChangeBrixScore] = React.useState(exam.brixScore);
-  const [keyFindings, onChangeKeyFindings] = React.useState(exam.keyFindings);
+  const [xrayUrl, onChangeXrayUrl] = React.useState((exam.xray_url));
+  const [examId, onChangeId] = React.useState(exam.exam_Id);
+  const [brixScore, onChangeBrixScore] = React.useState(exam.brixia_scores);
+  const [keyFindings, onChangeKeyFindings] = React.useState(exam.key_findings);
 
   return (
     <div className='ExamEditPage'>
@@ -53,27 +87,28 @@ function ExamEdit() {
           </div>
         </div>
         <div className='PatientTable'>
-          <div className='text3'> patient info </div>
-          <div className='content'>
-            <div className='id'>
-              <div className='text2'>patient id</div>
-              {patient.patientId}</div>
-            <div className='Column'>
-              <div className='text2'>age</div>
-              {patient.age}
-              <div className='text2'>sex</div>
-              {patient.sex}
-            </div>
-            <div className='Column'>
-              <div className='text2'>bmi</div>
-              {patient.bmi}
-              <div className='text2'>weight</div>
-              {patient.weight} lbs
-              {/* <div className='text2'>zip code</div>
+            <div className='text3'> patient info </div>
+            <div className='content'>
+              <div className='id'>
+                <div className='text2'>patient id</div>
+                {patient.PATIENT_ID}
+              </div>
+              <div className='Column'>
+                <div className='text2'>age</div>
+                {patient.AGE}
+                <div className='text2'>sex</div>
+                {patient.SEX}
+              </div>
+              <div className='Column'>
+                <div className='text2'>bmi</div>
+                {patient.LATEST_BMI}
+                <div className='text2'>weight</div>
+                {patient.LATEST_WEIGHT} lbs
+                {/* <div className='text2'>zip code</div>
               {patient.zip} */}
+              </div>
             </div>
           </div>
-        </div>
       </div>
       <div className='buttons'>
         <button
