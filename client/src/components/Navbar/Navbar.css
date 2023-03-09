@@ -5,34 +5,34 @@ body {
 div.Sidenav {
   list-style-type: none;
   margin: 0;
-  padding: 1rem 0 2rem 0;
-  background-color: #00000052;
+  padding: 16px 0 4rem 0;
+  background-color: #000000CC;
   position: fixed;
   height: 100%;
-  width: 225px;
+  width: 250px;
   overflow: auto;
   font-size: 30px;
   letter-spacing: 3px;
   color: white;
   font-family: 'Montserrat';
   font-weight: bold;
-  border-radius: 5px;
 }
 
 .Sidenav h1 {
-  font-size: 36px;
+  font-size: 42px;
   letter-spacing: 3px;
   color: white;
   font-family: 'Montserrat';
-  font-weight: bold;
 }
 
 .Sidenav a {
   font-family: 'Montserrat';
   display: block;
   text-align: center;
+  text-justify: center;
   text-decoration: none;
-  padding-top: 80px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .Sidenav a:hover {
   color: unset;

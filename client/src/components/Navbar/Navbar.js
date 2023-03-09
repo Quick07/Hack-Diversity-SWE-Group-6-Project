@@ -7,7 +7,7 @@ class Navbar extends Component {
       <div>
         <div className='Sidenav'>
           <Link to='/'>
-            <h1>Project x</h1>
+            <h1>Project X</h1>
           </Link>
 
           <Link to='/Exams' className='navitem'>
