@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Patients.css';
 import { Link } from 'react-router-dom';
 import PatientTable from './PatientTable';
@@ -61,40 +61,50 @@ export default function PatientsList() {
   const [weightRange, setWeightRange] = useState([0, 800]);
   const [BMIRange, setBMIRange] = useState([0, 105]);
   const [filteredPatients, setFilteredPatients] = useState([]); // array of patients filtered with criteria
+  const [searchedPatients, setSearchedPatients] = useState([]); // array of patients filtered with criteria
+  const [sortValue, setSortValue] = useState(); // how to sort array
+  const [ageStyle, setAgeStyle] = useState(); // array of patients filtered with criteria
+  const [weightStyle, setWeightStyle] = useState(); // array of patients filtered with criteria
+  const [BMIStyle, setBMIStyle] = useState(); // array of patients filtered with criteria
+  const [search, onSearch] = useState(''); // array of patients filtered with criteria
+  const filterRef = useRef({
+    females: hasFemales,
+    males: hasMales,
+    age: ageRange,
+    weight: weightRange,
+    BMI: BMIRange,
+  });
+  const sortRef = useRef(sortValue);
 
   useEffect(() => {
-    const filterPatients = () => {
-      if (!allPatients) {
-        return [];
-      }
-      const filteredList = allPatients.filter(patient => {
-        return (
-          patient.AGE >= ageRange[0] &&
-          patient.AGE <= ageRange[1] &&
-          ((patient.SEX === 'F' && hasFemales) ||
-            (patient.SEX === 'M' && hasMales)) &&
-          patient.LATEST_WEIGHT >= weightRange[0] &&
-          patient.LATEST_WEIGHT <= weightRange[1] &&
-          patient.LATEST_BMI >= BMIRange[0] &&
-          patient.LATEST_BMI <= BMIRange[1]
-        );
+    fetch('http://localhost:9000/patients')
+      .then(response => response.json())
+      .then(data => {
+        setAllPatients(data);
+        setFilteredPatients(data);
+        setSearchedPatients(data);
+      })
+      .catch(error => {
+        console.log(error);
+        console.log('Failed to fetch patient data.');
       });
-      return filteredList;
-    };
+  }, []);
 
-    if (allPatients.length === 0) {
-      fetch('http://localhost:9000/patients')
-        .then(response => response.json())
-        .then(data => setAllPatients(data))
-        .catch(error => {
-          console.log(error);
-          setError('Failed to fetch patient data.');
-        });
+  useEffect(() => {
+    handleStyleChange;
+    const regex = new RegExp(search, 'i');
+    if (search.length > 0) {
+      setSearchedPatients(
+        filteredPatients.filter(p => regex.test(p.PATIENT_ID))
+      );
+    } else {
+      setSearchedPatients(filteredPatients);
     }
+  }, [filteredPatients, search]);
 
-    const targetPatients = filterPatients();
-    setFilteredPatients(targetPatients);
-  }, [allPatients, ageRange, hasFemales, hasMales, weightRange, BMIRange]);
+  useEffect(() => {
+    handleStyleChange();
+  }, [sortValue]);
 
   const toggleFilter = () => {
     setFilterSeen(!filterSeen);
@@ -104,36 +114,217 @@ export default function PatientsList() {
     setSortSeen(!sortSeen);
   };
 
+  const sortArray = (pArray, sortBy) => {
+    let sortedArray = pArray;
+    switch (sortBy) {
+      case 'A+':
+        sortedArray = pArray.sort((a, b) => a.AGE - b.AGE);
+        break;
+      case 'A-':
+        sortedArray = pArray.sort((a, b) => b.AGE - a.AGE);
+        break;
+      case 'W+':
+        sortedArray = pArray.sort((a, b) => a.LATEST_WEIGHT - b.LATEST_WEIGHT);
+        break;
+      case 'W-':
+        sortedArray = pArray.sort((a, b) => b.LATEST_WEIGHT - a.LATEST_WEIGHT);
+        break;
+      case 'B+':
+        sortedArray = pArray.sort((a, b) => a.LATEST_BMI - b.LATEST_BMI);
+        break;
+      case 'B-':
+        sortedArray = pArray.sort((a, b) => b.LATEST_BMI - a.LATEST_BMI);
+        break;
+    }
+    return sortedArray;
+  };
+
+  const filterPatients = () => {
+    if (!allPatients) {
+      return [];
+    }
+    const filteredList = allPatients.filter(patient => {
+      return (
+        patient.AGE >= ageRange[0] &&
+        patient.AGE <= ageRange[1] &&
+        ((patient.SEX === 'F' && hasFemales) ||
+          (patient.SEX === 'M' && hasMales)) &&
+        patient.LATEST_WEIGHT >= weightRange[0] &&
+        patient.LATEST_WEIGHT <= weightRange[1] &&
+        patient.LATEST_BMI >= BMIRange[0] &&
+        patient.LATEST_BMI <= BMIRange[1]
+      );
+    });
+    return filteredList;
+  };
+
+  const handleStyleChange = () => {
+    switch (sortValue) {
+      case 'A+':
+        setAgeStyle("checked");
+        setWeightStyle();
+        setBMIStyle();
+        break;
+      case 'A-':
+        setAgeStyle("checked");
+        setWeightStyle();
+        setBMIStyle();
+        break;
+      case 'W+':
+        setAgeStyle();
+        setWeightStyle("checked");
+        setBMIStyle();
+        break;
+      case 'W-':
+        setAgeStyle();
+        setWeightStyle('checked');
+        setBMIStyle();
+        break;
+      case 'B+':
+        setAgeStyle();
+        setWeightStyle();
+        setBMIStyle('checked');
+        break;
+      case 'B-':
+        setAgeStyle();
+        setWeightStyle();
+        setBMIStyle('checked');
+        break;
+      default:
+        setAgeStyle();
+        setWeightStyle();
+        setBMIStyle();
+        break;
+    }
+  };
+
+  const handleAgeSort = () => {
+    if (sortValue === 'A+') {
+      setSortValue('A-');
+    } else if (sortValue === 'A-') {
+      setSortValue();
+    } else {
+      setSortValue('A+');
+    }
+  };
+
+  const handleWeightSort = () => {
+    if (sortValue === 'W+') {
+      setSortValue('W-');
+    } else if (sortValue === 'W-') {
+      setSortValue();
+    } else {
+      setSortValue('W+');
+    }
+  };
+
+  const handleBMISort = () => {
+    if (sortValue === 'B+') {
+      setSortValue('B-');
+    } else if (sortValue === 'B-') {
+      setSortValue();
+    } else {
+      setSortValue('B+');
+    }
+  };
+
+  const handleSave = () => {
+    var patients = filterPatients(allPatients);
+    patients = sortArray(filterPatients(allPatients), sortValue);
+    setFilteredPatients(patients);
+
+    filterRef.current = {
+      females: hasFemales,
+      males: hasMales,
+      age: ageRange,
+      weight: weightRange,
+      BMI: BMIRange,
+    };
+    sortRef.current = sortValue;
+
+    if (filterSeen) {
+      toggleFilter();
+    }
+    if (sortSeen) {
+      toggleSort();
+    }
+  };
+
+  const handleCancel = () => {
+    setHasFemales(filterRef.current.females);
+    setHasMales(filterRef.current.males);
+    setAgeRange(filterRef.current.age);
+    setWeightRange(filterRef.current.weight);
+    setBMIRange(filterRef.current.BMI);
+    setSortValue(sortRef.current);
+    if (filterSeen) {
+      toggleFilter();
+    }
+    if (sortSeen) {
+      toggleSort();
+    }
+  };
+
+  const ageIcon = () => {
+    switch (sortValue) {
+      case 'A+':
+        return <i class='arrow up icon'></i>;
+      case 'A-':
+        return <i class='arrow down icon'></i>;
+      default:
+        return null;
+    }
+  };
+
+  const weightIcon = () => {
+    switch (sortValue) {
+      case 'W+':
+        return <i class='arrow up icon'></i>;
+      case 'W-':
+        return <i class='arrow down icon'></i>;
+      default:
+        return null;
+    }
+  };
+
+  const bmiIcon = () => {
+    switch (sortValue) {
+      case 'B+':
+        return <i class='arrow up icon'></i>;
+      case 'B-':
+        return <i class='arrow down icon'></i>;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className='PatientsPage'>
       <div>
         <h1>
           <Link to='/Exams/ViewList'>
-            <span className='inactive'>Exams </span>
+            <span className='inactive'>exams </span>
           </Link>
-          | Patients{' '}
+          | patients{' '}
         </h1>
         View all patients here.
       </div>
       <div>
-        <input className='examSearch' placeholder='Search...' />
-        <i className='sort icon' />
+        <input
+          className='examSearch'
+          placeholder='Search...'
+          value={search}
+          onChange={e => onSearch(e.target.value)}
+        />
+        <i className='sort icon' onClick={toggleSort} />
         <i className='filter icon' onClick={toggleFilter} />
       </div>
-      {console.log({ filteredPatients })}
-      {console.log({ allPatients })}
-      {console.log(
-        { hasFemales },
-        { hasMales },
-        { ageRange },
-        { weightRange },
-        { BMIRange }
-      )}
-      <PatientTable patients={filteredPatients} />
+
+      <PatientTable patients={searchedPatients} />
       {filterSeen ? (
         <div className='PopUp'>
           <div>
-            <i className='x icon' onClick={toggleFilter} />
+            <i className='x icon' onClick={handleCancel} />
             <h1 className='text3'>Filter</h1>
             <h2>Sex</h2>
             <input
@@ -172,6 +363,33 @@ export default function PatientsList() {
               min={0}
               max={105}
             />
+            <span className='buttons'>
+              <button className='Button' onClick={handleSave}>
+                <h2>Save</h2>
+              </button>
+            </span>
+          </div>
+        </div>
+      ) : null}
+      {sortSeen ? (
+        <div className='PopUp'>
+          <div className='Sort'>
+            <i className='x icon' onClick={handleCancel} />
+            <h1 className='text3'>Sort</h1>
+            <div className={ageStyle} onClick={handleAgeSort}>
+            <p>Age {ageIcon()}</p>
+            </div>
+            <div className={weightStyle} onClick={handleWeightSort}>
+            <p>Weight{weightIcon()}</p>
+            </div>
+            <div className={BMIStyle} onClick={handleBMISort}>
+              <p>BMI{bmiIcon()}</p>
+            </div>
+            <span className='buttons'>
+              <button className='Button' onClick={handleSave}>
+                <h2>Save</h2>
+              </button>
+            </span>
           </div>
         </div>
       ) : null}
