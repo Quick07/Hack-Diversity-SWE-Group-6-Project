@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './Patients.css';
 import { Link } from 'react-router-dom';
 import PatientTable from './PatientTable';
@@ -66,7 +66,15 @@ export default function PatientsList() {
   const [ageStyle, setAgeStyle] = useState(); // array of patients filtered with criteria
   const [weightStyle, setWeightStyle] = useState(); // array of patients filtered with criteria
   const [BMIStyle, setBMIStyle] = useState(); // array of patients filtered with criteria
-  const [search, onSearch] = useState(""); // array of patients filtered with criteria
+  const [search, onSearch] = useState(''); // array of patients filtered with criteria
+  const filterRef = useRef({
+    females: hasFemales,
+    males: hasMales,
+    age: ageRange,
+    weight: weightRange,
+    BMI: BMIRange,
+  });
+  const sortRef = useRef(sortValue);
 
   useEffect(() => {
     fetch('http://localhost:9000/patients')
@@ -74,32 +82,29 @@ export default function PatientsList() {
       .then(data => {
         setAllPatients(data);
         setFilteredPatients(data);
-        setSearchedPatients(data);})
+        setSearchedPatients(data);
+      })
       .catch(error => {
         console.log(error);
         setError('Failed to fetch patient data.');
       });
   }, []);
-//   const handleSave = () => {
-//     if (filterSeen) {
-//         toggleFilter();
-//     }
-//     if (sortSeen) {
-//         toggleSort();
-//     }
-//     setFilteredPatients(sortArray(filterPatients(allPatients), sortValue));
-//     setSearchedPatients(filteredPatients);
-//   };
+
   useEffect(() => {
     handleStyleChange;
-    console.log(sortValue);
-    const regex = new RegExp(search, "i");
+    const regex = new RegExp(search, 'i');
     if (search.length > 0) {
-        setSearchedPatients(filteredPatients.filter(p => regex.test(p.PATIENT_ID)))
+      setSearchedPatients(
+        filteredPatients.filter(p => regex.test(p.PATIENT_ID))
+      );
     } else {
-        setSearchedPatients(filteredPatients);
+      setSearchedPatients(filteredPatients);
     }
   }, [filteredPatients, search]);
+
+  useEffect(() => {
+    handleStyleChange();
+  }, [sortValue]);
 
   const toggleFilter = () => {
     setFilterSeen(!filterSeen);
@@ -156,18 +161,18 @@ export default function PatientsList() {
   const handleStyleChange = () => {
     switch (sortValue) {
       case 'A+':
-        setAgeStyle('checked');
+        setAgeStyle("checked");
         setWeightStyle();
         setBMIStyle();
         break;
       case 'A-':
-        setAgeStyle('checked');
+        setAgeStyle("checked");
         setWeightStyle();
         setBMIStyle();
         break;
       case 'W+':
         setAgeStyle();
-        setWeightStyle('checked');
+        setWeightStyle("checked");
         setBMIStyle();
         break;
       case 'W-':
@@ -228,12 +233,35 @@ export default function PatientsList() {
     patients = sortArray(filterPatients(allPatients), sortValue);
     setFilteredPatients(patients);
 
-    console.log(searchedPatients);
+    filterRef.current = {
+      females: hasFemales,
+      males: hasMales,
+      age: ageRange,
+      weight: weightRange,
+      BMI: BMIRange,
+    };
+    sortRef.current = sortValue;
+
     if (filterSeen) {
-        toggleFilter();
+      toggleFilter();
     }
     if (sortSeen) {
-        toggleSort();
+      toggleSort();
+    }
+  };
+
+  const handleCancel = () => {
+    setHasFemales(filterRef.current.females);
+    setHasMales(filterRef.current.males);
+    setAgeRange(filterRef.current.age);
+    setWeightRange(filterRef.current.weight);
+    setBMIRange(filterRef.current.BMI);
+    setSortValue(sortRef.current);
+    if (filterSeen) {
+      toggleFilter();
+    }
+    if (sortSeen) {
+      toggleSort();
     }
   };
 
@@ -286,7 +314,7 @@ export default function PatientsList() {
           className='examSearch'
           placeholder='Search...'
           value={search}
-          onChange={(e) => onSearch(e.target.value)}
+          onChange={e => onSearch(e.target.value)}
         />
         <i className='sort icon' onClick={toggleSort} />
         <i className='filter icon' onClick={toggleFilter} />
@@ -296,7 +324,7 @@ export default function PatientsList() {
       {filterSeen ? (
         <div className='PopUp'>
           <div>
-            <i className='x icon' onClick={toggleFilter} />
+            <i className='x icon' onClick={handleCancel} />
             <h1 className='text3'>Filter</h1>
             <h2>Sex</h2>
             <input
@@ -336,7 +364,9 @@ export default function PatientsList() {
               max={105}
             />
             <span className='buttons'>
-              <button className='Button' onClick={handleSave}><h2>Save</h2></button>
+              <button className='Button' onClick={handleSave}>
+                <h2>Save</h2>
+              </button>
             </span>
           </div>
         </div>
@@ -344,20 +374,22 @@ export default function PatientsList() {
       {sortSeen ? (
         <div className='PopUp'>
           <div className='Sort'>
-            <i className='x icon' onClick={toggleSort} />
+            <i className='x icon' onClick={handleCancel} />
             <h1 className='text3'>Sort</h1>
             <div className={ageStyle} onClick={handleAgeSort}>
-              Age {ageIcon()}
+            <p>Age {ageIcon()}</p>
             </div>
             <div className={weightStyle} onClick={handleWeightSort}>
-              Weight{weightIcon()}
+            <p>Weight{weightIcon()}</p>
             </div>
             <div className={BMIStyle} onClick={handleBMISort}>
-              BMI{bmiIcon()}
+              <p>BMI{bmiIcon()}</p>
             </div>
-          <span className='buttons'>
-            <button className='Button' onClick={handleSave}><h2>Save</h2></button>
-          </span>
+            <span className='buttons'>
+              <button className='Button' onClick={handleSave}>
+                <h2>Save</h2>
+              </button>
+            </span>
           </div>
         </div>
       ) : null}

@@ -1,219 +1,243 @@
 .PatientsPage {
-    align-content: flex-start;
-    display: flex;
-    flex-flow: row wrap;
-    flex: 1;
-    padding: 1rem 3rem 0 19rem;
-    max-height: 97.5vh;
-    font-size: 24px;
-    width: calc(100vw - 250);
-    font-family: 'Montserrat';
-    /* overflow-y:overlay; */
+  align-content: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  padding: 1rem 3rem 0 19rem;
+  max-height: 97.5vh;
+  font-size: 24px;
+  width: calc(100vw - 250);
+  font-family: 'Montserrat';
 }
 
 .PatientsPage div {
-    margin: 0 0 1rem 0;
-    width: 100%;
-    height:fit-content;
-    border-radius: 12px;
+  margin: 0 0 1rem 0;
+  width: 100%;
+  height: fit-content;
+  border-radius: 12px;
 }
 
 .PatientsPage a {
-    color:unset;
-    margin-top: 2rem;
+  color: unset;
+  margin-top: 2rem;
 }
 
 .PatientsPage h1 {
-    font-weight: 600;
-    padding: .5rem 0 .5rem 0;
-    font-size: 48px;
-    display:block;
-    color: rgba(35, 35, 35, 1);
-    margin: 0%;
-    font-family: inherit;
-  }
-
-  .PatientsPage .icon {
-    /* display: inline-block; */
-    position:relative;
-    float:right;
-    font-size:20px;
-    color: rgba(35, 35, 35, .5);
-  }
-
-  .current .icon {
-    color: rgba(35, 35, 35, 1);
-  }
-
-
-  .icon:hover {
-    transition: .5s ease-in-out;
-    color: rgba(35, 35, 35, 1);
-    cursor: pointer;
-  }
-
-  .PatientsPage .inactive {
-    font-weight: 500;
-    color: rgba(35, 35, 35, .5);
-  }
-
-  .PatientsPage .inactive:hover {
-    color: rgba(35, 35, 35, 1);
-  }
-
-  .PatientsPage .table {
-    height: 800px;
-    overflow-y: hidden;
-    padding: 0;
-    margin: 0;
-    border-radius: 12px;
-  }
-
-  .PatientsPage .table:hover {
-    overflow-y: overlay;
-    border-radius: 12px;
-  }
-  .PatientsPage .table:hover::-webkit-scrollbar {
-    position:fixed;
-  }
-
-  .PatientsPage .row {
-    width: 100%;
-    height: 75px;
-    border-top: 1.5px solid transparent;
-  }
-
-  .PatientsPage .row:hover {
-    width: 100%;
-    border-top: 1.5px solid rgba(35, 35, 35, .5);
-    border-bottom: 1.5px solid rgba(35, 35, 35, .5); 
-    height: 75px;
-  }
-
-
-  .examSearch {
-    width: 200px;
-    transition: width .5s ease-in-out;
-    display: inline-block;
-    border: 1.5px solid #808080;
-    border-radius: 12px;
-    padding: 0 6px 0 6px;
-    font-size: medium;
-    font-family: inherit;
-  }
-
-  .PopUp .Button {
-    border: none;
-    font-size: 20px;
-    margin: 25px;
-    
-  }
-  
-  .PopUp .Button:hover {
-    background-color: #555;
-  }
-
-  .PopUp .buttons h2 {
-    margin: 0;
-    color: white;
-  }
-
-  .PopUp div{
-    color: black;
-    background-color: white;
-    border: 3px solid #808080;
-    border-radius: 15px;
-    height: 500px;
-    width: 500px;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(calc(-50% + 112.5px), -50%);
-  }
-
-  .PopUp .label{
-    font-size: 24px;
-    margin:15px 0 15px 0;
-  } 
-
-  .PopUp [type=checkbox]{
-    margin:15px 0 15px 15px;
-  } 
-
-  .PopUp .icon{
-    font-size: 24px;
-    float: right;
-    margin:10px 10px 10px 10px;
-  }
-
-  .PopUp h1{
-    font-size: 38px;
-    width: 100%;
-    padding:10px 15px 10px 15px;
-  }
-
-  .PopUp h2{
-    font-size: 32px;
-    width: 100%;
-    margin:15px 15px 10px 15px;
-    color: black;
-    font-weight: 600;
-  }
-
-  .Sort div {
-    font-size: 32px;
-    color: black;
-    background-color: rgba(0, 0, 0, 0);
-    border: 0px solid transparent;
-    border-radius: 0;
-    margin: 0;
-    height: auto;
-    width: 100%;
-    padding: 25px 15px;
-    position: unset;
-    top: unset;
-    left: unset;
-    transform: none;
-    /* border: 1.5px solid rgba(35, 35, 35, transparent); */
-    border-top: 1.5px solid rgba(35, 35, 35, transparent);
-    border-bottom: 1.5px solid rgba(35, 35, 35, .25);
+  font-weight: 600;
+  padding: 0.5rem 0 0.5rem 0;
+  font-size: 48px;
+  display: block;
+  color: rgba(35, 35, 35, 1);
+  margin: 0%;
+  font-family: inherit;
 }
-/* .Sort div:hover {
-  border-top: 1.5px solid rgba(35, 35, 35, .5);
-  border-bottom: 1.5px solid rgba(35, 35, 35, .5); 
-} */
 
-.Sort .checked i{
+.PatientsPage .icon {
+  position: relative;
+  float: right;
+  font-size: 20px;
+  color: rgba(35, 35, 35, 0.5);
+}
+
+.current .icon {
+  color: rgba(35, 35, 35, 1);
+}
+
+.icon:hover {
+  transition: 0.5s ease-in-out;
+  color: rgba(35, 35, 35, 1);
+  cursor: pointer;
+}
+
+.PatientsPage .inactive {
+  font-weight: 500;
+  color: rgba(35, 35, 35, 0.5);
+}
+
+.PatientsPage .inactive:hover {
+  color: rgba(35, 35, 35, 1);
+}
+
+.PatientsPage .table {
+  height: 800px;
+  overflow-y: hidden;
+  padding: 0;
+  margin: 0;
+  border-radius: 12px;
+}
+
+.PatientsPage .table:hover {
+  overflow-y: overlay;
+  border-radius: 12px;
+}
+.PatientsPage .table:hover::-webkit-scrollbar {
+  position: fixed;
+}
+
+.PatientsPage .row {
+  width: 100%;
+  height: 75px;
+  border-top: 1.5px solid transparent;
+}
+
+.PatientsPage .row:hover {
+  width: 100%;
+  border-top: 1.5px solid rgba(35, 35, 35, 0.5);
+  border-bottom: 1.5px solid rgba(35, 35, 35, 0.5);
+  height: 75px;
+}
+
+.examSearch {
+  width: 200px;
+  transition: width 0.5s ease-in-out;
+  display: inline-block;
+  border: 1.5px solid #808080;
+  border-radius: 12px;
+  padding: 0 6px 0 6px;
+  font-size: medium;
+  font-family: inherit;
+}
+
+.PopUp .Button {
+  border: none;
+  font-size: 20px;
+  margin: 25px;
+}
+
+.PopUp .Button:hover {
+  background-color: #555;
+}
+
+.PopUp .buttons h2 {
+  margin: 0;
+  color: white;
+}
+
+.PopUp div {
+  color: black;
+  background-color: white;
+  border: 1px solid (0, 0, 0, 0.5);
+  border-radius: 15px;
+  height: 500px;
+  width: 500px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(calc(-50% + 112.5px), -50%);
+}
+
+.PopUp .label {
+  font-size: 24px;
+  margin: 15px 0 15px 0;
+}
+
+.PopUp [type='checkbox'] {
+  margin: 15px 0 15px 15px;
+}
+
+.PopUp .icon {
+  font-size: 24px;
+  float: right;
+  margin: 10px 10px 10px 10px;
+}
+
+.PopUp h1 {
+  font-size: 38px;
+  width: 100%;
+  padding: 10px 15px 10px 15px;
+}
+
+.PopUp h2 {
+  font-size: 28px;
+  width: 100%;
+  margin: 10px 15px 10px 15px;
+  color: black;
+  font-weight: 600;
+}
+
+.PopUp .Button {
+  margin: 10px;
+}
+
+.PopUp .buttons {
+  position: absolute;
+  bottom: 0;
+}
+
+.PopUp input[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0 5px 0 15px;
+  display: inline-block;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  outline: none;
+}
+.PopUp input[type='checkbox']:checked {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+  box-shadow: inset 0 0 0 2px white;
+  background-color: black;
+  outline: none;
+}
+
+.Sort div {
+  font-size: 32px;
+  border: 0px solid transparent;
+  border-radius: 0;
+  margin: 0;
+  height: auto;
+  width: 100%;
+  padding: 25px 15px;
+  box-shadow: none;
+  position: unset;
+  top: unset;
+  left: unset;
+  transform: none;
+  border-top: 1.5px solid rgba(35, 35, 35, transparent);
+  border-bottom: 1.5px solid rgba(35, 35, 35, 0.25);
+}
+
+.PopUp i {
+  color: white !important;
+}
+
+
+.Sort .checked i {
   font-size: 50px;
   margin: 0 0 10px 0;
   text-justify: center;
+  color:rgba(35, 35, 35, 1)!important;
 }
 
-.Sort .checked {
-  font-weight: 600;
-  background-color: 1.5px solid rgba(35, 35, 35, 1);
+.Sort .checked p {
+  font-weight: 800;
+  color:rgba(35, 35, 35, 1);
 }
 
-  .text3 {
-    padding: 25px;
-    color: #808080;
-    background-color: lightgray;
-    border-radius: 12px;
-    border-bottom-left-radius: 0%;
-    border-bottom-right-radius: 0%;
-    font-weight: 400;
-    font-size: 24px;
-    display: block;
-    border: 0 solid #808080;
-    border-bottom-width: 3px;
-    margin-block: 0;
-  }
+.Sort p{
+  /* font-weight: 800; */
+  color:rgba(35, 35, 35, .5);
+}
 
-  .PopUp .inputLeft {
-    width: 50px;
-    margin: 5px 0 5px 0;
-  }
-  .PopUp .inputRight {
-    float: right;
-    width: 50px;
-  }
+.PopUp .text3 {
+  /* padding: 25px; */
+  color: white;
+  background-color: rgb(35, 35, 35);
+  border-radius: 12px;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  /* font-weight: 400; */
+  /* font-size: 24px; */
+  display: block;
+  border: 0 solid #808080;
+  /* border-bottom-width: 3px; */
+  border-bottom-width: 0;
+  margin-block: 0;
+}
