@@ -1,23 +1,47 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { exams, patients } from '../../data2';
 import './CreateExam.css';
 
+// const { MongoClient } = require('mongodb');
+
+// const uri = 'mongodb+srv://admin:pass@techdive.uhfnhov.mongodb.net/test';
+// const dbName = 'Exams';
+
+// const client = new MongoClient(uri);
+
+//       await client.connect();
+//       const db = client.db(dbName);
+//       const patients = db.collection('Patients');
+//       const result = await patients.find().toArray();
+//       await client.close();
+
+var exam = exams[0];
+var patient = patients[0];
+
+
 //This page displays all the details of an exam
-function ExamEdit() {
-    var exam = exams[0];
-    var patient = patients.find(e => e.patientId == exam.patientId);
+function CreateExam() {
+  // filter patients based on input 
+  // or have a drop down that has existing patients
     
-  const [xrayUrl, onChangeXrayUrl] = React.useState((exam.imageURL));
-  const [examId, onChangeId] = React.useState(exam.examId);
-  const [brixScore, onChangeBrixScore] = React.useState(exam.brixScore);
-  const [keyFindings, onChangeKeyFindings] = React.useState(exam.keyFindings);
+    
+    const [xrayUrl, onChangeXrayUrl] = useState("");
+    const [examId, onChangeId] = useState("");
+    const [brixScore, onChangeBrixScore] = useState("");
+    const [keyFindings, onChangeKeyFindings] = useState("");
+    
+    function onPatientSelect(event) {patient = patients.find(e => e.patientId == event.target.value);console.log(patient)}
+
+
+    // CREATE FUNCTION THAT GRABS WHATEVER SELECTED PATIENT AND USES THAT SELECTED ID TO FOR; BMI, WEIGHT, SEX, ETC.
 
   return (
     <div className='CreateExamPage'>
       <div>
-        <h1> edit exam</h1>
-        Edit details about an exam here.
+        <h1>Create Exam</h1>
+        Input and create exam details here.
       </div>
       <div className='Info'>
       <div>
@@ -35,10 +59,8 @@ function ExamEdit() {
           <div className='Text'>
             <div className='text2'>exam id</div>
             <input
-              className='inputId'
-              onChangeText={onChangeId}
               value={examId}
-              readOnly={true}
+              onChange={e => onChangeId(e.target.value)}
             />
             <div className='text2'>brixia score</div>
             <input
@@ -52,13 +74,20 @@ function ExamEdit() {
             />
           </div>
         </div>
+        {/* access patient data base to chose between patients (or if patient does not exist create new one) */}
         <div className='PatientTable'>
           <div className='text3'> patient info </div>
           <div className='content'>
             <div className='id'>
               <div className='text2'>patient id</div>
-              {patient.patientId}</div>
-            <div className='Column'>
+              <select onChange={onPatientSelect}>{
+
+                patients.map( (patient) => 
+                  <option key={patient.patientId}>{patient.patientId}</option> )
+
+              }</select>
+              </div>
+            <div className='Column'>            
               <div className='text2'>age</div>
               {patient.age}
               <div className='text2'>sex</div>
@@ -78,12 +107,24 @@ function ExamEdit() {
       <div className='buttons'>
         <button
           className='Button'
-          onClick={() => {
-            exam.id = examId;
-            exam.brixScore = brixScore;
-            exam.keyFindings = keyFindings;
-            exam.imageURL = xrayUrl;
-          }}
+  onClick={() => {
+    const newExam = {
+      id: examId,
+      brixScore: brixScore,
+      keyFindings: keyFindings,
+      imageURL: xrayUrl,
+    };
+    fetch('/api/exams', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newExam),
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  }}
         > {/* make the save button the create button and link it to the back end */}
           <Link to='../Exams/ViewExam'>save</Link>
         </button>
@@ -96,4 +137,4 @@ function ExamEdit() {
   );
 }
 
-export default ExamEdit;
+export default CreateExam;
