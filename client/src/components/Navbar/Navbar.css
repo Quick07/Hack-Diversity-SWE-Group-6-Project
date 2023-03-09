@@ -6,23 +6,25 @@ div.Sidenav {
   list-style-type: none;
   margin: 0;
   padding: 1rem 0 2rem 0;
-  background-color: #323232;
+  background-color: #00000052;
   position: fixed;
   height: 100%;
   width: 225px;
   overflow: auto;
   font-size: 30px;
   letter-spacing: 3px;
-  color: rgb(226, 223, 223);
+  color: white;
   font-family: 'Montserrat';
+  font-weight: bold;
+  border-radius: 5px;
 }
 
 .Sidenav h1 {
   font-size: 36px;
   letter-spacing: 3px;
-  color: rgb(226, 223, 223);
+  color: white;
   font-family: 'Montserrat';
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .Sidenav a {
@@ -30,7 +32,7 @@ div.Sidenav {
   display: block;
   text-align: center;
   text-decoration: none;
-  padding: 1rem 1rem 1rem 1rem;
+  padding-top: 80px;
 }
 .Sidenav a:hover {
   color: unset;
@@ -38,7 +40,6 @@ div.Sidenav {
 
 .navitem {
   letter-spacing: 0;
-  background-color: #323232;
   color: rgb(226, 223, 223);
   text-align: left;
 }
@@ -52,12 +53,12 @@ div.Sidenav {
   justify-content: left;
 }
 .Sidenav a:hover {
-  color: #323232;
+  color: black;
 }
 .navitem:hover {
   transition: 0.25s ease-in-out;
-  color: #323232;
-  background-color: rgb(226, 223, 223);
+  color: #300932d5;
+  background-color: #ffffff8a;
 }
 
 /* ----------- iPhone 4 and 4S ----------- */
