@@ -12,6 +12,7 @@ import ExamInfo from './components/ExamInfo/ExamInfo';
 import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
 import PatientsList from './components/PatientsPage/PatientsList';
+import ViewPatient from './components/ViewPatient/ViewPatient';
 
 import './App.css';
 
@@ -71,6 +72,16 @@ function App() {
               <div>
                 <Navbar />
                 <PatientsList />
+              </div>
+            }
+          />
+          <Route
+            // View single patient info and exams
+            path='Exams/ViewPatients/:_id'
+            element={
+              <div>
+                <Navbar />
+                <ViewPatient />
               </div>
             }
           />
