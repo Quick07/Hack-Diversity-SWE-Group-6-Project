@@ -86,7 +86,7 @@ export default function PatientsList() {
       })
       .catch(error => {
         console.log(error);
-        setError('Failed to fetch patient data.');
+        console.log('Failed to fetch patient data.');
       });
   }, []);
 
