@@ -1,10 +1,6 @@
 import React from 'react';
-import './MainHero.css';
+import './AboutPageHero.css';
 
-export default function AboutPageHero() {
-  return (
-    <div className='MainHeroContainer'>
-      <h1 className='header'>Welcome to the About Page</h1>
-    </div>
-  );
+export default function AdminPageHero() {
+  return <div className='AboutPageHeroContainer'></div>;
 }

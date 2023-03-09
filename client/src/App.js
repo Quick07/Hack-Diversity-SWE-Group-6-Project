@@ -101,7 +101,6 @@ function App() {
             element={
               <div>
                 <Navbar />
-                {/* <AdminPageHero /> */}
                 <SignUp />
               </div>
             }
@@ -121,7 +120,7 @@ function App() {
             element={
               <div>
                 <Navbar />
-                {/* <AboutPageHero /> */}
+                <AboutPageHero />
                 <AboutPage />
               </div>
             }
