@@ -160,6 +160,40 @@
     font-weight: 600;
   }
 
+  .Sort div {
+    font-size: 32px;
+    color: black;
+    background-color: rgba(0, 0, 0, 0);
+    border: 0px solid transparent;
+    border-radius: 0;
+    margin: 0;
+    height: auto;
+    width: 100%;
+    padding: 25px 15px;
+    position: unset;
+    top: unset;
+    left: unset;
+    transform: none;
+    /* border: 1.5px solid rgba(35, 35, 35, transparent); */
+    border-top: 1.5px solid rgba(35, 35, 35, transparent);
+    border-bottom: 1.5px solid rgba(35, 35, 35, .25);
+}
+/* .Sort div:hover {
+  border-top: 1.5px solid rgba(35, 35, 35, .5);
+  border-bottom: 1.5px solid rgba(35, 35, 35, .5); 
+} */
+
+.Sort .checked i{
+  font-size: 50px;
+  margin: 0 0 10px 0;
+  text-justify: center;
+}
+
+.Sort .checked {
+  font-weight: 600;
+  background-color: 1.5px solid rgba(35, 35, 35, 1);
+}
+
   .text3 {
     padding: 25px;
     color: #808080;
