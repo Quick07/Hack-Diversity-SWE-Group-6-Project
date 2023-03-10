@@ -1,12 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { exams, patients } from '../../data2';
 import './CreateExam.css';
 
-
-var exam = exams[0];
-var patient = patients[0];
 
 
 //This page displays all the details of an exam
@@ -47,15 +43,14 @@ function CreateExam() {
     }, []);
 
     useEffect(() => {
-      fetch('http://localhost:9000/exams', {
+      fetch('http://localhost:9000/patients', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newExam)})
         .then(response => response.json())
         .then(data => console.log(newExam))
-        .catch(error => console.error(error))
-        .then(data => {console.log('New item added with ObjectId:', data._id);});
-    },[])
+        .catch(error => console.error(error));
+    },[newExam])
 
   const handleSave = () => {
     setNewExam({
@@ -64,7 +59,6 @@ function CreateExam() {
       brixia_scores: brixScore,
       key_findings: keyFindings,
       xray_url: xrayUrl});
-      console.log(newExam);
   }  
 
     // function onPatientSelect(event) {patient = patients.find(e => e.patientId == event.target.value);console.log(patient)}
@@ -148,31 +142,8 @@ function CreateExam() {
       <div className='buttons'>
         <button
           className='Button'
-  onClick={handleSave}
-  
-  // () => {
-  //   const newExam = {
-  //     exam_Id: examId,
-  //     PATIENT_ID: patient.PATIENT_ID,
-  //     brixia_scores: brixScore,
-  //     key_findings: keyFindings,
-  //     xray_url: xrayUrl,
-  //   };
-  //   fetch('http://localhost:9000', {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify(newExam),
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => console.log(data))
-  //     .catch(error => console.error(error));
-  // }}
-  
-        > {/* make the save button the create button and link it to the back end 
-      use array.length - 1 to retrieve */}
-         {/* <Link to='../'>save</Link> */}
+  onClick={handleSave}>
+          <Link to='../Exams/ViewExam/'>save</Link>
         </button>
         <button className='Button'>
           <Link to='../Exams/ViewExam'>cancel</Link>
