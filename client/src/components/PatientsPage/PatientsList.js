@@ -161,18 +161,18 @@ export default function PatientsList() {
   const handleStyleChange = () => {
     switch (sortValue) {
       case 'A+':
-        setAgeStyle("checked");
+        setAgeStyle('checked');
         setWeightStyle();
         setBMIStyle();
         break;
       case 'A-':
-        setAgeStyle("checked");
+        setAgeStyle('checked');
         setWeightStyle();
         setBMIStyle();
         break;
       case 'W+':
         setAgeStyle();
-        setWeightStyle("checked");
+        setWeightStyle('checked');
         setBMIStyle();
         break;
       case 'W-':
@@ -303,9 +303,9 @@ export default function PatientsList() {
       <div>
         <h1>
           <Link to='/Exams/ViewList'>
-            <span className='inactive'>exams </span>
+            <span className='inactive'>Exams </span>
           </Link>
-          | patients{' '}
+          | Patients{' '}
         </h1>
         View all patients here.
       </div>
@@ -377,10 +377,10 @@ export default function PatientsList() {
             <i className='x icon' onClick={handleCancel} />
             <h1 className='text3'>Sort</h1>
             <div className={ageStyle} onClick={handleAgeSort}>
-            <p>Age {ageIcon()}</p>
+              <p>Age {ageIcon()}</p>
             </div>
             <div className={weightStyle} onClick={handleWeightSort}>
-            <p>Weight{weightIcon()}</p>
+              <p>Weight{weightIcon()}</p>
             </div>
             <div className={BMIStyle} onClick={handleBMISort}>
               <p>BMI{bmiIcon()}</p>
