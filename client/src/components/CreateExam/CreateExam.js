@@ -1,21 +1,9 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { exams, patients } from '../../data2';
 import './CreateExam.css';
 
-// const { MongoClient } = require('mongodb');
-
-// const uri = 'mongodb+srv://admin:pass@techdive.uhfnhov.mongodb.net/test';
-// const dbName = 'Exams';
-
-// const client = new MongoClient(uri);
-
-//       await client.connect();
-//       const db = client.db(dbName);
-//       const patients = db.collection('Patients');
-//       const result = await patients.find().toArray();
-//       await client.close();
 
 var exam = exams[0];
 var patient = patients[0];
@@ -31,9 +19,64 @@ function CreateExam() {
     const [examId, onChangeId] = useState("");
     const [brixScore, onChangeBrixScore] = useState("");
     const [keyFindings, onChangeKeyFindings] = useState("");
-    
-    function onPatientSelect(event) {patient = patients.find(e => e.patientId == event.target.value);console.log(patient)}
 
+    const [newExam, setNewExam] = useState();
+
+    const [allPatients, setAllPatients] = useState([]);
+    const [patient, setPatient] = useState({
+      AGE: 0, // set a default value for age
+      SEX: 'N/a',
+      LATEST_BMI: 0,
+      LATEST_WEIGHT: 0,
+      // add other properties of the patient object as needed
+    });
+
+    // takes the selected patient and applies their info (and prints out info into the console)
+
+    useEffect(() => {
+      fetch('http://localhost:9000/patients')
+        .then(response => response.json())
+        .then(data => {
+          setAllPatients(data);
+          console.log(data);
+        })
+        .catch(error => {
+          console.log(error);
+          console.log('Failed to fetch patient data.');
+        });
+    }, []);
+
+    useEffect(() => {
+      fetch('http://localhost:9000/exams', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(newExam)})
+        .then(response => response.json())
+        .then(data => console.log(newExam))
+        .catch(error => console.error(error))
+        .then(data => {console.log('New item added with ObjectId:', data._id);});
+    },[])
+
+  const handleSave = () => {
+    setNewExam({
+      exam_Id: examId,
+      PATIENT_ID: patient.PATIENT_ID,
+      brixia_scores: brixScore,
+      key_findings: keyFindings,
+      xray_url: xrayUrl});
+      console.log(newExam);
+  }  
+
+    // function onPatientSelect(event) {patient = patients.find(e => e.patientId == event.target.value);console.log(patient)}
+    // function onPatientSelect(event) {
+      
+    //   setPatient(allPatients.find(e => e.patientId == event.target.value));
+    //   console.log(patient)}
+    const onPatientSelect = (event) => {
+      console.log(event.value)
+      setPatient(allPatients.find(e => e.PATIENT_ID == event.value));
+      console.log(patient);
+    };
 
     // CREATE FUNCTION THAT GRABS WHATEVER SELECTED PATIENT AND USES THAT SELECTED ID TO FOR; BMI, WEIGHT, SEX, ETC.
 
@@ -56,7 +99,7 @@ function CreateExam() {
       <div className='Tables' >
         <div className='InfoTable'>
           <div className='text3'> exam info </div>
-          <div className='Text'>
+          <div className='Text'> 
             <div className='text2'>exam id</div>
             <input
               value={examId}
@@ -80,24 +123,22 @@ function CreateExam() {
           <div className='content'>
             <div className='id'>
               <div className='text2'>patient id</div>
-              <select onChange={onPatientSelect}>{
-
-                patients.map( (patient) => 
-                  <option key={patient.patientId}>{patient.patientId}</option> )
-
+              <select onChange={ (e) => onPatientSelect(e.target)}>{
+                allPatients.map( (patient) => 
+                  <option key={patient.PATIENT_ID}>{patient.PATIENT_ID}</option> )
               }</select>
               </div>
             <div className='Column'>            
               <div className='text2'>age</div>
-              {patient.age}
+              {patient.AGE}
               <div className='text2'>sex</div>
-              {patient.sex}
+              {patient.SEX}
             </div>
             <div className='Column'>
               <div className='text2'>bmi</div>
-              {patient.bmi}
+              {patient.LATEST_BMI}
               <div className='text2'>weight</div>
-              {patient.weight} lbs
+              {patient.LATEST_WEIGHT} lbs
               {/* <div className='text2'>zip code</div>
               {patient.zip} */}
             </div>
@@ -107,26 +148,31 @@ function CreateExam() {
       <div className='buttons'>
         <button
           className='Button'
-  onClick={() => {
-    const newExam = {
-      id: examId,
-      brixScore: brixScore,
-      keyFindings: keyFindings,
-      imageURL: xrayUrl,
-    };
-    fetch('/api/exams', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(newExam),
-    })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-  }}
-        > {/* make the save button the create button and link it to the back end */}
-          <Link to='../Exams/ViewExam'>save</Link>
+  onClick={handleSave}
+  
+  // () => {
+  //   const newExam = {
+  //     exam_Id: examId,
+  //     PATIENT_ID: patient.PATIENT_ID,
+  //     brixia_scores: brixScore,
+  //     key_findings: keyFindings,
+  //     xray_url: xrayUrl,
+  //   };
+  //   fetch('http://localhost:9000', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(newExam),
+  //   })
+  //     .then(response => response.json())
+  //     .then(data => console.log(data))
+  //     .catch(error => console.error(error));
+  // }}
+  
+        > {/* make the save button the create button and link it to the back end 
+      use array.length - 1 to retrieve */}
+         {/* <Link to='../'>save</Link> */}
         </button>
         <button className='Button'>
           <Link to='../Exams/ViewExam'>cancel</Link>
