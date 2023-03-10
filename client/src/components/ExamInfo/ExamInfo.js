@@ -15,7 +15,7 @@ function ExamInfo() {
         console.log(error);
         setError('Failed to fetch patient data.');
       });
-  }, [allPatients]);
+  }, []);
 
   //exams data
   const [allExams, setAllExams] = useState('');
@@ -27,7 +27,7 @@ function ExamInfo() {
         console.log(error);
         setError('Failed to fetch exams data.');
       });
-  }, [allExams]);
+  }, []);
 
   if (!allPatients || !allExams) {
     return <div></div>;
