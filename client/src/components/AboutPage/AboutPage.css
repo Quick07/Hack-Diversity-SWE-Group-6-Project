@@ -1,67 +1,16 @@
+.aboutpage {
+padding: 1rem 3rem 2rem 18.75rem;
+}
+
 .aboutheader {
-  font-size: 4.5em;
+  font-size: 2em;
   font-weight: bold;
 }
 
 .aboutheader2 {
-  font-size: 3em;
+  font-size: 1em;
   font-weight: bold;
-}
-
-.aboutheader3 {
-  font-size: 2.5em;
-  font-weight: bold;
-}
-
-.container {
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  grid-gap: 1rem;
-  width: 100%;
-  height: 100%;
-  padding: 2rem;
-  box-sizing: border-box;
-  font-size: 1rem;
-  text-align: center;
-  font-weight: 500;
-  margin: 0;
-  line-height: normal;
-  background-color: white;
-}
-
-.about {
-  margin-left: 24rem;
-}
-
-.aboutpage {
-  display: flex;
-  flex-flow: column wrap;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  box-sizing: border-box;
-  font-size: 20px;
-  color: white;
-  background-image: linear-gradient(
-      0deg,
-      rgba(0, 17, 114, 0.316),
-      rgba(255, 0, 150, 0.5)
-    ),
-    url('../Hero/img/hero.jpg');
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  background-repeat: no-repeat;
-  position: relative;
-  min-height: 100vh;
-  box-sizing: border-box;
-  font-size: 20px;
-  margin: 0 0 20px 0;
-  z-index: -99999999;
+  margin-top: 25px;
 }
 
 .aboutcontentcontainer {
@@ -70,8 +19,6 @@
   align-items: center;
   grid-gap: 1rem;
   width: 100%;
-  min-height: 80vh;
-  padding: 2rem;
   box-sizing: border-box;
   font-size: 1rem;
   text-align: center;
@@ -81,15 +28,16 @@
 }
 
 .Githubbtn {
-  width: 225px;
-  height: 45px;
+  width: 135px;
+  height: 42px;
   display: inline-block;
-  background-color: rgb(195, 18, 121);
-  color: white;
-  border: 2px solid;
+  background-color: rgb(140, 20, 238);
+  color: white !important;
   border-radius: 115px;
-  font-size: 24px;
-  margin-top: 5vh;
+  border: 1px solid rgb(53, 1, 150);
+  font-size: 20px;
+  margin-top: 3vh;
+  padding-top: 8px;
 
   font-family: inherit;
 }
@@ -98,37 +46,17 @@
 /* Portrait */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   .aboutheader {
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-weight: bold;
   }
 
   .aboutheader2 {
-    font-size: 2em;
+    font-size: 1.2em;
     font-weight: bold;
   }
 
   .aboutcontentcontainer {
-    margin-left: 30px;
-  }
-
-  .aboutpage {
-    display: flex;
-    flex-flow: column wrap;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 17, 114, 0.316),
-        rgba(255, 0, 150, 0.5)
-      ),
-      url('../Hero/img/hero.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    margin-left: 50px;
   }
 }
 
@@ -141,32 +69,12 @@
   }
 
   .aboutheader2 {
-    font-size: 1.5em;
+    font-size: 1.2em;
     font-weight: bold;
   }
 
   .aboutcontentcontainer {
-    margin-left: 30px;
-  }
-
-  .aboutpage {
-    display: flex;
-    flex-flow: column wrap;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 17, 114, 0.316),
-        rgba(255, 0, 150, 0.5)
-      ),
-      url('../Hero/img/hero.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    margin-left: 50px;
   }
 }
 
@@ -174,7 +82,7 @@
 /* Portrait */
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
   .aboutheader {
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
   }
 
@@ -184,65 +92,7 @@
   }
 
   .aboutcontentcontainer {
-    margin-left: 30px;
-  }
-
-  .aboutpage {
-    display: flex;
-    flex-flow: column wrap;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 17, 114, 0.316),
-        rgba(255, 0, 150, 0.5)
-      ),
-      url('../Hero/img/hero.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-}
-
-/* ----------- iPhone 6+, 7+ and 8+ ----------- */
-/* Portrait and Landscape */
-@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
-  .aboutheader {
-    font-size: 2.5em;
-    font-weight: bold;
-  }
-
-  .aboutheader2 {
-    font-size: 2em;
-    font-weight: bold;
-  }
-
-  .aboutcontentcontainer {
-    margin-left: 30px;
-  }
-
-  .aboutpage {
-    display: flex;
-    flex-flow: column wrap;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 17, 114, 0.316),
-        rgba(255, 0, 150, 0.5)
-      ),
-      url('../Hero/img/hero.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    margin-left: 50px;
   }
 }
 
@@ -250,36 +100,16 @@
 /* Portrait */
 @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
   .aboutheader {
-    font-size: 2.5em;
-    font-weight: bold;
-  }
-
-  .aboutheader2 {
     font-size: 2em;
     font-weight: bold;
   }
 
-  .aboutcontentcontainer {
-    margin-left: 30px;
+  .aboutheader2 {
+    font-size: 1.5em;
+    font-weight: bold;
   }
 
-  .aboutpage {
-    display: flex;
-    flex-flow: column wrap;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
-    box-sizing: border-box;
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 17, 114, 0.316),
-        rgba(255, 0, 150, 0.5)
-      ),
-      url('../Hero/img/hero.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  .aboutcontentcontainer {
+    margin-left: 50px;
   }
 }

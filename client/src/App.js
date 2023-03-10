@@ -11,6 +11,7 @@ import MainHero from './components/Hero/MainHero';
 import Navbar from './components/Navbar/Navbar';
 import PatientsList from './components/PatientsPage/PatientsList';
 import CreateExam from './components/CreateExam/CreateExam';
+import ViewPatient from './components/ViewPatient/ViewPatient';
 
 import './App.css';
 
@@ -54,7 +55,7 @@ function App() {
           />
           <Route
             // View a single exam
-            path='Exams/ViewExam'
+            path='Exams/ViewExam/:_id'
             element={
               <div>
                 <Navbar />
@@ -63,12 +64,22 @@ function App() {
             }
           />
           <Route
-          // Table of patients
+            // Table of patients
             path='Exams/ViewPatients'
             element={
               <div>
-              <Navbar />
-                <PatientsList/>
+                <Navbar />
+                <PatientsList />
+              </div>
+            }
+          />
+          <Route
+            // View single patient info and exams
+            path='Exams/ViewPatients/:_id'
+            element={
+              <div>
+                <Navbar />
+                <ViewPatient />
               </div>
             }
           />
@@ -99,7 +110,6 @@ function App() {
             element={
               <div>
                 <Navbar />
-                {/* <AdminPageHero /> */}
                 <CreateExam />
               </div>
             }
@@ -119,7 +129,7 @@ function App() {
             element={
               <div>
                 <Navbar />
-                {/* <AboutPageHero /> */}
+                <AboutPageHero />
                 <AboutPage />
               </div>
             }

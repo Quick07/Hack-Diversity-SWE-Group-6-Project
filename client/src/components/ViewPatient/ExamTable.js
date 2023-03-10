@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -28,18 +29,26 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
-  }
-}));
+  },
+  ':hover': {
+    cursor: 'pointer',
+  }}
+));
 
-export default function PatientTable(props) {
-  const { patients } = props;
+
+
+
+
+
+export default function ExamTable(props) {
+  const { exams } = props;
   const navigate = useNavigate();
   return (
     <div>
-      {patients.length < 1 ?
-      <p>No patients found.</p> : (
+      {exams.length < 1 ?
+      <p>No exams found.</p> : (
       <TableContainer className='table'component={Paper}>
-        <Table
+        <Table 
           sx={{
             paddingLeft:20,
             align:'left',
@@ -48,34 +57,30 @@ export default function PatientTable(props) {
           aria-label='customized table'
         >     
         <colgroup>
-        <col width= '25%'/>
-        <col width='10%'/>
-        <col width='10%'/>
-        <col width='10%'/>
-        <col width='10%'/>
+        <col width= '20%'/>
+        <col width='20%'/>
+        <col width='20%'/>
+        <col width='40%'/>
      </colgroup>
 
           <TableHead >
             <TableRow>
-              <StyledTableCell sx={{borderTopLeftRadius:12}}>Patient ID</StyledTableCell>
-              <StyledTableCell>Sex</StyledTableCell>
-              <StyledTableCell>Age</StyledTableCell>
-              <StyledTableCell>Weight</StyledTableCell>
-              <StyledTableCell sx={{borderTopRightRadius:12}}>BMI</StyledTableCell>
+              <StyledTableCell sx={{borderTopLeftRadius:12}}>Exam ID</StyledTableCell>
+              <StyledTableCell>Patient ID</StyledTableCell>
+              <StyledTableCell>Brixia Scores</StyledTableCell>
+              <StyledTableCell sx={{borderTopRightRadius:12}}>Key Findings</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {patients.map(patient => (
-              <StyledTableRow className='row' sx={{ '&:hover': { cursor: 'pointer' } }} 
-              onClick={() => navigate(`../Exams/ViewPatients/${patient._id}`)} key={patient._id}>
-                <StyledTableCell component='th' scope='row'>
-                  {patient.PATIENT_ID}
+            {exams.map(exam => (
+              <StyledTableRow className='row'  key={exam._id}>
+                <StyledTableCell align='left'sx={{ '&:hover': { cursor: 'pointer' } }} onClick={() => {navigate(`../Exams/ViewExam/${exam._id}`); console.log(selectExamDest)}}>{exam.exam_Id}</StyledTableCell>
+                <StyledTableCell>
+                  <a>{exam.PATIENT_ID}</a>
                 </StyledTableCell>
-                <StyledTableCell align='left'>{patient.SEX}</StyledTableCell>
-                <StyledTableCell align='left'>{patient.AGE}</StyledTableCell>
-                <StyledTableCell align='left'>{patient.LATEST_WEIGHT} lbs</StyledTableCell>
-                <StyledTableCell align='left'>{patient.LATEST_BMI}</StyledTableCell>
-              </StyledTableRow>
+                <StyledTableCell align='left'>{exam.brixia_scores}</StyledTableCell>
+                <StyledTableCell align='left'>{exam.key_findings}</StyledTableCell>
+                </StyledTableRow>
             ))}
           </TableBody>
         </Table>

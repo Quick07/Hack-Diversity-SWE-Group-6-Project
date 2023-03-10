@@ -83,13 +83,15 @@ em, i {
 }
 
 .App a {
+  font-weight: 400;
   color: unset;
 }
 
 .App h1 {
+  font-weight: 600;
   font-family: 'Montserrat';
 }
 .App h2 {
-  font-weight: 600;
+  font-weight: 500;
   font-family: 'Montserrat';
 }
