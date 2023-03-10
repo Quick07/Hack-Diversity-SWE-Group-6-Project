@@ -40,7 +40,7 @@ function ExamInfo() {
     <div className='ExamInfoPage'>
       <div>
         <header className='header'>
-          <h1> exam info</h1>
+          <h1> Exam info</h1>
           View details about an exam here.
         </header>
       </div>
@@ -53,7 +53,7 @@ function ExamInfo() {
 
         <div className='Tables'>
           <div className='InfoTable'>
-            <div className='text3'> exam info </div>
+            <div className='text3'> Exam info </div>
             <div className='Text'>
               <div className='text2'>exam id</div>
               {exam.exam_Id}
@@ -64,7 +64,7 @@ function ExamInfo() {
             </div>
           </div>
           <div className='PatientTable'>
-            <div className='text3'> patient info </div>
+            <div className='text3'> Patient info </div>
             <div className='content'>
               <div className='id'>
                 <div className='text2'>patient id</div>
