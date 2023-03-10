@@ -1,34 +1,30 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './CreateExam.css';
-
-
-
 //This page displays all the details of an exam
 function CreateExam() {
-  // filter patients based on input 
+  // filter patients based on input
   // or have a drop down that has existing patients
-    
-    
     const [xrayUrl, onChangeXrayUrl] = useState("");
     const [examId, onChangeId] = useState("");
     const [brixScore, onChangeBrixScore] = useState("");
     const [keyFindings, onChangeKeyFindings] = useState("");
 
-    const [newExam, setNewExam] = useState();
-
+    const [newExam, setNewExam] = useState()
+    ;
     const [allPatients, setAllPatients] = useState([]);
     const [patient, setPatient] = useState({
-      AGE: 0, // set a default value for age
-      SEX: 'N/a',
-      LATEST_BMI: 0,
-      LATEST_WEIGHT: 0,
+      AGE: '', // set a default value for age
+      SEX: '',
+      LATEST_BMI: '',
+      LATEST_WEIGHT: '',
       // add other properties of the patient object as needed
     });
 
-    // takes the selected patient and applies their info (and prints out info into the console)
+    const navigate = useNavigate();
 
+    // takes the selected patient and applies their info (and prints out info into the console)
     useEffect(() => {
       fetch('http://localhost:9000/patients')
         .then(response => response.json())
@@ -42,38 +38,35 @@ function CreateExam() {
         });
     }, []);
 
+  
     useEffect(() => {
-      fetch('http://localhost:9000/patients', {
+      console.log(newExam);
+      if (newExam) {
+      fetch('http://localhost:9000/exams', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(newExam)})
         .then(response => response.json())
-        .then(data => console.log(newExam))
+        .then(data => navigate(`../Exams/ViewExam/${data}`))
         .catch(error => console.error(error));
+      }
     },[newExam])
 
-  const handleSave = () => {
-    setNewExam({
-      exam_Id: examId,
-      PATIENT_ID: patient.PATIENT_ID,
-      brixia_scores: brixScore,
-      key_findings: keyFindings,
-      xray_url: xrayUrl});
-  }  
 
-    // function onPatientSelect(event) {patient = patients.find(e => e.patientId == event.target.value);console.log(patient)}
-    // function onPatientSelect(event) {
-      
-    //   setPatient(allPatients.find(e => e.patientId == event.target.value));
-    //   console.log(patient)}
-    const onPatientSelect = (event) => {
-      console.log(event.value)
-      setPatient(allPatients.find(e => e.PATIENT_ID == event.value));
-      console.log(patient);
+    const handleSave = () => {
+      setNewExam({
+        "exam_Id": examId,
+        "PATIENT_ID": patient.PATIENT_ID,
+        "brixia_scores": brixScore,
+        "key_findings": keyFindings,
+        "xray_url": xrayUrl
+      });
     };
-
+    
+    const onPatientSelect = (event) => {
+      setPatient(allPatients.find(e => e.PATIENT_ID == event.value));
+    };
     // CREATE FUNCTION THAT GRABS WHATEVER SELECTED PATIENT AND USES THAT SELECTED ID TO FOR; BMI, WEIGHT, SEX, ETC.
-
   return (
     <div className='CreateExamPage'>
       <div>
@@ -93,7 +86,7 @@ function CreateExam() {
       <div className='Tables' >
         <div className='InfoTable'>
           <div className='text3'> exam info </div>
-          <div className='Text'> 
+          <div className='Text'>
             <div className='text2'>exam id</div>
             <input
               value={examId}
@@ -118,11 +111,11 @@ function CreateExam() {
             <div className='id'>
               <div className='text2'>patient id</div>
               <select onChange={ (e) => onPatientSelect(e.target)}>{
-                allPatients.map( (patient) => 
+                allPatients.map( (patient) =>
                   <option key={patient.PATIENT_ID}>{patient.PATIENT_ID}</option> )
               }</select>
               </div>
-            <div className='Column'>            
+            <div className='Column'>
               <div className='text2'>age</div>
               {patient.AGE}
               <div className='text2'>sex</div>
@@ -133,25 +126,21 @@ function CreateExam() {
               {patient.LATEST_BMI}
               <div className='text2'>weight</div>
               {patient.LATEST_WEIGHT} lbs
-              {/* <div className='text2'>zip code</div>
-              {patient.zip} */}
             </div>
           </div>
         </div>
       </div>
       <div className='buttons'>
         <button
-          className='Button'
-  onClick={handleSave}>
-          <Link to='../Exams/ViewExam/'>save</Link>
+          className='Button'onClick={handleSave}>
+            Save
         </button>
         <button className='Button'>
-          <Link to='../Exams/ViewExam'>cancel</Link>
+          <Link to='../Admin'>Cancel</Link>
         </button>
       </div>
       </div>
     </div>
   );
 }
-
 export default CreateExam;

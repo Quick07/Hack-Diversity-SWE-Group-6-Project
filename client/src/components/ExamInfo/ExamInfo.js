@@ -35,6 +35,7 @@ function ExamInfo() {
   var exam = allExams.find(e => e._id == _id);
 
   var patient = allPatients.find(e => e.PATIENT_ID == exam.PATIENT_ID);
+  console.log(exam);
 
   return (
     <div className='ExamInfoPage'>

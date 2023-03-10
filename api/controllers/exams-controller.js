@@ -15,40 +15,15 @@ const getExamsData = async (req, res) => {
 };
 
 const addExam = async (req, res) => {
-  const { exam_Id, PATIENT_ID, brixia_scores, key_findings } = req.body;
+  const { exam_Id, PATIENT_ID, brixia_scores, key_findings, xray_url } = req.body;
 
   await client.connect();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
-  const result = await exams.insertOne({exam_Id, PATIENT_ID, brixia_scores, key_findings });
+  const result = await exams.insertOne({exam_Id, PATIENT_ID, brixia_scores, key_findings, xray_url });
   res.status(201).json(result.insertedId);
   await client.close();
 };
-
-
-
-// const postExamData = async (req, res) => {
-//   const { exam_Id, PATIENT_ID, brixia_scores, key_findings } = req.body;
-
-//   try {
-//     await client.connect();
-//     const db = client.db(dbName);
-//     const exams = db.collection('Exams');
-//     const result = await exams.insertOne({
-//       exam_Id,
-//       PATIENT_ID,
-//       brixia_scores,
-//       key_findings
-//     });
-//     res.status(201).json(result);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ message: 'Internal server error' });
-//   } finally {
-//     await client.close();
-//   }
-// };
-
 
 
 module.exports = {
