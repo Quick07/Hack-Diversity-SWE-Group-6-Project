@@ -1,5 +1,5 @@
 {
-    "name": "team6zramproject",
+    "name": "team6project",
     "version": "1.0.0",
     "description": "Patient exam portal that shows x-ray and Patient data",
     "proxy": "http://localhost:3000",
@@ -14,7 +14,7 @@
         "Patient exams",
         "x ray"
     ],
-    "main": "App.js",
+    "main": "index.js",
     "dependencies": {
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",

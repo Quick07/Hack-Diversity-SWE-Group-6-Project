@@ -6,14 +6,14 @@ const dbName = 'Exams';
 const client = new MongoClient(uri);
 
 const getPatientData = async (req, res) => {
-      await client.connect();
-      const db = client.db(dbName);
-      const patients = db.collection('Patients');
-      const result = await patients.find().toArray();
-      res.status(200).json(result);
-      await client.close();
-  };
+  await client.connect();
+  const db = client.db(dbName);
+  const patients = db.collection('Patients');
+  const result = await patients.find().toArray();
+  res.status(200).json(result);
+  await client.close();
+};
 
-  module.exports = {
-    getPatientData,
-  };
+module.exports = {
+  getPatientData,
+};
