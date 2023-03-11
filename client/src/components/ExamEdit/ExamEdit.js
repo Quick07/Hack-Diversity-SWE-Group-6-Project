@@ -1,17 +1,103 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useParams, useNavigate } from 'react-router-dom';
 import { exams, patients } from '../../data2';
 import './ExamEdit.css';
 
 //This page displays all the details of an exam
 function ExamEdit() {
-  var exam = exams[0];
-  var patient = patients.find(e => e.patientId == exam.patientId);
+  const { _id } = useParams();
+  const [exam, setExam] = useState();
+  const [newExam, setNewExam] = useState();
+  const navigate = useNavigate();
+  const [xrayUrl, onChangeXrayUrl] = useState();
+  const [examId, onChangeId] = useState();
+  const [brixScore, onChangeBrixScore] = useState();
+  const [keyFindings, onChangeKeyFindings] = useState();
 
-  const [xrayUrl, onChangeXrayUrl] = React.useState(exam.imageURL);
-  const [examId, onChangeId] = React.useState(exam.examId);
-  const [brixScore, onChangeBrixScore] = React.useState(exam.brixScore);
-  const [keyFindings, onChangeKeyFindings] = React.useState(exam.keyFindings);
+  const [patient, setPatient] = useState();
+
+  useEffect(() => {
+    const fetchExam = async () => {
+      try {
+        const response = await fetch(`http://localhost:9000/exams/${_id}`);
+        const data = await response.json();
+        setExam(data);
+        console.log(exam);
+        console.log(data);
+      } catch (error) {
+        console.log('Failed to fetch patient data.');
+      }
+    };
+    fetchExam();
+  }, []);
+
+  useEffect(() => {
+    if (exam) {
+      const fetchPatient = async () => {
+        try {
+          const response = await fetch(
+            `http://localhost:9000/patients/${exam.PATIENT_ID}`
+          );
+          const data = await response.json();
+          setPatient(data);
+          console.log(patient);
+          console.log(data);
+        } catch (error) {
+          console.log('Failed to fetch patient data.');
+        }
+      };
+      fetchPatient();
+    }
+  }, [exam]);
+
+  useEffect(() => {
+    if (exam) {
+      onChangeXrayUrl(exam.xray_url);
+      onChangeId(exam.exam_Id);
+      onChangeBrixScore(exam.brixia_scores);
+      onChangeKeyFindings(exam.key_findings);
+    }
+  }, [exam]);
+
+  useEffect(() => {
+    if (newExam) {
+      const updateExam = async () => {
+        try {
+          const response = await fetch(`http://localhost:9000/exams/${_id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newExam),
+          });
+
+          if (!response.ok) {
+            throw new Error('Failed to update exam.');
+          }
+
+          const result = await response.json();
+          console.log(result); // insertedId of the updated exam
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      updateExam();
+      navigate(`../Exams/ViewExam/${_id}`);
+    }
+  }, [newExam]);
+
+  const handleSave = () => {
+    setNewExam({
+      _id: _id,
+      exam_Id: exam.exam_Id,
+      PATIENT_ID: patient.PATIENT_ID,
+      brixia_scores: brixScore,
+      key_findings: keyFindings,
+      xray_url: xrayUrl,
+    });
+    console.log(JSON.stringify(newExam));
+  };
 
   return (
     <div className='ExamEditPage'>
@@ -19,6 +105,7 @@ function ExamEdit() {
         <h1> Edit exam</h1>
         Edit details about an exam here.
       </div>
+      { (!exam || !patient) ? (<div>Loading exam...</div>) :(
       <div className='Info'>
         <div>
           <img className='ExamImage' src={xrayUrl} alt='' />
@@ -36,7 +123,7 @@ function ExamEdit() {
               <div className='text2'>exam id</div>
               <input
                 className='inputId'
-                onChangeText={onChangeId}
+                onChange={e => onChangeId(e.target.value)}
                 value={examId}
                 readOnly={true}
               />
@@ -57,42 +144,32 @@ function ExamEdit() {
             <div className='content'>
               <div className='id'>
                 <div className='text2'>patient id</div>
-                {patient.patientId}
+                {patient.PATIENT_ID}
               </div>
               <div className='Column'>
                 <div className='text2'>age</div>
-                {patient.age}
+                {patient.AGE}
                 <div className='text2'>sex</div>
-                {patient.sex}
+                {patient.SEX}
               </div>
               <div className='Column'>
                 <div className='text2'>bmi</div>
-                {patient.bmi}
+                {patient.LATEST_BMI}
                 <div className='text2'>weight</div>
-                {patient.weight} lbs
-                {/* <div className='text2'>zip code</div>
-              {patient.zip} */}
+                {patient.LATEST_WEIGHT} lbs
               </div>
             </div>
           </div>
         </div>
         <div className='buttons'>
-          <button
-            className='Button'
-            onClick={() => {
-              exam.id = examId;
-              exam.brixScore = brixScore;
-              exam.keyFindings = keyFindings;
-              exam.imageURL = xrayUrl;
-            }}
-          >
-            <Link to='../Exams/ViewExam'>save</Link>
+          <button className='Button' onClick={handleSave}>
+            Save
           </button>
           <button className='Button'>
-            <Link to='../Exams/ViewExam'>cancel</Link>
+            <Link to='../Admin/EditExam'>Cancel</Link>
           </button>
         </div>
-      </div>
+      </div>)}
     </div>
   );
 }

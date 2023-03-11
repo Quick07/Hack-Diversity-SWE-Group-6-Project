@@ -25,6 +25,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/patients', patientsRouter);
 app.use('/exams', examsRouter);
+app.use('/exams/:_id', examsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
