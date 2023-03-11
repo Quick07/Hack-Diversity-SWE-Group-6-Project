@@ -18,6 +18,7 @@ import './App.css';
 import { useApi } from './hooks/use-api';
 import Examstable from './components/Exam/Examstable';
 import TablePage from './components/Exam/TablePage';
+import EditView from './components/ExamEdit/EditView';
 
 function App() {
   const { response } = useApi();
@@ -121,6 +122,16 @@ function App() {
               <div>
                 <Navbar />
                 <ExamEdit />
+              </div>
+            }
+          />
+          <Route
+            //Editing a single exam
+            path='Admin/EditExam/'
+            element={
+              <div>
+                <Navbar />
+                <EditView />
               </div>
             }
           />

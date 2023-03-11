@@ -40,7 +40,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 
 
-export default function ExamTable(props) {
+export default function EditTable(props) {
   const { exams } = props;
   const navigate = useNavigate();
   return (
@@ -65,18 +65,19 @@ export default function ExamTable(props) {
 
           <TableHead >
             <TableRow>
-              <StyledTableCell sx={{borderTopLeftRadius:12}}>Exam ID</StyledTableCell>
-              <StyledTableCell>Patient ID</StyledTableCell>
+              <StyledTableCell sx={{borderTopLeftRadius:12}}>Patient ID</StyledTableCell>
+              <StyledTableCell>Exam ID</StyledTableCell>
               <StyledTableCell>Brixia Scores</StyledTableCell>
               <StyledTableCell sx={{borderTopRightRadius:12}}>Key Findings</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {exams.map(exam => (
-              <StyledTableRow className='row' onClick={() => {navigate(`../Exams/ViewExam/${exam._id}`)}} key={exam._id}>
-                <StyledTableCell align='left' >{exam.exam_Id}</StyledTableCell>
+              <StyledTableRow className='row' onClick={() => {navigate(`../Admin/EditExam/${exam._id}`); }} key={exam._id}>
+                <StyledTableCell align='left'
+                >{exam.PATIENT_ID}</StyledTableCell>
                 <StyledTableCell>
-                  <a>{exam.PATIENT_ID}</a>
+                  <a>{exam.exam_Id}</a>
                 </StyledTableCell>
                 <StyledTableCell align='left'>{exam.brixia_scores}</StyledTableCell>
                 <StyledTableCell align='left'>{exam.key_findings}</StyledTableCell>

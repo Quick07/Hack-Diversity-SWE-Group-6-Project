@@ -3,19 +3,34 @@ const { MongoClient, ObjectId } = require('mongodb');
 const uri = 'mongodb+srv://admin:pass@techdive.uhfnhov.mongodb.net/test';
 const dbName = 'Exams';
 
-const client = new MongoClient(uri);
+let client = null;
+
+const getClient = async () => {
+  if (client && client.topology && client.topology.isConnected()) {
+    return client;
+  }
+
+  client = new MongoClient(uri);
+
+  try {
+    await client.connect();
+    return client;
+  } catch (err) {
+    client = null;
+    throw err;
+  }
+};
 
 const getExamsData = async (req, res) => {
-  await client.connect();
+  const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
   const result = await exams.find().toArray();
   res.status(200).json(result);
-  await client.close();
 };
 
 const getExam = async (req, res) => {
-  await client.connect();
+  const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
   const exam = await exams.findOne({ _id: new ObjectId(req.params._id)});
@@ -25,16 +40,16 @@ const getExam = async (req, res) => {
   } else {
     res.status(200).json(exam);
   }
-  await client.close();
 };
 
 const addExam = async (req, res) => {
   const { exam_Id, PATIENT_ID, brixia_scores, key_findings, xray_url } =
     req.body;
 
-  await client.connect();
+  const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
+    console.log(req.body);
   const result = await exams.insertOne({
     exam_Id,
     PATIENT_ID,
@@ -42,29 +57,30 @@ const addExam = async (req, res) => {
     key_findings,
     xray_url,
   });
+  console.log(result);
   res.status(201).json(result.insertedId);
-  await client.close();
 };
 
 const editExam = async (req, res) => {
   const { _id, exam_Id, PATIENT_ID, brixia_scores, key_findings, xray_url } =
     req.body;
 
-  await client.connect();
+  const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
   const result = await exams.updateOne(
-    { _id: _id },
+    { _id: new ObjectId(_id) },
     {
-      exam_Id: exam_Id,
-      PATIENT_ID: PATIENT_ID,
-      brixia_scores: brixia_scores,
-      key_findings: key_findings,
-      xray_url: xray_url,
+      $set: {
+        exam_Id: exam_Id,
+        PATIENT_ID: PATIENT_ID,
+        brixia_scores: brixia_scores,
+        key_findings: key_findings,
+        xray_url: xray_url,
+      },
     }
   );
   res.status(201).json(result.insertedId);
-  await client.close();
 };
 
 module.exports = {
