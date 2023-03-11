@@ -1,5 +1,5 @@
 {
-    "name": "team6zramproject",
+    "name": "team6project",
     "version": "1.0.0",
     "description": "Patient exam portal that shows x-ray and Patient data",
     "proxy": "http://localhost:3000",
