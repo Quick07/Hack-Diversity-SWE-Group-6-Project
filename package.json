@@ -14,7 +14,7 @@
         "Patient exams",
         "x ray"
     ],
-    "main": "App.js",
+    "main": "index.js",
     "dependencies": {
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",

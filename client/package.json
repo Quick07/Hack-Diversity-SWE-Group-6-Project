@@ -45,7 +45,7 @@
     "build": "react-scripts build",
     "backend": "cd api && node ./bin/www",
     "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}, prettier --write compon/**/*.{ts,tsx,js, css} ",
-    "frontend": "cd client/ && react-scripts start --prefix src",
+    "frontend": "cd client/ && react-scripts start",
     "dev": "concurrently \"npm run frontend\" \"npm run backend\""
   },
   "browserslist": [
