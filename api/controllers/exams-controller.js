@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 const uri = 'mongodb+srv://admin:pass@techdive.uhfnhov.mongodb.net/test';
 const dbName = 'Exams';
@@ -18,8 +18,13 @@ const getExam = async (req, res) => {
   await client.connect();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
-  const result = await exams.find().toArray();
-  res.status(200).json(result);
+  const exam = await exams.findOne({ _id: new ObjectId(req.params._id)});
+  console.log(req.params._id)
+  if (!exam) {
+    res.status(404).json({ message: 'Exam not found' });
+  } else {
+    res.status(200).json(exam);
+  }
   await client.close();
 };
 
@@ -64,6 +69,7 @@ const editExam = async (req, res) => {
 
 module.exports = {
   getExamsData,
+  getExam,
   addExam,
   editExam,
 };

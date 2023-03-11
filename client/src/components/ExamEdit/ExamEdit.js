@@ -1,18 +1,180 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {useState, useEffect} from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { exams, patients } from '../../data2';
 import './ExamEdit.css';
 
 //This page displays all the details of an exam
 function ExamEdit() {
-  var exam = exams[0];
-  var patient = patients.find(e => e.patientId == exam.patientId);
+  // const [allPatients, setAllPatients] = useState();
+  // const [allExams, setAllExams] = useState();
+  // const [patient, setPatient] = useState(
+  //   {
+  //   PATIENT_ID:"P",
+  //   AGE:"",
+  //   SEX:"",
+  //   LATEST_BMI:"",
+  //   LATEST_WEIGHT:""
+  // }
+  // );
 
-  const [xrayUrl, onChangeXrayUrl] = React.useState(exam.imageURL);
-  const [examId, onChangeId] = React.useState(exam.examId);
-  const [brixScore, onChangeBrixScore] = React.useState(exam.brixScore);
-  const [keyFindings, onChangeKeyFindings] = React.useState(exam.keyFindings);
+  // const [exam, setExam] = useState(
+  //   {
+  //   PATIENT_ID:"P",
+  //   xray_url:"",
+  //   exam_Id:"Exam-1",
+  //   key_findings:"",
+  //   brixia_scores:""
+  // }
+  // );
 
+  // useEffect(() => {
+  //     fetch('http://localhost:9000/exams')
+  //       .then(response => response.json())
+  //       .then(data => setAllExams(data))
+  //       .then(data.find(e=>{}))
+  //       .catch(error => {
+  //         console.log(error);
+  //         setError('Failed to fetch exams data.');
+  //       });
+
+  //       fetch('http://localhost:9000/patients')
+  //         .then(response => response.json())
+  //         .then(data => setAllPatients(data))
+  //         .catch(error => {
+  //           console.log(error);
+  //           setError('Failed to fetch patient data.');
+  //         });
+    
+  // }, []);
+
+  // useEffect(() => {
+  //   const fetchEData = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:9000/exams');
+  //       const data = await response.json();
+  //       console.log(data);
+  //       var e = data.find(e => e._id == _id);
+  //       setExam(e);
+  //     } catch (error) {
+  //       console.log(error);
+  //       console.log('Failed to fetch exams data.');
+  //     }
+  //   };
+
+  //   const fetchPData = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:9000/patients');
+  //       const data = await response.json();
+  //       console.log(data);
+  //       var p = data.find(p => p.PATIENT_ID == exam.PATIENT_ID);
+  //       setPatient(p);
+  //     } catch (error) {
+  //       console.log(error);
+  //       console.log('Failed to fetch patients data.');
+  //     }
+  //   };
+
+  //   fetchEData().then(fetchPData);
+  // }, []);
+
+  // useEffect(() => {
+  //   const fetchPData = async () => {
+  //     try {
+  //       const response = await fetch('http://localhost:9000/patients');
+  //       const data = await response.json();
+  //       console.log(data);
+  //       var p = data.find(p => p.PATIENT_ID == exam.PATIENT_ID);
+  //       setPatient(p);
+  //     } catch (error) {
+  //       console.log(error);
+  //       console.log('Failed to fetch exams data.');
+  //     }
+  //   };
+  
+  //   fetchData();
+  // }, []);
+
+
+    // useEffect(() => {
+    //   fetch('http://localhost:9000/patients')
+    //   .then(response => response.json())
+    //   .then(data => {
+    //     console.log(data);
+    //     if (exam) {
+    //       var p = data.find(p => p.PATIENT_ID == exam.PATIENT_ID)
+    //       setPatient(p);
+    //     }
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //     setError('Failed to fetch patient data.');
+    //   });
+    // },[exam])
+
+
+  // useEffect(() => {
+  //   if (allExams) {
+  //     var e = allExams.find(e => e._id == _id);
+  //     setExam(e);
+  //     }
+  //     if (allPatients && exam) {
+  //   var p = allPatients.find(p => p.PATIENT_ID == exam.PATIENT_ID);
+  //   setPatient(p);
+  //     }
+  // },[allExams])
+
+  const { _id } = useParams();
+  const [exam, setExam] = useState();
+
+  const [xrayUrl, onChangeXrayUrl] = useState();
+  const [examId, onChangeId] = useState();
+  const [brixScore, onChangeBrixScore] = useState();
+  const [keyFindings, onChangeKeyFindings] = useState();
+
+  const patient = {"PATIENT_ID":"COVID-19-AR-16434409","AGE":"51","SEX":"M","ZIP":"722","LATEST_BMI":"37.7","LATEST_WEIGHT":"207","ICU Admit":"N","# ICU admits":"0","MORTALITY":"N"}
+
+useEffect(() => {
+  const fetchExam = async () => {
+    try {
+      const response = await fetch(`http://localhost:9000/exams/${_id}`);
+      const data = await response.json();
+      setExam(data);
+      console.log(exam);
+      console.log(data);
+    } catch (error) {
+      console.log('Failed to fetch patient data.');
+    }
+  };
+
+  fetchExam();
+
+}, []);
+
+useEffect(() => {
+  if (exam) {
+    onChangeXrayUrl(exam.xray_url);
+    onChangeId(exam.exam_Id);
+    onChangeBrixScore(exam.brixia_scores);
+    onChangeKeyFindings(exam.key_findings);
+  }
+}, [exam]);
+
+  // useEffect(() =>{
+  //   onChangeXrayUrl(exam.xray_url);
+  //   onChangeId(exam.exam_Id);
+  //   onChangeBrixScore(exam.brixia_scores);
+  //   onChangeKeyFindings(exam.key_findings);
+  // },[])
+
+  console.log(exam);
+  console.log(patient);
+
+  if (!patient || !exam) {
+    return <div> No data found.</div>;
+  } 
+
+  
   return (
     <div className='ExamEditPage'>
       <div>
@@ -35,8 +197,7 @@ function ExamEdit() {
             <div className='Text'>
               <div className='text2'>exam id</div>
               <input
-                className='inputId'
-                onChangeText={onChangeId}
+                onChange={e => onChangeId(e.target.value)}
                 value={examId}
                 readOnly={true}
               />
@@ -57,19 +218,19 @@ function ExamEdit() {
             <div className='content'>
               <div className='id'>
                 <div className='text2'>patient id</div>
-                {patient.patientId}
+                {patient.PATIENT_ID}
               </div>
               <div className='Column'>
                 <div className='text2'>age</div>
-                {patient.age}
+                {patient.AGE}
                 <div className='text2'>sex</div>
-                {patient.sex}
+                {patient.SEX}
               </div>
               <div className='Column'>
                 <div className='text2'>bmi</div>
-                {patient.bmi}
+                {patient.LATEST_BMI}
                 <div className='text2'>weight</div>
-                {patient.weight} lbs
+                {patient.LATEST_WEIGHT} lbs
                 {/* <div className='text2'>zip code</div>
               {patient.zip} */}
               </div>

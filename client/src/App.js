@@ -116,7 +116,7 @@ function App() {
           />
           <Route
             //Editing a single exam
-            path='Admin/EditExam'
+            path='Admin/EditExam/:_id'
             element={
               <div>
                 <Navbar />

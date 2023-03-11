@@ -33,6 +33,7 @@
         "mongodb": "^5.1.0",
         "morgan": "^1.10.0",
         "nodemon": "^2.0.20",
+        "path": "^0.12.7",
         "prettier": "^2.8.4",
         "react": "^18.2.0",
         "react-router-dom": "^6.8.1",
@@ -44,9 +45,17 @@
         "yup": "^1.0.1"
     },
     "scripts": {
+        "build": "",
         "backend": "cd api && node ./bin/www",
         "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js,jsx}",
         "frontend": "cd client/ && react-scripts start --prefix src",
         "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    },
+    "devDependencies": {
+        "@jridgewell/sourcemap-codec": "^1.4.14",
+        "@rollup/plugin-terser": "^0.4.0",
+        "jstransformer": "^1.0.0",
+        "pug": "^3.0.2",
+        "svgo": "^3.0.2"
     }
 }
