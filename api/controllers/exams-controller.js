@@ -49,7 +49,6 @@ const addExam = async (req, res) => {
   const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
-    console.log(req.body);
   const result = await exams.insertOne({
     exam_Id,
     PATIENT_ID,
@@ -57,7 +56,7 @@ const addExam = async (req, res) => {
     key_findings,
     xray_url,
   });
-  console.log(result);
+    console.log(req.body);
   res.status(201).json(result.insertedId);
 };
 

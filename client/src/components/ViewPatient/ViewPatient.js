@@ -61,7 +61,7 @@ export default function ViewPatient() {
   const [searchedExams, setSearchedExams] = useState([]); // exams that contain the searched value in the exam id or patient id
   const [search, onSearch] = useState(''); // the search value
   const [list, setList] = useState(''); // the value
-  const [grid, setGrid] = useState("current"); // the search value
+  const [grid, setGrid] = useState('current'); // the search value
 
   useEffect(() => {
     fetch('http://localhost:9000/patients')
@@ -69,7 +69,7 @@ export default function ViewPatient() {
       .then(data => {
         setAllPatients(data);
         console.log(data);
-        const p = data.find(p => (p._id === _id));
+        const p = data.find(p => p._id === _id);
         setPatient(p);
       })
       .catch(error => {
@@ -77,7 +77,7 @@ export default function ViewPatient() {
         console.log('Failed to fetch patient data.');
       });
   }, [_id]);
-  
+
   useEffect(() => {
     fetch('http://localhost:9000/exams')
       .then(response => response.json())
@@ -94,9 +94,7 @@ export default function ViewPatient() {
   useEffect(() => {
     const regex = new RegExp(search, 'i');
     if (search.length > 0) {
-      setSearchedExams(
-        allExams.filter(e => (regex.test(e.exam_Id)))
-      );
+      setSearchedExams(allExams.filter(e => regex.test(e.exam_Id)));
     } else {
       setSearchedExams(allExams);
     }
@@ -104,59 +102,74 @@ export default function ViewPatient() {
 
   const handleClick = () => {
     if (list.length > 0) {
-      setList("");
-      setGrid("current");
+      setList('');
+      setGrid('current');
     } else {
-      setList("current");
-      setGrid("");
+      setList('current');
+      setGrid('');
     }
-  }
-
+  };
 
   if (!patient) {
+    return <div> No patient found.</div>;
+  } else
     return (
-      <div> No patient found.</div>
-    )
-  } else return (
-    <div className='ViewPatient'>
-      <div>
-        <h1 style={{transform:'translateX(-20px)'}}>
-          <Link to='/Exams/ViewPatients'>
-            <span className='inactive'>
-              <i class="angle left icon" style={{ float: 'left', fontSize: '50px'}}></i>
+      <div className='ViewPatient'>
+        <div>
+          <h1 style={{ transform: 'translateX(-20px)' }}>
+            <Link to='/Exams/ViewPatients'>
+              <span className='inactive'>
+                <i
+                  class='angle left icon'
+                  style={{ float: 'left', fontSize: '50px' }}
+                ></i>
               </span>
-          </Link>
-          Patient Info
-        </h1>
-        <div className='ValuesContainer'>
-          <div className='Values'><span>Patient ID</span>{patient.PATIENT_ID}</div>
-          <div className='Values'><span>Age</span>{patient.AGE}</div>
-          <div className='Values'><span>Sex</span>{patient.SEX}</div>
-          <div className='Values'><span>Weight</span>{patient.LATEST_WEIGHT}</div>
-          <div className='Values'><span>BMI</span>{patient.LATEST_BMI}</div>
+            </Link>
+            Patient Info
+          </h1>
+          <div className='ValuesContainer'>
+            <div className='Values'>
+              <span>Patient ID</span>
+              {patient.PATIENT_ID}
+            </div>
+            <div className='Values'>
+              <span>Age</span>
+              {patient.AGE}
+            </div>
+            <div className='Values'>
+              <span>Sex</span>
+              {patient.SEX}
+            </div>
+            <div className='Values'>
+              <span>Weight</span>
+              {patient.LATEST_WEIGHT}
+            </div>
+            <div className='Values'>
+              <span>BMI</span>
+              {patient.LATEST_BMI}
+            </div>
+          </div>
         </div>
-      </div>
-      <div>
-        <input
-          className='examSearch'
-          placeholder='Search...'
-          value={search}
-          onChange={e => onSearch(e.target.value)}
-        />
-        <span className={list}>
-        <i class="th icon" onClick={handleClick}/>
-        </span>
-        <span className={grid} onClick={handleClick}>
-        <i class="list ul icon"/>
-        </span>
-      </div>
+        <div>
+          <input
+            className='examSearch'
+            placeholder='Search...'
+            value={search}
+            onChange={e => onSearch(e.target.value)}
+          />
+          <span className={list}>
+            <i class='th icon' onClick={handleClick} />
+          </span>
+          <span className={grid} onClick={handleClick}>
+            <i class='list ul icon' />
+          </span>
+        </div>
 
-    {list.length > 0 ? (
-      <ExamGrid exams={searchedExams} />
-    ) : (
-      <ExamTable exams={searchedExams}/>
-    )}
-
-    </div>
-  );
+        {list.length > 0 ? (
+          <ExamGrid exams={searchedExams} />
+        ) : (
+          <ExamTable exams={searchedExams} />
+        )}
+      </div>
+    );
 }

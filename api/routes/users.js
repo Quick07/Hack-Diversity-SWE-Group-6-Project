@@ -4,7 +4,7 @@ const router = express.Router();
 const UserController = require('../controllers/user-controller');
 
 // lets the router know that it should be expecting a json value
-router.use(express.json())
+router.use(express.json());
 
 router.get('/', UserController.getUser);
 
