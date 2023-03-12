@@ -20,7 +20,7 @@ function ExamEdit() {
   useEffect(() => {
     const fetchExam = async () => {
       try {
-        const response = await fetch(`http://localhost:9000/exams/${_id}`);
+        const response = await fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`);
         const data = await response.json();
         setExam(data);
         console.log(exam);
@@ -37,7 +37,7 @@ function ExamEdit() {
       const fetchPatient = async () => {
         try {
           const response = await fetch(
-            `http://localhost:9000/patients/${exam.PATIENT_ID}`
+            `https://project-x-vuhz.onrender.com/patients/${exam.PATIENT_ID}`
           );
           const data = await response.json();
           setPatient(data);
@@ -64,7 +64,7 @@ function ExamEdit() {
     if (newExam) {
       const updateExam = async () => {
         try {
-          const response = await fetch(`http://localhost:9000/exams/${_id}`, {
+          const response = await fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ function ExamEdit() {
 
 
   const handleDelete = () => {
-    fetch(`http://localhost:9000/exams/${_id}`), {
+    fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`), {
       method: 'DELETE'};
   }
 

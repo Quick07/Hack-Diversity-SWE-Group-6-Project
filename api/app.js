@@ -21,7 +21,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 
-app.use('/', indexRouter);
+// // Serve static files from the build directory
+// app.use(express.static(path.join(__dirname, 'client/build')));
+
+// // Serve the index.html file for any request that does not match an existing file or API endpoint
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+// });
+
+// app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/patients', patientsRouter);
 app.use('/exams', examsRouter);
