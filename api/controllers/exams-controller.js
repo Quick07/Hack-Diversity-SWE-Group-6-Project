@@ -82,9 +82,22 @@ const editExam = async (req, res) => {
   res.status(201).json(result.insertedId);
 };
 
+const deleteExam = async (req, res) => {
+  const { _id} = req.body;
+
+  const client = await getClient();
+  const db = client.db(dbName);
+  const exams = db.collection('Exams');
+  const result = await exams.deleteOne({_id: new ObjectId(_id)});
+  res.status(201).json(result);
+};
+
+
+
 module.exports = {
   getExamsData,
   getExam,
   addExam,
   editExam,
+  deleteExam
 };
