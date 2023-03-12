@@ -26,7 +26,7 @@ function ExamEdit() {
         console.log(exam);
         console.log(data);
       } catch (error) {
-        console.log('Failed to fetch patient data.');
+        console.log('Failed to fetch examm.');
       }
     };
     fetchExam();
@@ -64,7 +64,7 @@ function ExamEdit() {
     if (newExam) {
       const updateExam = async () => {
         try {
-          const response = await fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`, {
+          const response = await fetch(`https://project-x-vuhz.onrender.com/exams`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -74,6 +74,8 @@ function ExamEdit() {
 
           if (!response.ok) {
             throw new Error('Failed to update exam.');
+          } else {
+          navigate(`../Exams/ViewExam/${_id}`);
           }
 
           const result = await response.json();
@@ -83,15 +85,34 @@ function ExamEdit() {
         }
       };
       updateExam();
-      navigate(`../Exams/ViewExam/${_id}`);
     }
   }, [newExam]);
 
-
-  const handleDelete = () => {
-    fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`), {
-      method: 'DELETE'};
+  
+  const handleDelete = async () => {
+    const confirmed = confirm("Are you sure you want to delete this exam?");
+  if (confirmed) {
+    try {
+      const response = await fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`, {
+        method: 'DELETE',
+        body: {"_id": `${_id}`},
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to delete exam.');
+      }
+  
+      // Wait for the delete request to complete before navigating
+      await response.json();
+      navigate(`../Admin/EditExam`);
+    } catch (error) {
+      console.error(error);
+      // Show an error message to the user
+      alert('Failed to delete exam. Please try again later.');
+    }
   }
+  };
+  
 
 
   const handleSave = () => {
