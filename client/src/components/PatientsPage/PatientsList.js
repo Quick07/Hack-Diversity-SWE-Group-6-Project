@@ -77,7 +77,7 @@ export default function PatientsList() {
   const sortRef = useRef(sortValue);
 
   useEffect(() => {
-    fetch('http://localhost:9000/patients')
+    fetch('https://projectx-b17q.onrender.com/patients')
       .then(response => response.json())
       .then(data => {
         setAllPatients(data);

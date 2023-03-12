@@ -8,7 +8,7 @@ function ExamInfo() {
   const [allPatients, setAllPatients] = useState('');
   const { _id } = useParams();
   useEffect(() => {
-    fetch('http://localhost:9000/patients')
+    fetch('https://projectx-b17q.onrender.com/patients')
       .then(response => response.json())
       .then(data => setAllPatients(data))
       .catch(error => {
@@ -20,7 +20,7 @@ function ExamInfo() {
   //exams data
   const [allExams, setAllExams] = useState('');
   useEffect(() => {
-    fetch('http://localhost:9000/exams')
+    fetch('https://projectx-b17q.onrender.com/exams')
       .then(response => response.json())
       .then(data => setAllExams(data))
       .catch(error => {

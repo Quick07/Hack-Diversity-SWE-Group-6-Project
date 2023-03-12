@@ -49,7 +49,7 @@ function CreatePatient() {
 
   // takes the selected patient and applies their info (and prints out info into the console)
   useEffect(() => {
-    fetch('http://localhost:9000/patients')
+    fetch('https://projectx-b17q.onrender.com/patients')
       .then(response => response.json())
       .then(data => {
         setAllPatients(data);
@@ -63,7 +63,7 @@ function CreatePatient() {
 
   useEffect(() => {
     if (newPatient) {
-      fetch('http://localhost:9000/patients', {
+      fetch('https://projectx-b17q.onrender.com/patients', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newPatient),

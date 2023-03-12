@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "App.js",
   "description": "Patient exam portal that shows x-ray and Patient data",
-  "proxy": "http://localhost:3000",
+  "proxy": "https://projectx-b17q.onrender.com",
   "keywords": [
     "Patient",
     "portal",
