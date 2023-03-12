@@ -19,6 +19,7 @@ import { useApi } from './hooks/use-api';
 import Examstable from './components/Exam/Examstable';
 import TablePage from './components/Exam/TablePage';
 import EditView from './components/ExamEdit/EditView';
+import CreatePatient from './components/CreatePatient/CreatePatient';
 
 function App() {
   const { response } = useApi();
@@ -132,6 +133,16 @@ function App() {
               <div>
                 <Navbar />
                 <EditView />
+              </div>
+            }
+          />
+          <Route
+            //Create a new exam
+            path='Admin/CreatePatient'
+            element={
+              <div>
+                <Navbar />
+                <CreatePatient />
               </div>
             }
           />

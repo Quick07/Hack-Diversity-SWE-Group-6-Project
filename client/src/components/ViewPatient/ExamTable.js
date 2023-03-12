@@ -73,14 +73,9 @@ export default function ExamTable(props) {
             </TableHead>
             <TableBody>
               {exams.map(exam => (
-                <StyledTableRow className='row' key={exam._id}>
+                <StyledTableRow className='row' onClick={() => {navigate(`../Exams/ViewExam/${exam._id}`)}} key={exam._id}>
                   <StyledTableCell
                     align='left'
-                    sx={{ '&:hover': { cursor: 'pointer' } }}
-                    onClick={() => {
-                      navigate(`../Exams/ViewExam/${exam._id}`);
-                      console.log(selectExamDest);
-                    }}
                   >
                     {exam.exam_Id}
                   </StyledTableCell>

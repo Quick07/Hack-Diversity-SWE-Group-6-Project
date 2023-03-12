@@ -64,8 +64,26 @@ const getPatientData = async (req, res) => {
     }
   };
 
+  const addPatient = async (req, res) => {
+    const { PATIENT_ID, AGE, SEX, LATEST_BMI, LATEST_WEIGHT } =
+      req.body;
+  
+    const client = await getClient();
+    const db = client.db(dbName);
+    const patients = db.collection('Patients');
+    const result = await patients.insertOne({
+      PATIENT_ID, 
+      AGE, 
+      SEX, 
+      LATEST_BMI, 
+      LATEST_WEIGHT
+    });
+      console.log(req.body);
+    res.status(201).json(result.insertedId);
+  };
+
   module.exports = {
     getPatientData,
-    // getPatient,
+    addPatient,
     getPatientByID
   };

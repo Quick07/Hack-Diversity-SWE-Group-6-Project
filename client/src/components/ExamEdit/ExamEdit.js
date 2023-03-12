@@ -87,6 +87,13 @@ function ExamEdit() {
     }
   }, [newExam]);
 
+
+  const handleDelete = () => {
+    fetch(`http://localhost:9000/exams/${_id}`), {
+      method: 'DELETE'};
+  }
+
+
   const handleSave = () => {
     setNewExam({
       _id: _id,
@@ -101,9 +108,10 @@ function ExamEdit() {
 
   return (
     <div className='ExamEditPage'>
-      <div>
+      <div className='header'>
         <h1> Edit exam</h1>
-        Edit details about an exam here.
+        <i class="trash icon" onClick={handleDelete}></i>
+        Edit details about an exam here. 
       </div>
       { (!exam || !patient) ? (<div>Loading exam...</div>) :(
       <div className='Info'>
