@@ -129,7 +129,25 @@
     font-size: medium;
     font-family: 'Courier New', Courier, monospace;
   }
+
+  .ExamEditPage input:hover {
+    border: 1.5px solid black;
+  }
   
+  .ExamEditPage input:focus-within {
+    outline: 2px solid black;
+    border: 1.5px solid transparent;
+  }
+  
+  .ExamEditPage textarea:hover {
+    border: 1.5px solid black;
+  }
+  
+  .ExamEditPage textarea:focus-within {
+    outline: 2px solid black;
+    border: 1.5px solid transparent;
+  }
+
   .ExamEditPage textarea{
     display: flex;
     height: 150px;
@@ -141,7 +159,6 @@
     font-size: medium;
     font-family: 'Courier New', Courier, monospace;
   }
-  
 
   .ExamEditPage .header {
     width: 100%;
