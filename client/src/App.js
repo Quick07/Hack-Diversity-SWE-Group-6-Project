@@ -20,9 +20,10 @@ import Examstable from './components/Exam/Examstable';
 import TablePage from './components/Exam/TablePage';
 import EditView from './components/ExamEdit/EditView';
 import CreatePatient from './components/CreatePatient/CreatePatient';
+import EditPatient from './components/EditPatient/EditPatient';
 
 function App() {
-  const { response } = useApi();
+  // const { response } = useApi();
   return (
     <div className='App'>
       <BrowserRouter>
@@ -118,7 +119,7 @@ function App() {
           />
           <Route
             //Editing a single exam
-            path='Admin/EditExam/:_id'
+            path='Admin/EditExam/:PATIENT_ID'
             element={
               <div>
                 <Navbar />
@@ -143,6 +144,16 @@ function App() {
               <div>
                 <Navbar />
                 <CreatePatient />
+              </div>
+            }
+          />
+          <Route
+            //Create a new exam
+            path='Admin/EditPatient/:_id'
+            element={
+              <div>
+                <Navbar />
+                <EditPatient />
               </div>
             }
           />

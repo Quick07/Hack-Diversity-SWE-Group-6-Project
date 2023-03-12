@@ -82,8 +82,41 @@ const getPatientData = async (req, res) => {
     res.status(201).json(result.insertedId);
   };
 
+  const editPatient = async (req, res) => {
+    const { _id, PATIENT_ID, AGE, SEX, LATEST_WEIGHT, LATEST_BMI } =
+      req.body;
+  
+    const client = await getClient();
+    const db = client.db(dbName);
+    const patients = db.collection('Patients');
+    const result = await patients.updateOne(
+      { _id: new ObjectId(_id) },
+      {
+        $set: {
+          PATIENT_ID: PATIENT_ID,
+          AGE: AGE,
+          SEX: SEX,
+          LATEST_WEIGHT: LATEST_WEIGHT,
+          LATEST_BMI: LATEST_BMI,
+        },
+      }
+    );
+    res.status(201).json(result.acknowledged);
+  };
+  
+  const deletePatient = async (req, res) => {
+  
+    const client = await getClient();
+    const db = client.db(dbName);
+    const patients = db.collection('Patients');
+    const result = await patients.deleteOne({PATIENT_ID: req.params.PATIENT_ID});
+    res.status(200).json(result);
+  };
+
   module.exports = {
     getPatientData,
     addPatient,
-    getPatientByID
+    getPatientByID, 
+    editPatient,
+    deletePatient
   };

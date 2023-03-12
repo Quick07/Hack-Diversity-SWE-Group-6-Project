@@ -91,6 +91,16 @@ const deleteExam = async (req, res) => {
   res.status(200).json(result);
 };
 
+const deleteExams = async (req, res) => {
+
+  const client = await getClient();
+  const db = client.db(dbName);
+  const exams = db.collection('Exams');
+  const result = await exams.deleteMany({PATIENT_ID: req.params.PATIENT_ID});
+  res.status(200).json(result);
+};
+
+
 
 
 module.exports = {
@@ -98,5 +108,6 @@ module.exports = {
   getExam,
   addExam,
   editExam,
-  deleteExam
+  deleteExam,
+  deleteExams
 };
