@@ -35,7 +35,7 @@ export default function Examstable() {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    fetch('http://localhost:9000/exams')
+    fetch('https://project-x-vuhz.onrender.com//exams')
       .then(res => res.json())
       .then(data => setRows(data))
       .catch(err => console.error(err));

@@ -25,7 +25,7 @@ function CreateExam() {
 
   // takes the selected patient and applies their info (and prints out info into the console)
   useEffect(() => {
-    fetch('https://projectx-b17q.onrender.com/patients')
+    fetch('https://project-x-vuhz.onrender.com/patients')
       .then(response => response.json())
       .then(data => {
         setAllPatients(data);
@@ -40,7 +40,7 @@ function CreateExam() {
   useEffect(() => {
     console.log(newExam);
     if (newExam) {
-      fetch('https://projectx-b17q.onrender.com/exams', {
+      fetch('https://project-x-vuhz.onrender.com/exams', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newExam),

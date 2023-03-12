@@ -64,7 +64,7 @@ export default function EditView() {
   const [grid, setGrid] = useState("current"); // the search value
 
 //   useEffect(() => {
-//     fetch('https://projectx-b17q.onrender.com/patients')
+//     fetch('https://project-x-vuhz.onrender.com/patients')
 //       .then(response => response.json())
 //       .then(data => {
 //         setAllPatients(data);
@@ -79,7 +79,7 @@ export default function EditView() {
 //   }, [_id]);
   
   useEffect(() => {
-    fetch('https://projectx-b17q.onrender.com/exams')
+    fetch('https://project-x-vuhz.onrender.com/exams')
       .then(response => response.json())
       .then(data => {
         setAllExams(data);
