@@ -88,7 +88,7 @@ function ExamEdit() {
     }
   }, [newExam]);
 
-
+  
   const handleDelete = async () => {
     const confirmed = confirm("Are you sure you want to delete this exam?");
   if (confirmed) {
@@ -104,7 +104,7 @@ function ExamEdit() {
   
       // Wait for the delete request to complete before navigating
       await response.json();
-      navigate(`../Exams/ViewExam/${_id}`);
+      navigate(`../Admin/EditExam`);
     } catch (error) {
       console.error(error);
       // Show an error message to the user
