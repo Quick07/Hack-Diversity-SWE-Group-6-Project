@@ -43,12 +43,19 @@
     "web-vitals": "^3.1.1"
   },
   "scripts": {
-    "build": "serve -s build",
-    "backend": "cd api && node ./bin/www",
-    "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}, prettier --write compon/**/*.{ts,tsx,js, css} ",
-    "frontend": "cd client/ && react-scripts start",
-    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+    "start": "node server.js",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "react-scripts build",
+    "build:server": "tsc",
+    "serve": "serve -s build",
+    "deploy": "npm run build && npm run serve"
   },
+  //   "build": "serve -s build",
+  //   "backend": "cd api && node ./bin/www",
+  //   "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}, prettier --write compon/**/*.{ts,tsx,js, css} ",
+  //   "frontend": "cd client/ && react-scripts start",
+  //   "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+  // },
   "browserslist": [
     ">0.2%",
     "not dead",
