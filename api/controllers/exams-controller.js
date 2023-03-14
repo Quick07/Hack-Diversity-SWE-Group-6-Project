@@ -22,14 +22,31 @@ const getClient = async () => {
 };
 
 const getExamsData = async (req, res) => {
+  try {
   const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
-  const result = await exams.find().toArray();
+  const result = await exams.find().toArray();;
   res.status(200).json(result);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getExamsByPatient = async (req, res) => {
+  try {
+  const client = await getClient();
+  const db = client.db(dbName);
+  const exams = db.collection('Exams');
+  const result = await exams.find({PATIENT_ID: req.params.PATIENT_ID}).toArray();
+  res.status(200).json(result);
+} catch (error) {
+  console.log(error);
+}
 };
 
 const getExam = async (req, res) => {
+  try {
   const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
@@ -40,15 +57,20 @@ const getExam = async (req, res) => {
   } else {
     res.status(200).json(exam);
   }
+} catch (error) {
+  console.log(error);
+}
 };
 
 const addExam = async (req, res) => {
+  try {
   const { exam_Id, PATIENT_ID, brixia_scores, key_findings, xray_url } =
     req.body;
 
   const client = await getClient();
   const db = client.db(dbName);
   const exams = db.collection('Exams');
+    console.log(req.body);
   const result = await exams.insertOne({
     exam_Id,
     PATIENT_ID,
@@ -56,11 +78,15 @@ const addExam = async (req, res) => {
     key_findings,
     xray_url,
   });
-    console.log(req.body);
+  console.log(result);
   res.status(201).json(result.insertedId);
+} catch (error) {
+  console.log(error);
+}
 };
 
 const editExam = async (req, res) => {
+  try {
   const { _id, exam_Id, PATIENT_ID, brixia_scores, key_findings, xray_url } =
     req.body;
 
@@ -80,24 +106,35 @@ const editExam = async (req, res) => {
     }
   );
   res.status(201).json(result.insertedId);
+} catch (error) {
+  console.log(error);
+}
 };
 
 const deleteExam = async (req, res) => {
-
-  const client = await getClient();
-  const db = client.db(dbName);
-  const exams = db.collection('Exams');
-  const result = await exams.deleteOne({_id: new ObjectId(req.params._id)});
-  res.status(200).json(result);
+  try {
+    const client = await getClient();
+    const db = client.db(dbName);
+    const exams = db.collection('Exams');
+    const result = await exams.deleteOne({_id: new ObjectId(req.params._id)});
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 const deleteExams = async (req, res) => {
-
-  const client = await getClient();
-  const db = client.db(dbName);
-  const exams = db.collection('Exams');
-  const result = await exams.deleteMany({PATIENT_ID: req.params.PATIENT_ID});
-  res.status(200).json(result);
+  try {
+    const client = await getClient();
+    const db = client.db(dbName);
+    const exams = db.collection('Exams');
+    const result = await exams.deleteMany({PATIENT_ID: req.params.PATIENT_ID});
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
 };
 
 
@@ -105,6 +142,7 @@ const deleteExams = async (req, res) => {
 
 module.exports = {
   getExamsData,
+  getExamsByPatient,
   getExam,
   addExam,
   editExam,
