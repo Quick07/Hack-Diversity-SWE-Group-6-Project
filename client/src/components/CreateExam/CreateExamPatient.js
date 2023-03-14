@@ -1,20 +1,21 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import './CreateExam.css';
 //This page displays all the details of an exam
-function CreateExam() {
+function CreateExamForPatient() {
   // filter patients based on input
   // or have a drop down that has existing patients
   const [xrayUrl, onChangeXrayUrl] = useState('');
   const [examId, onChangeId] = useState('');
   const [brixScore, onChangeBrixScore] = useState('');
   const [keyFindings, onChangeKeyFindings] = useState('');
-
+  const {PATIENT_ID} = useParams();
   const [newExam, setNewExam] = useState();
   const [allPatients, setAllPatients] = useState([]);
   const [patient, setPatient] = useState({
     AGE: '', // set a default value for age
+    PATIENT_ID: PATIENT_ID, // set a default value for age
     SEX: '',
     LATEST_BMI: '',
     LATEST_WEIGHT: '',
@@ -25,10 +26,10 @@ function CreateExam() {
 
   // takes the selected patient and applies their info (and prints out info into the console)
   useEffect(() => {
-    fetch('https://techdive6-rjja.onrender.com/patients')
+    fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`)
       .then(response => response.json())
       .then(data => {
-        setAllPatients(data);
+        setPatient(data);
         console.log(data);
       })
       .catch(error => {
@@ -46,7 +47,7 @@ function CreateExam() {
         body: JSON.stringify(newExam),
       })
         .then(response => response.json())
-        .then(data => navigate(`../Exams/ViewExam/${data}`))
+        .then(data => navigate(`../Admin/EditPatient/${PATIENT_ID}`))
         .catch(error => console.error(error));
     }
   }, [newExam]);
@@ -61,9 +62,9 @@ function CreateExam() {
     });
   };
 
-  const onPatientSelect = event => {
-    setPatient(allPatients.find(e => e.PATIENT_ID == event.value));
-  };
+  // const onPatientSelect = event => {
+  //   setPatient(allPatients.find(e => e.PATIENT_ID == event.value));
+  // };
   // CREATE FUNCTION THAT GRABS WHATEVER SELECTED PATIENT AND USES THAT SELECTED ID TO FOR; BMI, WEIGHT, SEX, ETC.
   return (
     <div className='CreateExamPage'>
@@ -108,15 +109,7 @@ function CreateExam() {
             <div className='content'>
               <div className='id'>
                 <div className='text2'>patient id</div>
-                <select onChange={e => onPatientSelect(e.target)}>
-                    <option></option>
-                  {allPatients.map(patient => (
-                    <option key={patient.PATIENT_ID}>
-                      {patient.PATIENT_ID}
-                    </option>
-                  ))}
-                </select>
-                <i class="angle down icon"></i>
+                {patient.PATIENT_ID}
               </div>
               <div className='Column'>
                 <div className='text2'>age</div>
@@ -138,11 +131,11 @@ function CreateExam() {
             Save
           </button>
           <button className='Button'>
-            <Link to='../Admin'>Cancel</Link>
+            <Link to={`../Admin/EditPatient/${PATIENT_ID}`}>Cancel</Link>
           </button>
         </div>
       </div>
     </div>
   );
 }
-export default CreateExam;
+export default CreateExamForPatient;

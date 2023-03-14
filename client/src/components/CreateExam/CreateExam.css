@@ -1,45 +1,4 @@
-.text1 {
-    max-height: 2.5%;
-    width: 100%;
-    font-family: 'Helvetica Neue';
-    display: inline;
-  }
-  
-  .text2 {
-    padding-top: 10px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 20px;
-    text-transform: lowercase;
-    color: #808080;
-    margin-block: 0;
-  }
-  
-  .text3 {
-    padding: 15px;
-    color: #808080;
-    background-color: lightgray;
-    border-radius: 12px;
-    border-bottom-left-radius: 0%;
-    border-bottom-right-radius: 0%;
-    font-weight: 400;
-    font-size: 24px;
-    display: block;
-    border: 0 solid #808080;
-    border-bottom-width: 3px;
-    margin-block: 0;
-  }
-  
-  .Text {
-    padding: 15px;
-    padding-top: 0px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  
-  .CreateExamPage {
+ .CreateExamPage {
     align-content: flex-start;
     display: flex;
     flex-flow: row wrap;
@@ -55,6 +14,19 @@
     display:block;
     color: rgba(35, 35, 35, 1);
     margin: 0%;
+  }
+
+  .CreateExamPage select {
+    width: 100%;
+    background-color: transparent;
+    font-family: inherit;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+    border-radius: 15px;
+    padding: 1px 20px 1px 20px;
+    font-family: inherit;
   }
   
   /* When Screen is narrow, arrange content in one column */
@@ -89,7 +61,8 @@
   
   .InfoTable {
     background-color: white;
-    border: 3px solid #808080;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(0, 0, 0, 0.25)!important;
     border-radius: 15px;
     flex-basis: 100%;
     width: 100%;
@@ -102,7 +75,8 @@
   
   .PatientTable {
     background-color: white;
-    border: 3px solid #808080;
+    border: 1px solid rgba(35, 35, 35, 0.25);
+    box-shadow: 2px 2px 4px rgba(35, 35, 35, 0.25);
     border-radius: 15px;
     height: 40%;
     flex-basis: 100%;
@@ -140,6 +114,43 @@
     padding: 6px 6px 0 6px;
     font-size: medium;
     font-family: 'Courier New', Courier, monospace;
+  }
+
+  .CreateExamPage .icon {
+    position: sticky;
+    transform: translate(-1rem,-1.5rem);
+    float: right;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+  }
+  .CreateExamPage i {
+    position: sticky;
+    transform: translate(-3.2rem);
+    float: right;
+    width: 0;
+    height: 0;
+  }
+  
+  .CreateExamPage input:focus {
+    appearance: unset;
+    -webkit-appearance: unset;
+    -moz-appearance: unset;
+    outline-color: black;
+}
+
+.CreateExamPage textarea:focus {
+  appearance: unset;
+  -webkit-appearance: unset;
+  -moz-appearance: unset;
+  outline-color: black;
+}
+
+  .CreateExamPage select:focus {
+      appearance: unset;
+      -webkit-appearance: unset;
+      -moz-appearance: unset;
+      outline-color: black;
   }
   
   .inputId {

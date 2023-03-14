@@ -52,7 +52,7 @@ const FilterSlider = styled(Slider)({
 });
 
 // This page allows access to view all exam and patient information
-export default function PatientsList() {
+export default function EditPatientsList() {
   const [allPatients, setAllPatients] = useState([]); // Array with all patients in db
   const [filterSeen, setFilterSeen] = useState(false); // is the popup visible?
   const [sortSeen, setSortSeen] = useState(false); // is the popup visible?
@@ -303,12 +303,9 @@ export default function PatientsList() {
     <div className='PatientsPage'>
       <div>
         <h1>
-          <Link to='/Exams/ViewList'>
-            <span className='inactive'>Exams </span>
-          </Link>
-          | Patients{' '}
+          Edit Patients
         </h1>
-        View all patients here.
+        Select a patient to edit their info.
       </div>
       <div>
         <input

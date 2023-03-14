@@ -64,7 +64,7 @@ export default function EditView() {
   const [grid, setGrid] = useState("current"); // the search value
 
 //   useEffect(() => {
-//     fetch('https://project-x-vuhz.onrender.com/patients')
+//     fetch('https://techdive6-rjja.onrender.com/patients')
 //       .then(response => response.json())
 //       .then(data => {
 //         setAllPatients(data);
@@ -79,7 +79,7 @@ export default function EditView() {
 //   }, [_id]);
   
   useEffect(() => {
-    fetch('https://project-x-vuhz.onrender.com/exams')
+    fetch('https://techdive6-rjja.onrender.com/exams')
       .then(response => response.json())
       .then(data => {
         setAllExams(data);
@@ -114,11 +114,8 @@ export default function EditView() {
   return (
     <div className='EditView'>
       <div>
-        <h1 style={{transform:'translateX(-20px)'}}>
+        <h1>
           <Link to='/Exams/ViewPatients'>
-            <span className='inactive'>
-              <i class="angle left icon" style={{ float: 'left', fontSize: '50px'}}></i>
-              </span>
           </Link>
           Edit Exam
         </h1>

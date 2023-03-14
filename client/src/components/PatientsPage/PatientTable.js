@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: '#202020',
     color: theme.palette.common.white,
     fontSize: 18,
     fontWeight: 600,

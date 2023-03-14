@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "App.js",
   "description": "Patient exam portal that shows x-ray and Patient data",
-  "proxy": "https://project-x-vuhz.onrender.com/",
+  "proxy": "https://techdive6-rjja.onrender.com",
   "keywords": [
     "Patient",
     "portal",
@@ -43,6 +43,7 @@
   },
   "scripts": {
     "build": "react-scripts build",
+    "start": "react-scripts start",
     "backend": "cd api && node ./bin/www",
     "prettier": "prettier --write client/**/*.{ts,tsx,js} && prettier --write api/**/*.{ts,tsx,js}, prettier --write compon/**/*.{ts,tsx,js, css} ",
     "frontend": "cd client/ && react-scripts start",

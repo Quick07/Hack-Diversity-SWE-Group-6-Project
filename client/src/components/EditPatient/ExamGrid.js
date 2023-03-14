@@ -12,7 +12,7 @@ export default function ExamGrid(props) {
         <div className='grid'>
           {exams.map(e => (
             <div className='Card'>
-              <Link to={`../Exams/ViewExam/${e._id}`}>
+              <Link to={`../Admin/EditExam/${e._id}`}>
                 <div>
                   <img
                     className='CardImage'

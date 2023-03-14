@@ -7,7 +7,7 @@ import ExamGrid from './ExamGrid';
 import 'semantic-ui-css/semantic.min.css';
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 //Styling the filter slider
 const FilterSlider = styled(Slider)({
@@ -55,6 +55,7 @@ const FilterSlider = styled(Slider)({
 // This page allows access to view all exam and patient information
 export default function ViewPatient() {
   const { _id } = useParams();
+  const navigate = useNavigate();
   const [patient, setPatient] = useState();
   const [allPatients, setAllPatients] = useState([]); // Array with all patients in db
   const [allExams, setAllExams] = useState([]); // Array with all exams for this patient
@@ -64,7 +65,7 @@ export default function ViewPatient() {
   const [grid, setGrid] = useState('current'); // the search value
 
   useEffect(() => {
-    fetch('https://project-x-vuhz.onrender.com/patients')
+    fetch('https://techdive6-rjja.onrender.com/patients')
       .then(response => response.json())
       .then(data => {
         setAllPatients(data);
@@ -79,7 +80,8 @@ export default function ViewPatient() {
   }, [_id]);
 
   useEffect(() => {
-    fetch('https://project-x-vuhz.onrender.com/exams')
+    if (patient) {
+    fetch('https://techdive6-rjja.onrender.com/exams')
       .then(response => response.json())
       .then(data => {
         const exams = data.filter(e => e.PATIENT_ID === patient.PATIENT_ID);
@@ -89,6 +91,7 @@ export default function ViewPatient() {
       .catch(error => {
         console.log('Failed to fetch exams data.');
       });
+    }
   }, [patient]);
 
   useEffect(() => {
@@ -99,6 +102,10 @@ export default function ViewPatient() {
       setSearchedExams(allExams);
     }
   }, [search]);
+
+  const handleAdd = () => {
+  navigate(`/Admin/CreateExam/${patient.PATIENT_ID}`)
+  }
 
   const handleClick = () => {
     if (list.length > 0) {
@@ -156,13 +163,13 @@ export default function ViewPatient() {
             placeholder='Search...'
             value={search}
             onChange={e => onSearch(e.target.value)}
-          />
-          <span className={list}>
+          /><span className={list}>
             <i class='th icon' onClick={handleClick} />
           </span>
           <span className={grid} onClick={handleClick}>
             <i class='list ul icon' />
-          </span>
+          </span><i class="plus icon" onClick={handleAdd}></i>
+          
         </div>
 
         {list.length > 0 ? (

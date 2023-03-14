@@ -17,14 +17,10 @@ export default function EditGrid(props) {
         <img className='CardImage' src= {e.xray_url} alt={e.xray_url}/>
         </div>
         <div className='CardText'>
-            <h2>patient id</h2> 
+            <h2>Exam ID</h2>     
+            {e.exam_Id} 
+            <h2>Patient ID</h2> 
             {e.PATIENT_ID}
-            <h2>exam id    brixia score</h2> 
-            {e.exam_Id}    {e.brixia_scores}
-            <h2>key findings</h2>
-            <div className='kf'>
-            {e.key_findings}
-            </div>
         </div>
         </Link>
       </div>

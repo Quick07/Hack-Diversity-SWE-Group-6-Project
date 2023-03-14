@@ -49,7 +49,7 @@ function CreatePatient() {
 
   // takes the selected patient and applies their info (and prints out info into the console)
   useEffect(() => {
-    fetch('https://project-x-vuhz.onrender.com/patients')
+    fetch('https://techdive6-rjja.onrender.com/patients')
       .then(response => response.json())
       .then(data => {
         setAllPatients(data);
@@ -63,7 +63,7 @@ function CreatePatient() {
 
   useEffect(() => {
     if (newPatient) {
-      fetch('https://project-x-vuhz.onrender.com/patients', {
+      fetch('https://techdive6-rjja.onrender.com/patients', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newPatient),
@@ -84,9 +84,6 @@ useEffect(() => {
       });
 }, [patientId, age, sex, bmi, weight])
 
-// useEffect(() => {
-//     console.log(newPatient);
-// }, [newPatient])
 
   const handleSave = () => {
      if (!patientId || !age || !sex || !bmi || !weight ) {
@@ -117,6 +114,7 @@ useEffect(() => {
                 <div className='text2'>patient id</div>
                 <div className='input id'>
                 <input
+                readOnly={true}
                   value={patientId}
                   onChange={e => onChangeId(e.target.value)}
                 />

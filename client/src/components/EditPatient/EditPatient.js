@@ -7,7 +7,7 @@ import ExamGrid from './ExamGrid';
 import 'semantic-ui-css/semantic.min.css';
 import Slider from '@mui/material/Slider';
 import { styled } from '@mui/material/styles';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 //Styling the filter slider
 const FilterSlider = styled(Slider)({
@@ -56,15 +56,20 @@ const FilterSlider = styled(Slider)({
 export default function EditPatient() {
   const { PATIENT_ID } = useParams();
   const [patient, setPatient] = useState();
-  const [allPatients, setAllPatients] = useState([]); // Array with all patients in db
   const [allExams, setAllExams] = useState([]); // Array with all exams for this patient
   const [searchedExams, setSearchedExams] = useState([]); // exams that contain the searched value in the exam id or patient id
   const [search, onSearch] = useState(''); // the search value
   const [list, setList] = useState(''); // the value
   const [grid, setGrid] = useState('current'); // the search value
+  const navigate = useNavigate();
+  const [newPatient, setNewPatient] = useState();
+  const [age, onChangeAge] = useState();
+  const [sex, onChangeSex] = useState();
+  const [weight, onChangeWeight] = useState();
+  const [bmi, onChangeBMI] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:9000/patients/${PATIENT_ID}`)
+    fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`)
       .then(response => response.json())
       .then(data => setPatient(data))
       .catch(error => {
@@ -73,35 +78,23 @@ export default function EditPatient() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   const fetchExam = async () => {
-  //     try {
-  //       const response = await fetch(`https://project-x-vuhz.onrender.com/exams/${PATIENT_ID}`);
-  //       const data = await response.json();
-  //       setPatient(data);
-  //       console.log(patient);
-  //       console.log(data);
-  //     } catch (error) {
-  //       console.log('Failed to fetch examm.');
-  //     }
-  //   };
-  //   fetchExam();
-  // }, []);
-  
-
   useEffect(() => {
-    fetch('https://project-x-vuhz.onrender.com/exams')
-      .then(response => response.json())
-      .then(data => {
-        const exams = data.filter(e => e.PATIENT_ID === PATIENT_ID);
-        setAllExams(exams);
-        setSearchedExams(exams);
-      })
-      .catch(error => {
-        console.log('Failed to fetch exams data.');
-      });
-  }, [patient]);
-
+    const fetchExam = async () => {
+      try {
+        const response = await fetch(`https://techdive6-rjja.onrender.com/exams`);
+        const data = await response.json();
+        const patientExams = data.filter(e => e.PATIENT_ID == PATIENT_ID);
+        setAllExams(patientExams);
+        setSearchedExams(patientExams);
+        console.log(patientExams);
+      } catch (error) {
+        console.log('Failed to fetch exams.');
+        console.log(PATIENT_ID);
+      }
+    };
+    fetchExam();
+  }, []);
+  
   useEffect(() => {
     const regex = new RegExp(search, 'i');
     if (search.length > 0) {
@@ -110,6 +103,104 @@ export default function EditPatient() {
       setSearchedExams(allExams);
     }
   }, [search]);
+
+  useEffect(() => {
+    if (patient) {
+      onChangeAge(patient.AGE);
+      onChangeSex(patient.SEX);
+      onChangeWeight(patient.LATEST_WEIGHT);
+      onChangeBMI(patient.LATEST_BMI);
+    }
+  }, [patient]);
+
+  useEffect(() => {
+    if (newPatient) {
+      const updatePatient = async () => {
+        try {
+          const response = await fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(newPatient),
+          });
+
+          if (!response.ok) {
+            throw new Error('Failed to update exam.');
+          }
+
+          const result = await response.json();
+          console.log(result); // insertedId of the updated exam
+        } catch (error) {
+          console.error(error);
+        }
+      };
+      updatePatient();
+      navigate(`../Exams/ViewPatients/${patient._id}`);
+    }
+  }, [newPatient]);
+
+  const handleDelete = async () => {
+    const confirmed = confirm("Are you sure you want to delete this patient and their exams?");
+  if (confirmed) {
+    try {
+      const response = await fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
+        method: 'DELETE',
+        body: {"PATIENT_ID": PATIENT_ID},
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to delete patient.');
+      }
+  
+      // Wait for the delete request to complete before navigating
+      await response.json();
+    } catch (error) {
+      console.error(error);
+      // Show an error message to the user
+      alert('Failed to delete Patient. Please try again later.');
+    }
+    try {
+      const response = await fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
+        method: 'DELETE',
+        body: {"PATIENT_ID": PATIENT_ID},
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to delete patient.');
+      }
+  
+      // Wait for the delete request to complete before navigating
+      await response.json();
+    } catch (error) {
+      console.error(error);
+      // Show an error message to the user
+      alert('Failed to delete Patient. Please try again later.');
+    }
+
+    navigate(`../Admin/ViewPatients`);
+  }
+  };
+
+  const handleAdd = () => {
+  navigate(`/Admin/CreateExam/${PATIENT_ID}`)
+  }
+
+  const handleCancel = () => {
+    navigate(`../Admin/ViewPatients`)
+  }
+
+  const handleSave = () => {
+    setNewPatient({
+      _id: patient._id,
+      PATIENT_ID: patient.PATIENT_ID,
+      AGE: age,
+      SEX: sex,
+      LATEST_WEIGHT: weight,
+      LATEST_BMI: bmi,
+    });
+    const newPatient = console.log(JSON.stringify(newPatient));
+  };
 
   const handleClick = () => {
     if (list.length > 0) {
@@ -125,10 +216,10 @@ export default function EditPatient() {
     return <div> No patient found.</div>;
   } else
     return (
-      <div className='ViewPatient'>
+      <div className='EditPatient'>
         <div>
           <h1 style={{ transform: 'translateX(-20px)' }}>
-            <Link to='/Exams/ViewPatients'>
+            <Link to='/Admin/ViewPatients'>
               <span className='inactive'>
                 <i
                   class='angle left icon'
@@ -136,28 +227,58 @@ export default function EditPatient() {
                 ></i>
               </span>
             </Link>
-            Patient Info
+            Edit Patient
+            <span className='inactive'>
+              <i class="trash alternate outline icon" onClick={handleDelete} style={{ float: 'right', fontSize: '40px'}}></i>
+              </span>
           </h1>
           <div className='ValuesContainer'>
             <div className='Values'>
               <span>Patient ID</span>
-              {patient.PATIENT_ID}
+                <div className='input id'>
+                <input
+                readOnly={true}
+                  value={PATIENT_ID}
+                />
+                </div>
             </div>
             <div className='Values'>
               <span>Age</span>
-              {patient.AGE}
+              <div className='input age'>
+                <input type='number' min="0" value={age} onChange={e => onChangeAge(e.target.value)}>
+                </input>
+                </div>
             </div>
             <div className='Values'>
               <span>Sex</span>
-              {patient.SEX}
+                <div className='input sex'>
+                <select type='number' value={sex} onChange={(e) => onChangeSex(e.target.value)}>
+                    <option key=''></option>
+                    <option key='F'>F</option>
+                    <option key='M'>M</option>
+                </select>
+                <i class="angle down icon"></i>
+                </div>
             </div>
             <div className='Values'>
-              <span>Weight</span>
-              {patient.LATEST_WEIGHT}
+              <span>Weight</span><div className='input weight'>
+                <input
+                type='number' min="0"
+                  value={weight}
+                  onChange={e => onChangeWeight(e.target.value)}
+                />
+                <i>lbs</i>
+                </div>
             </div>
             <div className='Values'>
               <span>BMI</span>
-              {patient.LATEST_BMI}
+              <div className='input bmi' classN>
+                <input
+                type='number'
+                  value={bmi} min="0"
+                  onChange={e => onChangeBMI(e.target.value)}
+                />
+                </div>
             </div>
           </div>
         </div>
@@ -174,6 +295,8 @@ export default function EditPatient() {
           <span className={grid} onClick={handleClick}>
             <i class='list ul icon' />
           </span>
+          <i class="plus icon" onClick={handleAdd}></i>
+          
         </div>
 
         {list.length > 0 ? (
@@ -181,6 +304,10 @@ export default function EditPatient() {
         ) : (
           <ExamTable exams={searchedExams} />
         )}
+        <div className='buttons'>
+          <button onClick={handleSave}>Save </button>
+          <button onClick={handleCancel}> Cancel </button>
+        </div>
       </div>
     );
 }

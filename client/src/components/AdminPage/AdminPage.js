@@ -19,6 +19,9 @@ export default function AdminPage() {
         <Link to='/Admin/CreatePatient'>
           <button className='adminButton'> Create Patient</button>
         </Link>
+        <Link to='/Admin/ViewPatients'>
+          <button className='adminButton'> Edit a Patient</button>
+        </Link>
       </div>
     </div>
   );

@@ -32,6 +32,21 @@
     font-family: inherit;
   }
   
+  .EditView h2 {
+    font-weight: 600;
+    padding: 0rem 0 0rem 0;
+    font-size: 16px;
+    display: block;
+    color: rgba(35, 35, 35, .75);
+    margin: 0%;
+    font-family: inherit;
+  }
+  
+  .EditView text {
+    padding: 0;
+    margin: 0;
+  }
+  
   .EditView .icon {
     position: relative;
     float: right;
@@ -160,17 +175,33 @@
     font-size: unset;
   }
   .EditView .Card {
-    padding: 10px;
+    overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
   background-color: white;
-  border: 3px solid #808080;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.25)!important;
   border-radius: 15px;
-  height: 250px;
+  height: 150px;
   width: 250px;
   min-width: 250px;
-  min-height: 400px;
+  min-height: 350px;
   font-style: normal;
   font-size: 16px;
   line-height: 24px;
+}
+
+.EditView .Card a {
+  height: 0;
+  margin: 0;
+}
+
+.EditView .Column {
+  display:inline-block;
+  width: 50%;
+  margin: 0;
+
 }
 
 .EditView .Card:hover {
@@ -178,11 +209,13 @@
 }
 
 .EditView .CardText{
+
   padding-top: 0px;
   font-style: normal;
   font-size: 16px;
   line-height: 24px;
   display: -webkit-box;
+  line-clamp: 7;
   -webkit-line-clamp: 7; /* limit to 3 visible lines */
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -194,8 +227,9 @@
 
 .EditView .CardImage {
 padding: 0%;
+/* justify-self: middle!important; */
+/* horizontal-align: center; */
 object-fit: contain;
-  /* width: 100%; */
   max-width: 225px;
   max-height: 200px;
   border-radius: 15px;

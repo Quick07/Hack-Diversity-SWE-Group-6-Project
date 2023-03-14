@@ -12,18 +12,16 @@ import Navbar from './components/Navbar/Navbar';
 import PatientsList from './components/PatientsPage/PatientsList';
 import CreateExam from './components/CreateExam/CreateExam';
 import ViewPatient from './components/ViewPatient/ViewPatient';
-
-import './App.css';
-
-import { useApi } from './hooks/use-api';
 import Examstable from './components/Exam/Examstable';
 import TablePage from './components/Exam/TablePage';
 import EditView from './components/ExamEdit/EditView';
 import CreatePatient from './components/CreatePatient/CreatePatient';
 import EditPatient from './components/EditPatient/EditPatient';
+import EditPatientsList from './components/ViewEditPatients/PatientsList';
+import './App.css';
+import CreateExamForPatient from './components/CreateExam/CreateExamPatient';
 
 function App() {
-  // const { response } = useApi();
   return (
     <div className='App'>
       <BrowserRouter>
@@ -87,16 +85,6 @@ function App() {
             }
           />
           <Route
-            path='ExamList'
-            element={
-              <div>
-                <Navbar />
-                <ExamPageHero />
-                <Examstable />
-              </div>
-            }
-          />
-          <Route
             //Admin page
             path='Admin'
             element={
@@ -118,8 +106,18 @@ function App() {
             }
           />
           <Route
+            //Create a new exam
+            path='Admin/CreateExam/:PATIENT_ID'
+            element={
+              <div>
+                <Navbar />
+                <CreateExamForPatient />
+              </div>
+            }
+          />
+          <Route
             //Editing a single exam
-            path='Admin/EditExam/:PATIENT_ID'
+            path='Admin/EditExam/:_id'
             element={
               <div>
                 <Navbar />
@@ -128,7 +126,7 @@ function App() {
             }
           />
           <Route
-            //Editing a single exam
+            //Find an exam to edit
             path='Admin/EditExam/'
             element={
               <div>
@@ -138,7 +136,7 @@ function App() {
             }
           />
           <Route
-            //Create a new exam
+            //Create a new patient
             path='Admin/CreatePatient'
             element={
               <div>
@@ -148,12 +146,22 @@ function App() {
             }
           />
           <Route
-            //Create a new exam
-            path='Admin/EditPatient/:_id'
+            //Edit a patient
+            path='Admin/EditPatient/:PATIENT_ID'
             element={
               <div>
                 <Navbar />
                 <EditPatient />
+              </div>
+            }
+          />
+          <Route
+            //View a patient to edit
+            path='Admin/ViewPatients'
+            element={
+              <div>
+                <Navbar />
+                <EditPatientsList />
               </div>
             }
           />

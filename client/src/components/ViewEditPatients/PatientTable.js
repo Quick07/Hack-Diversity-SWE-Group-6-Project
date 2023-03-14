@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: '#202020',
     color: theme.palette.common.white,
     fontSize: 18,
     fontWeight: 600,
@@ -24,29 +23,21 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
   fontFamily: 'inherit',
   paddingLeft: 50,
-  "max-height": "100px",
-  WebkitLineClamp: 7,
-  WebkitBoxOrient: 'vertical',
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
-  ':hover': {
-    cursor: 'pointer',
-  },
 }));
 
-export default function ExamTable(props) {
-  const { exams } = props;
+export default function PatientTable(props) {
+  const { patients } = props;
   const navigate = useNavigate();
   return (
     <div>
-      {exams.length < 1 ? (
-        <p>No exams found.</p>
+      {patients.length < 1 ? (
+        <p>No patients found.</p>
       ) : (
         <TableContainer className='table' component={Paper}>
           <Table
@@ -58,40 +49,46 @@ export default function ExamTable(props) {
             aria-label='customized table'
           >
             <colgroup>
-              <col width='20%' />
-              <col width='20%' />
-              <col width='20%' />
-              <col width='40%' />
+              <col width='25%' />
+              <col width='10%' />
+              <col width='10%' />
+              <col width='10%' />
+              <col width='10%' />
             </colgroup>
 
             <TableHead>
               <TableRow>
                 <StyledTableCell sx={{ borderTopLeftRadius: 12 }}>
-                  Exam ID
+                  Patient ID
                 </StyledTableCell>
-                <StyledTableCell>Patient ID</StyledTableCell>
-                <StyledTableCell>Brixia Scores</StyledTableCell>
+                <StyledTableCell>Sex</StyledTableCell>
+                <StyledTableCell>Age</StyledTableCell>
+                <StyledTableCell>Weight</StyledTableCell>
                 <StyledTableCell sx={{ borderTopRightRadius: 12 }}>
-                  Key Findings
+                  BMI
                 </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {exams.map(exam => (
-                <StyledTableRow className='row' onClick={() => {navigate(`../Admin/EditExam/${exam._id}`)}} key={exam._id}>
-                  <StyledTableCell
-                    align='left'
-                  >
-                    {exam.exam_Id}
+              {patients.map(patient => (
+                <StyledTableRow
+                  className='row'
+                  sx={{ '&:hover': { cursor: 'pointer' } }}
+                  onClick={() =>
+                    navigate(`../Admin/EditPatient/${patient.PATIENT_ID}`)
+                  }
+                  key={patient._id}
+                >
+                  <StyledTableCell component='th' scope='row'>
+                    {patient.PATIENT_ID}
                   </StyledTableCell>
-                  <StyledTableCell>
-                    <a>{exam.PATIENT_ID}</a>
+                  <StyledTableCell align='left'>{patient.SEX}</StyledTableCell>
+                  <StyledTableCell align='left'>{patient.AGE}</StyledTableCell>
+                  <StyledTableCell align='left'>
+                    {patient.LATEST_WEIGHT} lbs
                   </StyledTableCell>
                   <StyledTableCell align='left'>
-                    {exam.brixia_scores}
-                  </StyledTableCell>
-                  <StyledTableCell align='left'>
-                    {exam.key_findings}
+                    {patient.LATEST_BMI}
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

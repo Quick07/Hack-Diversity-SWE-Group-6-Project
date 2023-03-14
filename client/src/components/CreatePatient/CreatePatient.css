@@ -1,307 +1,321 @@
 .text1 {
-    max-height: 2.5%;
-    width: 100%;
-    font-family: 'Helvetica Neue';
-    display: inline;
+  max-height: 2.5%;
+  width: 100%;
+  font-family: 'Helvetica Neue';
+  display: inline;
+}
+
+.text2 {
+  padding-top: 15px;
+  padding-bottom: 10px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 20px;
+  text-transform: lowercase;
+  color: #808080;
+  margin-block: 0;
+}
+
+.text3 {
+  /* padding: 25px; */
+  color: white;
+  background-color: rgb(35, 35, 35);
+  border-radius: 12px;
+  border-bottom-left-radius: 0%;
+  border-bottom-right-radius: 0%;
+  /* font-weight: 400; */
+  /* font-size: 24px; */
+  display: block;
+  border: 0 solid #808080;
+  /* border-bottom-width: 3px; */
+  border-bottom-width: 0;
+  margin-block: 0;
+}
+
+.Text {
+  padding: 15px;
+  padding-top: 0px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.CreatePatientPage {
+  align-content: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  flex: 1;
+  padding: 1rem 3rem 0 18.75rem;
+  max-height: 97.5vh;
+  font-size: 24px;
+}
+
+.CreatePatientPage h1 {
+  padding: 0.5rem 0 0.5rem 0;
+  font-size: 48px !important;
+  display: block;
+  color: rgba(35, 35, 35, 1);
+  margin: 0%;
+}
+
+/* When Screen is narrow, arrange content in one column */
+@media (max-width: 500px) {
+  .Tables {
+    width: 100% !important;
   }
-  
-  .text2 {
-    padding-top: 15px;
-    padding-bottom: 10px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 20px;
-    text-transform: lowercase;
-    color: #808080;
-    margin-block: 0;
-  }
-  
-  .text3 {
-    padding: 15px;
-    padding-left: 25px;
-    color: #808080;
-    background-color: lightgray;
-    border-radius: 12px;
-    border-bottom-left-radius: 0%;
-    border-bottom-right-radius: 0%;
-    font-weight: 400;
-    font-size: 30px;
-    display: block;
-    border: 0 solid #808080;
-    border-bottom-width: 3px;
-    margin-block: 0;
-  }
-  
-  .Text {
-    padding: 15px;
-    padding-top: 0px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
-  
-  .CreatePatientPage {
-    align-content: flex-start;
-    display: flex;
-    flex-flow: row wrap;
-    flex: 1;
-    padding: 1rem 3rem 0 18.75rem;
-    max-height: 97.5vh;
-    font-size: 24px;
-  }
-  
-  .CreatePatientPage h1 {
-    padding: .5rem 0 .5rem 0;
-    font-size: 48px!important;
-    display:block;
-    color: rgba(35, 35, 35, 1);
-    margin: 0%;
-  }
-  
-  /* When Screen is narrow, arrange content in one column */
-  @media (max-width: 500px) {
-    .Tables {
-      width: 100% !important;
-    }
-    .InfoTable {
-      min-height: 300px;
-    }
-  }
-  
-  .CreatePatientPage div.Info {
-    padding: 1.5rem 0 2rem 0;
-    width: 100%;
-    display: flex;
-    gap: 1.5rem;
-    flex-flow: row wrap;
-    overflow: visible;
-    justify-content: center;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-  
-  .Tables{
-    display: flex;
-    flex-shrink: 1;
-    flex-direction: end;
-    flex-flow:column;
-    gap: 1.5rem;
-  }
-  
   .InfoTable {
-    align-items: center;
-    background-color: white;
-    border: 3px solid #808080;
-    border-radius: 15px;
-    flex-basis: 100%;
-    width: 100%;
-    min-width: 250px;
-    min-height: 400px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
+    min-height: 300px;
   }
-  
-  .CreatePatientPage .PatientTable {
-    margin: 50px auto;
-    position: relative;
-    background-color: white;
-    border: 3px solid #808080;
-    border-radius: 15px;
-    flex-basis: 100%;
-    min-width: 50vw;
-    min-height: 450px;
-    max-width: 55vw;
-    max-height: 75vh;
-  }
-  
-  .CreatePatientPage .Column {
-    width: 50%;
-    padding: 25px;
-    padding-top: 0px;
-    font-style: normal;
-    font-size: 16px;
-    line-height: 24px;
-  }
+}
 
-  .CreatePatientPage .id .input{
-    max-width: unset;
+.CreatePatientPage div.Info {
+  padding: 1.5rem 0 2rem 0;
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  flex-flow: row wrap;
+  overflow: visible;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+}
 
-  }
-  
-   .CreatePatientPage .input{
-    /* max-width: 300px; */
-    width: 95%;
-    display: inline-block;
-    margin: 4px 0 4px 0;
-    border: 1.5px solid #808080;
-    border-radius: 15px;
-    /* padding: 1px 6px 0 6px; */
-    padding: 0;
-    font-size: medium;
-    font-family: inherit;
-  }  
+.Tables {
+  display: flex;
+  flex-shrink: 1;
+  flex-direction: end;
+  flex-flow: column;
+  gap: 1.5rem;
+}
 
-  .CreatePatientPage .input:hover{
-    border: 1.5px solid black;
-  }  
+.InfoTable {
+  align-items: center;
+  background-color: white;
+  border: 3px solid #808080;
+  border-radius: 15px;
+  flex-basis: 100%;
+  width: 100%;
+  min-width: 250px;
+  min-height: 400px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
 
-  .CreatePatientPage .input:focus-within{
-    outline: 2px solid black;
-    /* outline-width: 5px; */
-    border: 1.5px solid transparent;
-  }
-
-  .CreatePatientPage input{
-    width: 100%;
-    background-color: transparent;
-    /* padding-left: 10px; */
-    font-family: inherit;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    /* display: flex; */
-    /* margin: 4px 0 4px 0; */
-    margin: 0;
-    /* border: 1.5px solid transparent; */
-    border-radius: 15px;
-    padding: 1px 10px 1px 10px;
-    font-family: inherit;
-  }  
-
-  .CreatePatientPage input:focus{
-    outline: transparent;
-  }
-
-  .CreatePatientPage select{
-    width: 100%;
-    background-color: transparent;
-    padding-left: 10px;
-    font-family: inherit;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    /* display: flex; */
-    /* margin: 4px 0 4px 0; */
-    margin: 0;
-    /* border: 1.5px solid transparent; */
-    border-radius: 15px;
-    padding: 1px 20px 1px 20px;
-    font-family: inherit;
-  }
-  
-  .CreatePatientPage select:focus{
-    outline: transparent;
-  }
-
-  .CreatePatientPage i{
-    position: fixed;
-    transform: translateX(-4vw);
-    width: 5%;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border: none;
-    padding: 0;
-    color: #555;
-  }
-
-  .CreatePatientPage .Column i {
-    pointer-events: none;
-  }
- 
-  .CreatePatientPage textarea{
-    display: flex;
-    height: 150px;
-    width: 100%;
-    margin: 4px 0 4px 0;
-    border: 1.5px solid #808080;
-    border-radius: 12px;
-    padding: 6px 6px 0 6px;
-    font-size: medium;
-    font-family: 'Courier New', Courier, monospace;
-  }
-  
-  .CreatePatientPage .missing {
-    font-weight: 600;
-    width: 100%;
-    bottom: 0;
-    padding: 15px 0 0 0!important;
-    height: 45px !important;
-    color:black !important;
-
-  }
-
-  .CreatePatientPage .blank {
-    padding:0;
-    height: 0px;
-    overflow: hidden;
-    color: transparent;
-  }
+.CreatePatientPage .PatientTable {
+  margin: 50px auto;
+  position: relative;
+  background-color: white;
+  border-radius: 15px;
+  flex-basis: 100%;
+  min-width: 50vw;
+  min-height: 450px;
+  max-width: 55vw;
+  max-height: 75vh;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
 
 
+.CreatePatientPage .Column {
+  width: 50%;
+  padding: 25px;
+  padding-top: 0px;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 24px;
+}
 
-  .inputId {
-    background-color: lightgray;
-  }
-  
-  .urlInput {
-    width: 100%;
-  }
-  
-  
-  .Button {
-    border: none;
-    font-size: 20px;
-  }
-  
-  .Button:hover {
-    background-color: #555;
-  }
+.CreatePatientPage .id .input {
+  max-width: unset;
+  background-color: lightgray;
+}
 
-  .CreatePatientPage a {
-    color:white;
-  }
-  
-  .buttons {
-    width: 100%;
-    display: flex;
-    gap: 1.5rem;
-    padding: 1rem 0 1rem 0;
-    justify-content: center;
-  }
-  
-  .Button {
-    font-family: 'Montserrat';
-    transition: .25s ease-in-out;
-    text-align: center;
-    width: 25vw;
-    max-width: 150px;
-    height: 50px;
-    background-color: #323232;
-    border-radius: 115px;
-    color: white;
-  }
-  .CreatePatientPage .content {
-    width: 100%;
-    padding: 25px;
-    padding-top: 0px;
-    /* font-style: normal;
+.CreatePatientPage .input {
+  max-width: 300px;
+  width: 95%;
+  display: inline-block;
+  margin: 4px 0 4px 0;
+  border: 1.5px solid #808080;
+  border-radius: 15px;
+  padding: 1px 6px 0 6px;
+  padding: 0;
+  font-size: medium;
+  font-family: inherit;
+}
+
+.CreatePatientPage .input:hover {
+  border: 1.5px solid rgba(35,35,35);
+}
+
+.CreatePatientPage .input:focus-within {
+  outline: 2px solid rgba(35,35,35);
+  /* outline-width: 5px; */
+  border: 1.5px solid transparent;
+  border-radius: 15px;
+}
+.CreatePatientPage .input:focus-within {
+  appearance: unset;
+  -webkit-appearance: unset;
+  -moz-appearance: unset;
+  border-radius: 15px!important;
+}
+
+.CreatePatientPage .input:focus {
+  appearance: unset;
+  -webkit-appearance: unset;
+  -moz-appearance: unset;
+  border-radius: 15px!important;
+}
+
+.CreatePatientPage input {
+  width: 100%;
+  background-color: transparent;
+  /* padding-left: 10px; */
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  /* display: flex; */
+  /* margin: 4px 0 4px 0; */
+  margin: 0;
+  /* border: 1.5px solid transparent; */
+  border-radius: 15px;
+  padding: 1px 10px 1px 10px;
+  font-family: inherit;
+}
+
+.CreatePatientPage input:focus {
+  outline: transparent;
+}
+
+.CreatePatientPage select {
+  width: 100%;
+  background-color: transparent;
+  padding-left: 10px;
+  font-family: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  /* display: flex; */
+  /* margin: 4px 0 4px 0; */
+  margin: 0;
+  /* border: 1.5px solid transparent; */
+  border-radius: 15px;
+  padding: 1px 20px 1px 20px;
+  font-family: inherit;
+}
+
+.CreatePatientPage select:focus {
+  outline: transparent;
+}
+
+.CreatePatientPage .icon {
+  position: sticky;
+  transform: translate(-1rem,-1.5rem);
+  float: right;
+  width: 0;
+  height: 0;
+}
+.CreatePatientPage i {
+  position: sticky;
+  transform: translate(-3.2rem);
+  float: right;
+  width: 0;
+  height: 0;
+}
+
+.CreatePatientPage .Column i {
+  pointer-events: none;
+}
+
+.CreatePatientPage textarea {
+  display: flex;
+  height: 150px;
+  width: 100%;
+  margin: 4px 0 4px 0;
+  border: 1.5px solid #808080;
+  border-radius: 12px;
+  padding: 6px 6px 0 6px;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.CreatePatientPage .missing {
+  font-weight: 600;
+  width: 100%;
+  bottom: 0;
+  padding: 15px 0 0 0 !important;
+  height: 45px !important;
+  color: rgba(35,35,35) !important;
+}
+
+.CreatePatientPage .blank {
+  padding: 0;
+  height: 0px;
+  overflow: hidden;
+  color: transparent;
+}
+
+.inputId {
+  background-color: lightgray;
+}
+
+.urlInput {
+  width: 100%;
+}
+
+
+.CreatePatientPage a {
+  color: white;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 0 1rem 0;
+  justify-content: center;
+}
+
+.Button:hover {
+  background-color: #555;
+}
+
+.Button {
+  border: none;
+  font-size: 20px;
+  font-family: 'Montserrat';
+  transition: 0.25s ease-in-out;
+  text-align: center;
+  width: 25vw;
+  max-width: 150px;
+  height: 50px;
+  background-color: #323232;
+  border-radius: 115px;
+  color: white;
+}
+
+.CreatePatientPage .content {
+  width: 100%;
+  padding: 25px;
+  padding-top: 0px;
+  /* font-style: normal;
     font-size: 18px; */
-    line-height: 24px;
-    /* padding-left: 25px; */
-  }
+  line-height: 24px;
+  /* padding-left: 25px; */
+}
 
-  .CreatePatientPage .id {
-    width: 100%;
-  }
-  
-  .CreatePatientPage .Column {
-    display: inline-block;
-    width: 50%;
-    padding:0;
-    margin: 0;
-  }
+.CreatePatientPage .id {
+  width: 100%;
+}
+
+.CreatePatientPage .Column {
+  display: inline-block;
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}

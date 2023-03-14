@@ -17,14 +17,14 @@ export default function TablePage() {
         </h1>
         View all exams here.
       </div>
-      <div>
+      {/* <div>
         <input className='examSearch' value='Search...' />
         <i class='sort icon' />
         <span className='current'>
           <i class='list ul icon' />
         </span>
         <i class='th icon' />
-      </div>
+      </div> */}
       <Indextable className='table' />
     </div>
   );

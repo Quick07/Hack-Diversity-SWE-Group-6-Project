@@ -119,6 +119,22 @@
     display: inline-block;
     line-height: 24px;
   }
+
+  .ExamEditPage .inactive {
+    font-weight: 500;
+    color: rgba(35, 35, 35, 0.5);
+  }
+  
+  .ExamEditPage .inactive:hover {
+    color: rgba(35, 35, 35, 1);
+  }
+
+  .ExamEditPage i{
+    position: absolute;
+    right: 45px;
+    top: 65px;
+    font-size: 90px;
+  }
   
    .ExamEditPage input{
     display: flex;

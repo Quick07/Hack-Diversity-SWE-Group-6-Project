@@ -20,29 +20,33 @@ function ExamEdit() {
   useEffect(() => {
     const fetchExam = async () => {
       try {
-        const response = await fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`);
+        const response = await fetch(`https://techdive6-rjja.onrender.com/exams/${_id}`);
         const data = await response.json();
         setExam(data);
-        console.log(exam);
-        console.log(data);
       } catch (error) {
-        console.log('Failed to fetch examm.');
+        console.log('Failed to fetch patient data.');
       }
     };
     fetchExam();
   }, []);
+
+  useEffect(()=>{
+    console.log(exam);
+  },[exam])
+
+  useEffect(()=>{
+    console.log(patient);
+  },[patient])
 
   useEffect(() => {
     if (exam) {
       const fetchPatient = async () => {
         try {
           const response = await fetch(
-            `https://project-x-vuhz.onrender.com/patients/${exam.PATIENT_ID}`
+            `https://techdive6-rjja.onrender.com/patients/${exam.PATIENT_ID}`
           );
           const data = await response.json();
           setPatient(data);
-          console.log(patient);
-          console.log(data);
         } catch (error) {
           console.log('Failed to fetch patient data.');
         }
@@ -64,7 +68,7 @@ function ExamEdit() {
     if (newExam) {
       const updateExam = async () => {
         try {
-          const response = await fetch(`https://project-x-vuhz.onrender.com/exams`, {
+          const response = await fetch(`https://techdive6-rjja.onrender.com/exams/${_id}`, {
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
@@ -74,8 +78,6 @@ function ExamEdit() {
 
           if (!response.ok) {
             throw new Error('Failed to update exam.');
-          } else {
-          navigate(`../Exams/ViewExam/${_id}`);
           }
 
           const result = await response.json();
@@ -85,15 +87,15 @@ function ExamEdit() {
         }
       };
       updateExam();
+      navigate(`../Exams/ViewExam/${_id}`);
     }
   }, [newExam]);
 
-  
   const handleDelete = async () => {
     const confirmed = confirm("Are you sure you want to delete this exam?");
   if (confirmed) {
     try {
-      const response = await fetch(`https://project-x-vuhz.onrender.com/exams/${_id}`, {
+      const response = await fetch(`https://techdive6-rjja.onrender.com/exams/${_id}`, {
         method: 'DELETE',
         body: {"_id": `${_id}`},
       });
@@ -112,8 +114,6 @@ function ExamEdit() {
     }
   }
   };
-  
-
 
   const handleSave = () => {
     setNewExam({
@@ -124,15 +124,17 @@ function ExamEdit() {
       key_findings: keyFindings,
       xray_url: xrayUrl,
     });
-    console.log(JSON.stringify(newExam));
+    const newExam = console.log(JSON.stringify(newExam));
   };
 
   return (
     <div className='ExamEditPage'>
-      <div className='header'>
+      <div>
         <h1> Edit exam</h1>
-        <i class="trash icon" onClick={handleDelete}></i>
-        Edit details about an exam here. 
+        Edit details about an exam here.
+            <span className='inactive'>
+              <i class="trash alternate outline icon" onClick={handleDelete} style={{ float: 'right', fontSize: '40px'}}></i>
+              </span>
       </div>
       { (!exam || !patient) ? (<div>Loading exam...</div>) :(
       <div className='Info'>
@@ -152,9 +154,9 @@ function ExamEdit() {
               <div className='text2'>exam id</div>
               <input
                 className='inputId'
+                readOnly={true}
                 onChange={e => onChangeId(e.target.value)}
                 value={examId}
-                readOnly={true}
               />
               <div className='text2'>brixia score</div>
               <input
@@ -204,3 +206,9 @@ function ExamEdit() {
 }
 
 export default ExamEdit;
+  
+
+  
+
+
+  
