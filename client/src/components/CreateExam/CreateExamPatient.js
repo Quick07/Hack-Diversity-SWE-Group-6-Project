@@ -41,7 +41,7 @@ function CreateExamForPatient() {
 
   useEffect(() =>{
     if(patient){
-      fetch(`http://localhost:9000/exams/byPatient/${patient.PATIENT_ID}`)
+      fetch(`https://techdive6-rjja.onrender.com/exams/byPatient/${patient.PATIENT_ID}`)
       .then(response => response.json())
       .then(data => setExams(data))
       .then(console.log(exams));
