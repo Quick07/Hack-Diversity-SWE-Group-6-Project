@@ -90,10 +90,10 @@ export default function PatientsList() {
         console.log('Failed to fetch patient data.');
       });
   }, []);
-
+  
   useEffect(() => {
     handleStyleChange;
-    const regex = new RegExp(search, 'i');
+    const regex = new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
     if (search.length > 0) {
       setSearchedPatients(
         filteredPatients.filter(p => regex.test(p.PATIENT_ID))

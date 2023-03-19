@@ -24,23 +24,19 @@ function CreatePatient() {
   const navigate = useNavigate();
   
   const existingID = (id) => {
-    const sameId = allPatients.filter(e => e.PATIENT_ID == id);
+    const sameId = allPatients.filter(e => e.PATIENT_ID === id);
+    return sameId.length > 0;
   }
 
   const generateID = () => {
     var id = patientId;
 
-    const createID = () => {
-    id = "COVID-AR-";
-    var randomNumber = Math.floor(Math.random() * 14839999 + 160000000);
+    do {
+    id = "COVID-19-AR-";
+    var randomNumber = Math.floor(Math.random() * 1483999 + 16000000);
     id += randomNumber;
-    return id;
-    }
-    if (existingID(createID())) {
-       generateID(); 
-    } else {
+    } while (existingID(id));
     onChangeId(id);
-    }
   }
 
 

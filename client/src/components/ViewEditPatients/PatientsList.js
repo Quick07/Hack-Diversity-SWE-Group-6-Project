@@ -93,7 +93,7 @@ export default function EditPatientsList() {
 
   useEffect(() => {
     handleStyleChange;
-    const regex = new RegExp(search, 'i');
+    const regex = new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
     if (search.length > 0) {
       setSearchedPatients(
         filteredPatients.filter(p => regex.test(p.PATIENT_ID))

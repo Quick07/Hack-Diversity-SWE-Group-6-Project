@@ -139,6 +139,22 @@
     outline-color: black;
 }
 
+.CreateExamPage .missing {
+  font-weight: 600;
+  width: 100%;
+  bottom: 0;
+  padding: 7.5px 0 0 0 !important;
+  height: 45px !important;
+  color: rgba(35,35,35) !important;
+}
+
+.CreateExamPage .blank {
+  padding: 0;
+  height: 0px;
+  overflow: hidden;
+  color: transparent;
+}
+
 .CreateExamPage textarea:focus {
   appearance: unset;
   -webkit-appearance: unset;

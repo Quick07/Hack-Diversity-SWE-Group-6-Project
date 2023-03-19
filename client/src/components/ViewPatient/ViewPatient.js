@@ -95,7 +95,7 @@ export default function ViewPatient() {
   }, [patient]);
 
   useEffect(() => {
-    const regex = new RegExp(search, 'i');
+    const regex = new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
     if (search.length > 0) {
       setSearchedExams(allExams.filter(e => regex.test(e.exam_Id)));
     } else {

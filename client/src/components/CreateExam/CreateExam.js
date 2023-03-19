@@ -10,7 +10,7 @@ function CreateExam() {
   const [examId, onChangeId] = useState('');
   const [brixScore, onChangeBrixScore] = useState('');
   const [keyFindings, onChangeKeyFindings] = useState('');
-
+  const [exams, setExams] = useState();
   const [newExam, setNewExam] = useState();
   const [allPatients, setAllPatients] = useState([]);
   const [patient, setPatient] = useState({
@@ -29,7 +29,7 @@ function CreateExam() {
       .then(response => response.json())
       .then(data => {
         setAllPatients(data);
-        console.log(data);
+        // console.log(data);
       })
       .catch(error => {
         console.log(error);
@@ -38,7 +38,6 @@ function CreateExam() {
   }, []);
 
   useEffect(() => {
-    console.log(newExam);
     if (newExam) {
       fetch('https://techdive6-rjja.onrender.com/exams', {
         method: 'POST',
@@ -51,7 +50,23 @@ function CreateExam() {
     }
   }, [newExam]);
 
+  useEffect(() =>{
+    if(patient){
+      fetch(`http://localhost:9000/exams/byPatient/${patient.PATIENT_ID}`)
+      .then(response => response.json())
+      .then(data => setExams(data))
+      .then(console.log(exams));
+    }
+  },[patient])
+
+
   const handleSave = () => {
+    const existingID = exams.filter(e => e.exam_Id === examId);
+    if(patient && examId) {
+      if ( existingID.length > 0) {
+      const text = document.querySelector('.blank');
+      text.classList.add('missing');
+   } else {
     setNewExam({
       exam_Id: examId,
       PATIENT_ID: patient.PATIENT_ID,
@@ -59,6 +74,8 @@ function CreateExam() {
       key_findings: keyFindings,
       xray_url: xrayUrl,
     });
+    }
+  }
   };
 
   const onPatientSelect = event => {
@@ -85,6 +102,7 @@ function CreateExam() {
           <div className='InfoTable'>
             <div className='text3'> exam info </div>
             <div className='Text'>
+            <div className='blank'>Exam ID already exists.</div>
               <div className='text2'>exam id</div>
               <input
                 value={examId}

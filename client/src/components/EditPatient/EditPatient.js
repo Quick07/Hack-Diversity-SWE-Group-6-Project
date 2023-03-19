@@ -81,12 +81,11 @@ export default function EditPatient() {
   useEffect(() => {
     const fetchExam = async () => {
       try {
-        const response = await fetch(`https://techdive6-rjja.onrender.com/exams`);
+        const response = await fetch(`http://localhost:9000/exams/byPatient/${PATIENT_ID}`);
         const data = await response.json();
-        const patientExams = data.filter(e => e.PATIENT_ID == PATIENT_ID);
-        setAllExams(patientExams);
-        setSearchedExams(patientExams);
-        console.log(patientExams);
+        setAllExams(data);
+        setSearchedExams(data);
+        console.log(data);
       } catch (error) {
         console.log('Failed to fetch exams.');
         console.log(PATIENT_ID);
@@ -95,8 +94,14 @@ export default function EditPatient() {
     fetchExam();
   }, []);
   
+  function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+  
+
   useEffect(() => {
-    const regex = new RegExp(search, 'i');
+    const allowSpecialChars = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(allowSpecialChars, 'i');
     if (search.length > 0) {
       setSearchedExams(allExams.filter(e => regex.test(e.exam_Id)));
     } else {
@@ -115,70 +120,39 @@ export default function EditPatient() {
 
   useEffect(() => {
     if (newPatient) {
-      const updatePatient = async () => {
-        try {
-          const response = await fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(newPatient),
-          });
-
+      fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newPatient),
+      })
+        .then((response) => {
           if (!response.ok) {
             throw new Error('Failed to update exam.');
           }
-
-          const result = await response.json();
+          return response.json();
+        })
+        .then((result) => {
           console.log(result); // insertedId of the updated exam
-        } catch (error) {
+          navigate(`../Exams/ViewPatients/${patient._id}`);
+        })
+        .catch((error) => {
           console.error(error);
-        }
-      };
-      updatePatient();
-      navigate(`../Exams/ViewPatients/${patient._id}`);
+        });
     }
   }, [newPatient]);
+  
 
   const handleDelete = async () => {
     const confirmed = confirm("Are you sure you want to delete this patient and their exams?");
   if (confirmed) {
-    try {
-      const response = await fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
-        method: 'DELETE',
-        body: {"PATIENT_ID": PATIENT_ID},
-      });
-  
-      if (!response.ok) {
-        throw new Error('Failed to delete patient.');
-      }
-  
-      // Wait for the delete request to complete before navigating
-      await response.json();
-    } catch (error) {
-      console.error(error);
-      // Show an error message to the user
-      alert('Failed to delete Patient. Please try again later.');
-    }
-    try {
-      const response = await fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
-        method: 'DELETE',
-        body: {"PATIENT_ID": PATIENT_ID},
-      });
-  
-      if (!response.ok) {
-        throw new Error('Failed to delete patient.');
-      }
-  
-      // Wait for the delete request to complete before navigating
-      await response.json();
-    } catch (error) {
-      console.error(error);
-      // Show an error message to the user
-      alert('Failed to delete Patient. Please try again later.');
-    }
-
-    navigate(`../Admin/ViewPatients`);
+    fetch(`http://localhost:9000/patients/${PATIENT_ID}`, {
+        method: 'DELETE'
+      }).then(fetch(`http://localhost:9000/exams/byPatient/${PATIENT_ID}`, {
+        method: 'DELETE'
+      })).then(e => 
+        navigate(`../Admin/ViewPatients`));
   }
   };
 

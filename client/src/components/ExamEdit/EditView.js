@@ -91,7 +91,7 @@ export default function EditView() {
   }, []);
 
   useEffect(() => {
-    const regex = new RegExp(search, 'i');
+    const regex = new RegExp(search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
     if (search.length > 0) {
       setSearchedExams(
         allExams.filter(e => (regex.test(e.exam_Id)) || (regex.test(e.PATIENT_ID)))

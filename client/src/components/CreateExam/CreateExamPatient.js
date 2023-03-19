@@ -8,6 +8,7 @@ function CreateExamForPatient() {
   // or have a drop down that has existing patients
   const [xrayUrl, onChangeXrayUrl] = useState('');
   const [examId, onChangeId] = useState('');
+  const [exams, setExams] = useState();
   const [brixScore, onChangeBrixScore] = useState('');
   const [keyFindings, onChangeKeyFindings] = useState('');
   const {PATIENT_ID} = useParams();
@@ -38,6 +39,16 @@ function CreateExamForPatient() {
       });
   }, []);
 
+  useEffect(() =>{
+    if(patient){
+      fetch(`http://localhost:9000/exams/byPatient/${patient.PATIENT_ID}`)
+      .then(response => response.json())
+      .then(data => setExams(data))
+      .then(console.log(exams));
+    }
+  },[patient])
+
+
   useEffect(() => {
     console.log(newExam);
     if (newExam) {
@@ -53,6 +64,12 @@ function CreateExamForPatient() {
   }, [newExam]);
 
   const handleSave = () => {
+    const existingID = exams.filter(e => e.exam_Id === examId);
+    if(patient && examId) {
+      if ( existingID.length > 0) {
+      const text = document.querySelector('.blank');
+      text.classList.add('missing');
+   } else {
     setNewExam({
       exam_Id: examId,
       PATIENT_ID: patient.PATIENT_ID,
@@ -60,6 +77,8 @@ function CreateExamForPatient() {
       key_findings: keyFindings,
       xray_url: xrayUrl,
     });
+    }
+  }
   };
 
   // const onPatientSelect = event => {
@@ -87,6 +106,7 @@ function CreateExamForPatient() {
             <div className='text3'> exam info </div>
             <div className='Text'>
               <div className='text2'>exam id</div>
+            <div className='blank'>Exam ID already exists.</div>
               <input
                 value={examId}
                 onChange={e => onChangeId(e.target.value)}
