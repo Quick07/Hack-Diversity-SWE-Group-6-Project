@@ -81,7 +81,7 @@ export default function EditPatient() {
   useEffect(() => {
     const fetchExam = async () => {
       try {
-        const response = await fetch(`http://localhost:9000/exams/byPatient/${PATIENT_ID}`);
+        const response = await fetch(`https://techdive6-rjja.onrender.com/exams/byPatient/${PATIENT_ID}`);
         const data = await response.json();
         setAllExams(data);
         setSearchedExams(data);
@@ -93,11 +93,6 @@ export default function EditPatient() {
     };
     fetchExam();
   }, []);
-  
-  function escapeRegExp(string) {
-    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  }
-  
 
   useEffect(() => {
     const allowSpecialChars = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -147,9 +142,9 @@ export default function EditPatient() {
   const handleDelete = async () => {
     const confirmed = confirm("Are you sure you want to delete this patient and their exams?");
   if (confirmed) {
-    fetch(`http://localhost:9000/patients/${PATIENT_ID}`, {
+    fetch(`https://techdive6-rjja.onrender.com/patients/${PATIENT_ID}`, {
         method: 'DELETE'
-      }).then(fetch(`http://localhost:9000/exams/byPatient/${PATIENT_ID}`, {
+      }).then(fetch(`https://techdive6-rjja.onrender.com/exams/byPatient/${PATIENT_ID}`, {
         method: 'DELETE'
       })).then(e => 
         navigate(`../Admin/ViewPatients`));
